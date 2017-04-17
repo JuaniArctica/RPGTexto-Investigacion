@@ -5,10 +5,9 @@
  */
 package thebestgameintheworld;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import thebestgameintheworld.NpcList;
+
 /**
  *
  * @author prouser
@@ -21,23 +20,16 @@ public class ProyectoJuego {
      */
     public static void main(String[] args) {
     
-
-   
-    //PERSONAJE CONSTRUCTOR: Nombre, VidaMax, GolpeMax, GolpeMin, Defensa, Nivel, ExpMin, ExpMax 
-    Personaje pj1 = new Personaje();
-    pj1.setNombre(JOptionPane.showInputDialog("Ingrese un Nombre para su personaje:"));
-    pj1.ElegirClase();
-       
-   
+           
+     Personaje pj1 = new Personaje();
+     pj1.crearPj();
     
     Combate comb1 = new Combate();
     
     
     //SALIDAS DE PANTALLA
     
-    System.out.println("-----------------------");
-    pj1.NpcGetEstado();
-    System.out.println("-----------------------");    
+  
 
         
     comb1.quienAtaca();

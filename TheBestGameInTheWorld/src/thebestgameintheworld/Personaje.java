@@ -172,4 +172,18 @@ public class Personaje {
 
         
     }
+    
+    public void crearPj (){
+    
+    //PERSONAJE CONSTRUCTOR: Nombre, VidaMax, GolpeMax, GolpeMin, Defensa, Nivel, ExpMin, ExpMax 
+    Personaje pj1 = new Personaje();
+    pj1.setNombre(JOptionPane.showInputDialog("Ingrese un Nombre para su personaje:"));
+    pj1.ElegirClase();
+    
+    System.out.println("-----------------------");
+    pj1.NpcGetEstado();
+    System.out.println("-----------------------");  
+    
+    }
+    
 }
