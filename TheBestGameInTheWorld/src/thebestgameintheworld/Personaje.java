@@ -3,121 +3,173 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectojuego;
-
+package thebestgameintheworld;
 
 import javax.swing.JOptionPane;
-
 
 /**
  *
  * @author prouser
  */
-public class Combate {
+public class Personaje {
+    
 //ATRIBUTOS    
-    private int Dados;
+    private String Nombre;
     
-    private int Golpear;
+    private int VidaMax;
+    
+    private int GolpeMax;
+    
+    private int GolpeMin;
+    
+    private int Defensa;
 
-    private int Defender;
+    private int Nivel;
 
-   
+    private int ExpMin;
+
+    private int ExpMax;
+    
+    private int Clase;
+    
+    //private Combate refCombate;
+
+
 //CONSTRUCTORES    
-    public Combate() {
+    public Personaje() {
     }
 
-    public Combate(int Dados, int Golpear, int Defender) {
-        this.Dados = Dados;
-        this.Golpear = Golpear;
-        this.Defender = Defender;
+    public Personaje(String Nombre, int VidaMax, int GolpeMax, int GolpeMin, int Defensa, int Nivel, int ExpMin, int ExpMax) {
+        this.Nombre = Nombre;
+        this.VidaMax = VidaMax;
+        this.GolpeMax = GolpeMax;
+        this.GolpeMin = GolpeMin;
+        this.Defensa = Defensa;
+        this.Nivel = Nivel;
+        this.ExpMin = ExpMin;
+        this.ExpMax = ExpMax;
     }
-        
+
+    
 //METODOS
-    public int getDefender() {
-        return Defender;
+    public int getGolpeMin() {
+        return GolpeMin;
     }
 
-    public void setDefender(int Defender) {
-        this.Defender = Defender;
-    }
-    
-
-    public int getGolpear() {
-        return Golpear;
+    public void setGolpeMin(int GolpeMin) {
+        this.GolpeMin = GolpeMin;
     }
 
-    public void setGolpear(int Golpear) {
-        this.Golpear = Golpear;
+    public int getGolpeMax() {
+        return GolpeMax;
     }
 
-
-    public int getDados() {
-        return Dados;
+    public void setGolpeMax(int GolpeMax) {
+        this.GolpeMax = GolpeMax;
     }
 
-    public void setDados(int Dados) {
-        this.Dados = Dados;
-    }
     
-
-   public void quienAtaca(){ 
-//FALTA AGREGAR EL PARAMETRO NIVEL Y DEFENSA PARA HACERLO MAS INTERESANTE EN LA TIRADA
-//NO PUDE TRAER EL getNivel ni getDefensa
-
-        int level= 1;
-
-       
-       JOptionPane.showMessageDialog(null, "Encontraste Rival");
-       //Tiradas para ver quien ataca primero
-       int Personaje = (int)(Math.random() * 100) + 1 - level*10;
-       int Hostil = (int)(Math.random() * 100) + 1;
-       
-       
-       if (Personaje<Hostil) {
-
-           System.out.println("Tiras "+Personaje+" Contra "+Hostil+" de tu rival.");
-           System.out.println("Ataca Primero Personaje");
-           System.out.println("Le Pegaste "); 
-           UsuarioAtaca();       
-           
-           
-       } else {
-           System.out.println("Tiras: "+Personaje+" Contra: "+Hostil+" de tu rival.");
-           System.out.println("Ataca Primero Hostil");
-           System.out.println("Te pego "); 
-           NpcAtaca();
-
-       }       
-
-
-   }
-   
-   public void UsuarioAtaca(){
-       
-    Personaje pj1 = new Personaje();  
-    
-    int danio;
-    
-    //NO ESTA TRAYENDO LOS VALORES DE GOLPE MINIMO Y MAXIMO!!!!!
-    danio = (int)(Math.random() * pj1.getGolpeMax()) + pj1.getGolpeMin();
-    
-    System.out.println(danio);
-    
-    //FALTA CODEAR RESTAR VIDA A NPC
-       
-    }
-   
-    public void NpcAtaca(){
-       
-    Hostil arrayObjetos [] = new Hostil [6];
-    
-    //int danio = (int)(Math.random() * .getGolpeMax()) + pj1.getGolpeMin();
-    
-      // System.out.println(danio);
-      
-    //FALTA CODEAR RESTAR VIDA A USUARIO      
-       
+    public int getVidaMax() {
+        return VidaMax;
     }
 
-}    
+    public void setVidaMax(int VidaMax) {
+        this.VidaMax = VidaMax;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
     
+    public int getDefensa() {
+        return Defensa;
+    }
+
+    public void setDefensa(int Defensa) {
+        this.Defensa = Defensa;
+    }
+
+    public int getNivel() {
+        return Nivel;
+    }
+
+    public void setNivel(int Nivel) {
+        this.Nivel = Nivel;
+    }    
+    
+     public int getExpMax() {
+        return ExpMax;
+    }
+
+    public void setExpMax(int ExpMax) {
+        this.ExpMax = ExpMax;
+    }    
+
+    public int getExpMin() {
+        return ExpMin;
+    }
+
+    public void setExpMin(int ExpMin) {
+        this.ExpMin = ExpMin;
+    }
+    
+    public int getClase() {
+        return Clase;
+    }
+
+    public void setClase(int Clase) {
+        this.Clase = Clase;
+    }
+
+    public void ElegirClase(){
+        
+        int Detective = 1;
+        int Explorador= 2;
+        String claseC;
+        int clase;
+        
+        claseC= JOptionPane.showInputDialog("Elige tu Clase:\n\nDetective = 1\nExplorador = 2");
+        clase= Integer.parseInt(claseC);
+        
+        if (clase == 1) {
+            //CREAMOS UN DETECTIVE CON SUS CORRESPONDIENTES STATS
+            Personaje.this.setVidaMax(10);
+            Personaje.this.setDefensa(7);
+            Personaje.this.setExpMax(15);
+            Personaje.this.setExpMin(0);
+            Personaje.this.setGolpeMax(5);
+            Personaje.this.setGolpeMin(3);            
+            Personaje.this.setNivel(1);
+
+            System.out.println("Felicitaciones Detective "+Personaje.this.getNombre()+" comencemos la historia...");
+            
+        } else {
+            //CREAMOS UN EXPLORADOR CON SUS CORRESPONDIENTES STATS
+            Personaje.this.setVidaMax(7);
+            Personaje.this.setDefensa(10);
+            Personaje.this.setExpMax(15);
+            Personaje.this.setExpMin(0);
+            Personaje.this.setGolpeMax(5);
+            Personaje.this.setGolpeMin(2);            
+            Personaje.this.setNivel(1);
+            
+            System.out.println("Felicitaciones Explorador "+Personaje.this.getNombre()+" comencemos la historia...");
+        }        
+        
+    }    
+    
+    public void NpcGetEstado (){
+        
+        System.out.println("Nombre: "+ Personaje.this.getNombre()+" - Nivel "+ Personaje.this.getNivel());        
+        System.out.println("Vida: "+ Personaje.this.getVidaMax());
+        System.out.println("Golpe: "+ Personaje.this.getGolpeMin()+"/"+Personaje.this.getGolpeMax());
+        System.out.println("Defensa: "+ Personaje.this.getDefensa());
+        System.out.println("Experiencia: "+Personaje.this.getExpMin()+"/"+Personaje.this.getExpMax());
+
+        
+    }
+}
