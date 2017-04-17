@@ -1,0 +1,7 @@
+Sprint Backlog
+
+1- Realizar el item 1,2.
+2- Realizar el item 3.
+3- Realizar el item 4.
+4- Realizar el item 5.
+5- Realizar el item 6 si alcanza el tiempo.
