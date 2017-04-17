@@ -1,0 +1,8 @@
+Product Backlog
+
+1-Sistema de creacion de personaje.
+2-Sistema de creacion de enemigos.
+3-Sistema de combate.
+4-Sistema de conversacion.
+5-Sistema de narracion de la historia.
+6-Intefaz de juego (opcional).
