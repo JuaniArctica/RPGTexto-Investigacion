@@ -3,14 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package thebestgameintheworld;
+package Modelo;
 
 /**
  *
  * @author Juani
  */
 public class Conversacion {
-    
-    
-//p546155654645645645
 }
