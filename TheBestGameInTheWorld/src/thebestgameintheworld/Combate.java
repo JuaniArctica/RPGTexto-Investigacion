@@ -65,44 +65,57 @@ public class Combate {
 //NO PUDE TRAER EL getNivel ni getDefensa
 
        int level= 1;
+       
        String cOpcion;
        int opcion;
+       String cOpcion2;
+       int opcion2;
 
        
        JOptionPane.showMessageDialog(null, "Encontraste Rival");
-       cOpcion= JOptionPane.showInputDialog(null, "Deseas:\n\nPelear =1\nHuir =2");
+      
+       do {
+       cOpcion= JOptionPane.showInputDialog(null, "Deseas:\n\nPelear =1\nHuir =2\nVer Npc =3");
        opcion= Integer.parseInt(cOpcion);
+       } while (opcion >= 3 && opcion <=1);
        
-       if (opcion==1) {
-           
-       //Tiradas para ver quien ataca primero
-       int Personaje = (int)(Math.random() * 100) + 1 - level*10;
-       int Hostil = (int)(Math.random() * 100) + 1;
        
-       if (Personaje<Hostil) {
+        switch (opcion) {
+            case 1:
+              
+                //Tiradas para ver quien ataca primero
+                int Personaje = (int)(Math.random() * 100) + 1 - level*10;
+                int Hostil = (int)(Math.random() * 100) + 1;
+                if (Personaje<Hostil) {
+                    
+                    System.out.println("Tiras "+Personaje+" Contra "+Hostil+" de tu rival.");
+                    System.out.println("Ataca Primero Personaje");
+                    System.out.println("Le Pegaste ");
+                    UsuarioAtaca();  
+                    
+                } else {
+                    System.out.println("Tiras: "+Personaje+" Contra: "+Hostil+" de tu rival.");
+                    System.out.println("Ataca Primero Hostil");
+                    System.out.println("Te pego ");
+                    NpcAtaca();
+                    
+                }break;
+            
+            case 2:
+                JOptionPane.showMessageDialog(null, "Te tomaste el palo");
+                break;
+            
+            case 3:
+                //traer estado npc
+                NpcList npc = new NpcList();
+                System.out.println(npc.listaNpcHostil());
+                
+                quienAtaca();
 
-           System.out.println("Tiras "+Personaje+" Contra "+Hostil+" de tu rival.");
-           System.out.println("Ataca Primero Personaje");
-           System.out.println("Le Pegaste "); 
-           UsuarioAtaca();       
-           
-           
-       } else {
-           System.out.println("Tiras: "+Personaje+" Contra: "+Hostil+" de tu rival.");
-           System.out.println("Ataca Primero Hostil");
-           System.out.println("Te pego "); 
-           NpcAtaca();
-
-       }              
-           
-       } else {
-           
-           JOptionPane.showMessageDialog(null, "Te tomaste el palo");
-       }
-
+        }
    }
    
-   public void UsuarioAtaca(){
+    public void UsuarioAtaca(){
        
     Personaje pj1 = new Personaje();  
     
@@ -129,5 +142,7 @@ public class Combate {
        
     }
 
-}    
+
+   }
+       
     

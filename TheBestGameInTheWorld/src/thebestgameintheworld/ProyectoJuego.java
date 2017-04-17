@@ -34,9 +34,7 @@ public class ProyectoJuego {
         
     comb1.quienAtaca();
 
-    NpcList npc = new NpcList();
-    
-    npc.listaNpcHostil();
+
 }
 
 

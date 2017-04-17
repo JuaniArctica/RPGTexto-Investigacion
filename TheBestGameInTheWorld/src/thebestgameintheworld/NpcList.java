@@ -32,7 +32,7 @@ public class NpcList {
     }
 
     
-    public void listaNpcHostil (){
+    public int listaNpcHostil (){
       
     
     //NPC CONSTRUCTOR: Nombre, VidaMax, GolpeMax, GolpeMin, Defensa, Nivel, Exp
@@ -41,7 +41,7 @@ public class NpcList {
     //NPC LVL 1
     arrayNpc[0] = new Hostil("Asesino", 5, 3, 2, 2, 1, 7);
     arrayNpc[1] = new Hostil("Bandido", 7, 6, 2, 3, 1, 9);
-    arrayNpc[2] = new Hostil("Ladron", 9, 6, 4, 4, 1, 11);
+    arrayNpc[2] = new Hostil("Lanpc.listaNpcHostil();dron", 9, 6, 4, 4, 1, 11);
     //NPC LVL 2      
     arrayNpc[3] = new Hostil("Sombra", 15, 7, 4, 5, 2, 15);
     arrayNpc[4] = new Hostil("Perro Salvaje", 20, 8, 6, 7, 2, 18);
@@ -50,6 +50,7 @@ public class NpcList {
     int rnd = (int) (Math.random() * arrayNpc.length);
     
     System.out.println(arrayNpc[rnd].NpcGetEstado());
+        return 0;
     
     
     

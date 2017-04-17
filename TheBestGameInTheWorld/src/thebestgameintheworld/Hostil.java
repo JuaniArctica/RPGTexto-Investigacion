@@ -104,6 +104,7 @@ public class Hostil {
         System.out.println("Golpe: "+ Hostil.this.getGolpeMin()+"/"+Hostil.this.getGolpeMax());
         System.out.println("Defensa: "+ Hostil.this.getDefensa());
         System.out.println("Otorga "+Hostil.this.getExperiencia()+" puntos de Experiencia.");
+        //return null;
         return 0;
         
     }
