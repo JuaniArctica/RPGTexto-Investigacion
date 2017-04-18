@@ -274,6 +274,12 @@ public class PantallaJuego extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         lblTextoIntro.setVisible(false);
+        lblHistoria.setText("<html><font color=#ffffff> <style= text-align: justify> <br>‘Todos los niños van al cielo’ le había dicho su madre poco tiempo"
+                                                     + "antes de morir, ‘y te prometo que yo también estaré ahí y cuidaré de tu hermanito."
+                                                     + "Y juntos vendremos a buscarte pronto’. Es difícil para un niño de seis años aceptar"
+                                                     + "que su madre ya no estará a su lado, pero más aún comprender que algo llamado muerte"
+                                                     + "sea el responsable de arrebatarle todo lo que le hacía bien: primero su hermanito, "
+                                                     + "que nunca llegó a nacer, y poquitísimo tiempo después a su madre.</style></font></html>");
         
         
         
