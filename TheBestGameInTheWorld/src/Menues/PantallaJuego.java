@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JRootPane;
 import thebestgameintheworld.Personaje;
 import Menues.CrearPj;
+import java.util.Set;
 
 /**
  *
@@ -31,9 +32,9 @@ public class PantallaJuego extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         lblHistoria.setText("<html><br>&nbsp;<font color=#ff0000><b>Felicitaciones! Has creado un personaje, comencemos la historia...</b></font><br></html>");
          
-        lblNombre.setText("Ejemplo");
+        lblNombre.setText("Nombre");
         lblNumeroNivel.setText("7");
-        
+        lblTextoIntro.setText("<html><br>&nbsp;<font color=#99FF99>Para vanzanzar con la historia basta con presionar<p>el boton siguiente, esperamos que lo pases de lo<p>mejor!... Suerte en la aventura!...</font><br></html>");
                 
                
     }
@@ -67,7 +68,8 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblGolpe = new javax.swing.JLabel();
         lblNumeroGolpe = new javax.swing.JLabel();
         lblNumeroDefensa1 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblTextoIntro = new javax.swing.JLabel();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -199,9 +201,15 @@ public class PantallaJuego extends javax.swing.JFrame {
         getContentPane().add(lblNumeroDefensa1);
         lblNumeroDefensa1.setBounds(630, 180, 30, 20);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tablero.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 800, 600);
+        lblTextoIntro.setForeground(new java.awt.Color(102, 255, 102));
+        lblTextoIntro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTextoIntro.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        getContentPane().add(lblTextoIntro);
+        lblTextoIntro.setBounds(10, 10, 370, 70);
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tablero.jpg"))); // NOI18N
+        getContentPane().add(lblFondo);
+        lblFondo.setBounds(0, 0, 800, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -261,6 +269,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
         // TODO add your handling code here:
         
+        lblTextoIntro.setVisible(false);
+        
+        
         
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
@@ -307,11 +318,11 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JButton btnObservar;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblDefensa;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblEnLaMira;
     private javax.swing.JLabel lblExperiencia;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblGolpe;
     private javax.swing.JLabel lblHistoria;
     private javax.swing.JLabel lblImagenObjeto;
@@ -320,6 +331,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel lblNumeroDefensa1;
     private javax.swing.JLabel lblNumeroGolpe;
     private javax.swing.JLabel lblNumeroNivel;
+    private javax.swing.JLabel lblTextoIntro;
     private javax.swing.JLabel lblVida;
     // End of variables declaration//GEN-END:variables
 
