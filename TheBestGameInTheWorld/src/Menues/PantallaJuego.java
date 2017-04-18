@@ -189,14 +189,16 @@ public class PantallaJuego extends javax.swing.JFrame {
         getContentPane().add(lblGolpe);
         lblGolpe.setBounds(670, 180, 60, 15);
 
-        lblNumeroGolpe.setForeground(new java.awt.Color(102, 0, 0));
+        lblNumeroGolpe.setBackground(new java.awt.Color(0, 0, 0));
+        lblNumeroGolpe.setForeground(new java.awt.Color(204, 0, 0));
         lblNumeroGolpe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNumeroGolpe.setText("10/50");
         lblNumeroGolpe.setOpaque(true);
         getContentPane().add(lblNumeroGolpe);
         lblNumeroGolpe.setBounds(720, 180, 55, 20);
 
-        lblNumeroDefensa1.setForeground(new java.awt.Color(0, 102, 0));
+        lblNumeroDefensa1.setBackground(new java.awt.Color(0, 0, 0));
+        lblNumeroDefensa1.setForeground(new java.awt.Color(0, 153, 0));
         lblNumeroDefensa1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNumeroDefensa1.setText("50");
         lblNumeroDefensa1.setOpaque(true);
