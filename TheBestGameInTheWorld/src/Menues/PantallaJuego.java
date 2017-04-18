@@ -67,6 +67,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblGolpe = new javax.swing.JLabel();
         lblNumeroGolpe = new javax.swing.JLabel();
         lblNumeroDefensa1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -113,24 +114,23 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblHistoria.setAutoscrolls(true);
         lblHistoria.setOpaque(true);
         getContentPane().add(lblHistoria);
-        lblHistoria.setBounds(12, 85, 506, 440);
+        lblHistoria.setBounds(12, 88, 506, 437);
 
-        lblNombre.setBackground(new java.awt.Color(153, 153, 153));
         lblNombre.setFont(new java.awt.Font("TlwgMono", 1, 24)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 153));
         lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblNombre.setOpaque(true);
         getContentPane().add(lblNombre);
-        lblNombre.setBounds(570, 88, 202, 30);
+        lblNombre.setBounds(570, 93, 202, 30);
 
         lblNumeroNivel.setBackground(new java.awt.Color(153, 153, 153));
         lblNumeroNivel.setFont(new java.awt.Font("TlwgMono", 1, 36)); // NOI18N
-        lblNumeroNivel.setForeground(new java.awt.Color(0, 0, 0));
+        lblNumeroNivel.setForeground(new java.awt.Color(255, 255, 255));
         lblNumeroNivel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNumeroNivel.setOpaque(true);
         getContentPane().add(lblNumeroNivel);
         lblNumeroNivel.setBounds(733, 35, 39, 35);
 
         lblNivel.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
+        lblNivel.setForeground(new java.awt.Color(255, 255, 255));
         lblNivel.setText("Nivel:");
         getContentPane().add(lblNivel);
         lblNivel.setBounds(663, 44, 68, 26);
@@ -153,11 +153,13 @@ public class PantallaJuego extends javax.swing.JFrame {
         getContentPane().add(PbExperiencia);
         PbExperiencia.setBounds(560, 150, 210, 20);
 
+        lblExperiencia.setForeground(new java.awt.Color(255, 255, 255));
         lblExperiencia.setText("Experiencia");
         getContentPane().add(lblExperiencia);
         lblExperiencia.setBounds(560, 130, 90, 15);
 
         lblVida.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
+        lblVida.setForeground(new java.awt.Color(255, 255, 255));
         lblVida.setText("Vida");
         getContentPane().add(lblVida);
         lblVida.setBounds(30, 543, 51, 15);
@@ -173,10 +175,12 @@ public class PantallaJuego extends javax.swing.JFrame {
         getContentPane().add(lblEnLaMira);
         lblEnLaMira.setBounds(580, 310, 140, 23);
 
+        lblDefensa.setForeground(new java.awt.Color(255, 255, 255));
         lblDefensa.setText("Defensa:");
         getContentPane().add(lblDefensa);
         lblDefensa.setBounds(560, 180, 70, 15);
 
+        lblGolpe.setForeground(new java.awt.Color(255, 255, 255));
         lblGolpe.setText("Golpe:");
         getContentPane().add(lblGolpe);
         lblGolpe.setBounds(670, 180, 60, 15);
@@ -194,6 +198,10 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblNumeroDefensa1.setOpaque(true);
         getContentPane().add(lblNumeroDefensa1);
         lblNumeroDefensa1.setBounds(630, 180, 30, 20);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tablero.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 800, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -299,6 +307,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JButton btnObservar;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblDefensa;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblEnLaMira;
