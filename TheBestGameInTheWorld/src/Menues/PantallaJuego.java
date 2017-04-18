@@ -137,7 +137,8 @@ public class PantallaJuego extends javax.swing.JFrame {
         getContentPane().add(lblNivel);
         lblNivel.setBounds(663, 44, 68, 26);
 
-        lblDescripcion.setBackground(new java.awt.Color(153, 153, 153));
+        lblDescripcion.setBackground(new java.awt.Color(51, 51, 51));
+        lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         lblDescripcion.setOpaque(true);
         getContentPane().add(lblDescripcion);
@@ -173,6 +174,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         PbVida.setBounds(80, 540, 140, 20);
 
         lblEnLaMira.setFont(new java.awt.Font("TlwgMono", 1, 16)); // NOI18N
+        lblEnLaMira.setForeground(new java.awt.Color(255, 255, 255));
         lblEnLaMira.setText("En la Mira: ");
         getContentPane().add(lblEnLaMira);
         lblEnLaMira.setBounds(580, 310, 140, 23);
