@@ -7,7 +7,7 @@ package thebestgameintheworld;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
+import Menues.Main;
 /**
  *
  * @author prouser
@@ -20,19 +20,22 @@ public class ProyectoJuego {
      */
     public static void main(String[] args) {
     
+    Main inicio = new Main();
+    
+    inicio.setVisible (true); 
            
-     Personaje pj1 = new Personaje();
-     pj1.crearPj();
-    
-    Combate comb1 = new Combate();
-    
-    
-    //SALIDAS DE PANTALLA
-    
-  
-
-        
-    comb1.quienAtaca();
+//     Personaje pj1 = new Personaje();
+//     pj1.crearPj();
+//    
+//    Combate comb1 = new Combate();
+//    
+//    
+//    //SALIDAS DE PANTALLA
+//    
+//  
+//
+//        
+//    comb1.quienAtaca();
 
 
 }
