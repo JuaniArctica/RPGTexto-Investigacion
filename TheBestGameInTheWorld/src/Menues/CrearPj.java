@@ -69,7 +69,7 @@ public class CrearPj extends javax.swing.JFrame {
         cmbClase.setBackground(new java.awt.Color(0, 0, 0));
         cmbClase.setFont(new java.awt.Font("TlwgMono", 1, 12)); // NOI18N
         cmbClase.setForeground(new java.awt.Color(255, 255, 255));
-        cmbClase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Detective", "Explorador", "Policia" }));
+        cmbClase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Detective", "Explorador", "Policia" }));
         cmbClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbClaseActionPerformed(evt);
@@ -124,7 +124,6 @@ public class CrearPj extends javax.swing.JFrame {
         lblImagenAvatar.setBounds(540, 100, 230, 320);
 
         txtNombre.setFont(new java.awt.Font("TlwgMono", 2, 24)); // NOI18N
-        txtNombre.setText(" ");
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
@@ -227,11 +226,19 @@ public class CrearPj extends javax.swing.JFrame {
 
         PantallaJuego jFrame = new PantallaJuego();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
 
-        if (txtNombre.getText().length() == 0 || cmbClase.getSelectedItem().equals(" ")) {
+        if (txtNombre.getText().length() == 0 && cmbClase.getSelectedItem().equals("..." )) {
             
-            lblError.setText("Falta colocar nombre o clase");
-
+            lblError.setText("Falta colocar nombre y clase");
+            
+        }else if (cmbClase.getSelectedItem().equals("...")) {
+            
+            lblError.setText("Falta colocar clase");  
+            
+        }else if (txtNombre.getText().length() == 0){    
+            
+                  lblError.setText("Falta colocar nombre");
         } else {
+            
             jFrame.setVisible(true);
             this.dispose();
 
