@@ -5,31 +5,16 @@
  */
 package thebestgameintheworld;
 
-import javax.swing.JOptionPane;
 import Menues.CrearPj;
-import Menues.PantallaJuego;
-import javax.swing.JTextField;
 /**
  *
  * @author prouser
  */
-public class Personaje extends CrearPj {
+public class Personaje extends Actores {
     
 //ATRIBUTOS    
     private CrearPj refCrearPj;
     
-    private String Nombre;
-    
-    private int VidaMax;
-    
-    private int GolpeMax;
-    
-    private int GolpeMin;
-    
-    private int Defensa;
-
-    private int Nivel;
-
     private int ExpMin;
 
     private int ExpMax;
@@ -58,56 +43,6 @@ public class Personaje extends CrearPj {
 
     
 //METODOS
-    public int getGolpeMin() {
-        return GolpeMin;
-    }
-
-    public void setGolpeMin(int GolpeMin) {
-        this.GolpeMin = GolpeMin;
-    }
-
-    public int getGolpeMax() {
-        return GolpeMax;
-    }
-
-    public void setGolpeMax(int GolpeMax) {
-        this.GolpeMax = GolpeMax;
-    }
-
-    
-    public int getVidaMax() {
-        return VidaMax;
-    }
-
-    public void setVidaMax(int VidaMax) {
-        this.VidaMax = VidaMax;
-    }
-
-    public String getNombre() {
-        return Nombre;
-    }
-
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
-
-    }
-    
-    public int getDefensa() {
-        return Defensa;
-    }
-
-    public void setDefensa(int Defensa) {
-        this.Defensa = Defensa;
-    }
-
-    public int getNivel() {
-        return Nivel;
-    }
-
-    public void setNivel(int Nivel) {
-        this.Nivel = Nivel;
-    }    
-    
      public int getExpMax() {
         return ExpMax;
     }

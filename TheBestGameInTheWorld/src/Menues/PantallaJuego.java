@@ -86,19 +86,19 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnVolver);
-        btnVolver.setBounds(694, 535, 66, 25);
+        btnVolver.setBounds(690, 540, 60, 23);
 
         btnAtacar.setText("Atacar");
         getContentPane().add(btnAtacar);
-        btnAtacar.setBounds(350, 535, 80, 25);
+        btnAtacar.setBounds(350, 540, 80, 23);
 
         btnHuir.setText("Huir");
         getContentPane().add(btnHuir);
-        btnHuir.setBounds(440, 535, 63, 25);
+        btnHuir.setBounds(450, 540, 70, 23);
 
         btnObservar.setText("Observar");
         getContentPane().add(btnObservar);
-        btnObservar.setBounds(240, 535, 99, 25);
+        btnObservar.setBounds(240, 540, 90, 23);
 
         btnSiguiente.setText("Siguiente >>");
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +107,7 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSiguiente);
-        btnSiguiente.setBounds(390, 40, 126, 25);
+        btnSiguiente.setBounds(390, 40, 95, 23);
 
         lblHistoria.setBackground(new java.awt.Color(0, 0, 0));
         lblHistoria.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,7 +135,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblNivel.setForeground(new java.awt.Color(255, 255, 255));
         lblNivel.setText("Nivel:");
         getContentPane().add(lblNivel);
-        lblNivel.setBounds(663, 44, 68, 26);
+        lblNivel.setBounds(663, 44, 68, 24);
 
         lblDescripcion.setBackground(new java.awt.Color(51, 51, 51));
         lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,12 +154,12 @@ public class PantallaJuego extends javax.swing.JFrame {
         PbExperiencia.setValue(35);
         PbExperiencia.setStringPainted(true);
         getContentPane().add(PbExperiencia);
-        PbExperiencia.setBounds(560, 150, 210, 20);
+        PbExperiencia.setBounds(560, 150, 210, 17);
 
         lblExperiencia.setForeground(new java.awt.Color(255, 255, 255));
         lblExperiencia.setText("Experiencia");
         getContentPane().add(lblExperiencia);
-        lblExperiencia.setBounds(560, 130, 90, 15);
+        lblExperiencia.setBounds(560, 130, 90, 14);
 
         lblVida.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
         lblVida.setForeground(new java.awt.Color(255, 255, 255));
@@ -171,23 +171,23 @@ public class PantallaJuego extends javax.swing.JFrame {
         PbVida.setValue(90);
         PbVida.setStringPainted(true);
         getContentPane().add(PbVida);
-        PbVida.setBounds(80, 540, 140, 20);
+        PbVida.setBounds(80, 540, 140, 17);
 
         lblEnLaMira.setFont(new java.awt.Font("TlwgMono", 1, 16)); // NOI18N
         lblEnLaMira.setForeground(new java.awt.Color(255, 255, 255));
         lblEnLaMira.setText("En la Mira: ");
         getContentPane().add(lblEnLaMira);
-        lblEnLaMira.setBounds(580, 310, 140, 23);
+        lblEnLaMira.setBounds(580, 310, 140, 21);
 
         lblDefensa.setForeground(new java.awt.Color(255, 255, 255));
         lblDefensa.setText("Defensa:");
         getContentPane().add(lblDefensa);
-        lblDefensa.setBounds(560, 180, 70, 15);
+        lblDefensa.setBounds(560, 180, 70, 14);
 
         lblGolpe.setForeground(new java.awt.Color(255, 255, 255));
         lblGolpe.setText("Golpe:");
         getContentPane().add(lblGolpe);
-        lblGolpe.setBounds(670, 180, 60, 15);
+        lblGolpe.setBounds(670, 180, 60, 14);
 
         lblNumeroGolpe.setBackground(new java.awt.Color(0, 0, 0));
         lblNumeroGolpe.setForeground(new java.awt.Color(204, 0, 0));
@@ -275,11 +275,11 @@ public class PantallaJuego extends javax.swing.JFrame {
         
         lblTextoIntro.setVisible(false);
         lblHistoria.setText("<html><font color=#ffffff> <style= text-align: justify> <br>‘Todos los niños van al cielo’ le había dicho su madre poco tiempo"
-                                                     + "antes de morir, ‘y te prometo que yo también estaré ahí y cuidaré de tu hermanito."
-                                                     + "Y juntos vendremos a buscarte pronto’. Es difícil para un niño de seis años aceptar"
-                                                     + "que su madre ya no estará a su lado, pero más aún comprender que algo llamado muerte"
-                                                     + "sea el responsable de arrebatarle todo lo que le hacía bien: primero su hermanito, "
-                                                     + "que nunca llegó a nacer, y poquitísimo tiempo después a su madre.</style></font></html>");
+                                                     + " antes de morir, ‘y te prometo que yo también estaré ahí y cuidaré de tu hermanito."
+                                                     + " Y juntos vendremos a buscarte pronto’. Es difícil para un niño de seis años aceptar"
+                                                     + " que su madre ya no estará a su lado, pero más aún comprender que algo llamado muerte"
+                                                     + " sea el responsable de arrebatarle todo lo que le hacía bien: primero su hermanito, "
+                                                     + " que nunca llegó a nacer, y poquitísimo tiempo después a su madre.</style></font></html>");
         
         
         

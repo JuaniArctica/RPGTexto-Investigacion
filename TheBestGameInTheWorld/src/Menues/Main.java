@@ -70,7 +70,7 @@ public class Main extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("The Best Game In the World");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(50, 50, 580, 20);
+        jLabel2.setBounds(50, 50, 580, 30);
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/main.jpg"))); // NOI18N
         lblFondo.setText("jLabel1");

@@ -9,22 +9,10 @@ package thebestgameintheworld;
  *
  * @author prouser
  */
-public class Hostil {
+public class Hostil extends Actores {
     
 //ATRIBUTOS    
-    private String Nombre;
-    
-    private int VidaMax;
-    
-    private int GolpeMax;
-    
-    private int GolpeMin;
-    
-    private int Defensa;
-
-    private int Nivel;
-
-    private int Experiencia;
+private int Experiencia;
 
 
 //CONSTRUCTORES    
@@ -42,54 +30,6 @@ public class Hostil {
     }
      
 //METODOS
-    public int getGolpeMin() {
-        return GolpeMin;
-    }
-
-    public void setGolpeMin(int GolpeMin) {
-        this.GolpeMin = GolpeMin;
-    }
-
-    public int getGolpeMax() {
-        return GolpeMax;
-    }
-
-    public void setGolpeMax(int GolpeMax) {
-        this.GolpeMax = GolpeMax;
-    }
-    
-    public int getVidaMax() {
-        return VidaMax;
-    }
-
-    public void setVidaMax(int VidaMax) {
-        this.VidaMax = VidaMax;
-    }
-
-    public String getNombre() {
-        return Nombre;
-    }
-
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
-    }
-    
-    public int getDefensa() {
-        return Defensa;
-    }
-
-    public void setDefensa(int Defensa) {
-        this.Defensa = Defensa;
-    }
-
-    public int getNivel() {
-        return Nivel;
-    }
-
-    public void setNivel(int Nivel) {
-        this.Nivel = Nivel;
-    }    
-    
     public int getExperiencia() {
         return Experiencia;
     }
