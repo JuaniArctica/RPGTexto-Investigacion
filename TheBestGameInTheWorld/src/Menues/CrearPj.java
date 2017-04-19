@@ -214,15 +214,8 @@ public class CrearPj extends javax.swing.JFrame {
     private void btnComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarActionPerformed
         // TODO add your handling code here:
 
-        Personaje pj1 = new Personaje();
-        CrearPj nuevo = new CrearPj();
         PantallaJuego bienvenida = new PantallaJuego();
-
-//        
-        pj1.setNombre(txtNombre.getText());
-        //pj1.ElegirClase();
-//        pj1.crearPj();
-
+        
         PantallaJuego jFrame = new PantallaJuego();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
 
         jFrame.setVisible(true);
@@ -289,7 +282,7 @@ public class CrearPj extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbClaseActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
+    
 
 
     }//GEN-LAST:event_txtNombreActionPerformed
