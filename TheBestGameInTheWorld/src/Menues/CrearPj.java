@@ -51,6 +51,7 @@ private ControladorCrearPj refControlador;
         lblDefensa = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
         lblVida = new javax.swing.JLabel();
+        lblError = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
 
         setTitle("The Best Game in the World");
@@ -64,7 +65,7 @@ private ControladorCrearPj refControlador;
         cmbClase.setBackground(new java.awt.Color(0, 0, 0));
         cmbClase.setFont(new java.awt.Font("TlwgMono", 1, 12)); // NOI18N
         cmbClase.setForeground(new java.awt.Color(255, 255, 255));
-        cmbClase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Detective", "Explorador", "Policia" }));
+        cmbClase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Detective", "Explorador", "Policia" }));
         cmbClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbClaseActionPerformed(evt);
@@ -119,7 +120,6 @@ private ControladorCrearPj refControlador;
         lblImagenAvatar.setBounds(540, 100, 230, 320);
 
         txtNombre.setFont(new java.awt.Font("TlwgMono", 2, 24)); // NOI18N
-        txtNombre.setText(" ");
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
@@ -190,6 +190,10 @@ private ControladorCrearPj refControlador;
         getContentPane().add(lblVida);
         lblVida.setBounds(30, 390, 100, 26);
 
+        lblError.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(lblError);
+        lblError.setBounds(30, 35, 320, 30);
+
         lblFondo.setBackground(new java.awt.Color(0, 0, 0));
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/fondo1.jpg"))); // NOI18N
         lblFondo.setText("jLabel1");
@@ -216,12 +220,26 @@ private ControladorCrearPj refControlador;
         refControlador.agregarValores(txtNombre.getText(), cmbClase.getSelectedItem().toString());
             
         PantallaJuego bienvenida = new PantallaJuego();
-        
+
         PantallaJuego jFrame = new PantallaJuego();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
 
-        jFrame.setVisible(true);
+        if (txtNombre.getText().length() == 0 && cmbClase.getSelectedItem().equals("..." )) {
+            
+            lblError.setText("Falta colocar nombre y clase");
+            
+        }else if (cmbClase.getSelectedItem().equals("...")) {
+            
+            lblError.setText("Falta colocar clase");  
+            
+        }else if (txtNombre.getText().length() == 0){    
+            
+                  lblError.setText("Falta colocar nombre");
+        } else {
+            
+            jFrame.setVisible(true);
+            this.dispose();
 
-        this.dispose();
+        }
 
 
     }//GEN-LAST:event_btnComenzarActionPerformed
@@ -340,6 +358,7 @@ private ControladorCrearPj refControlador;
     private javax.swing.JLabel lblCreaPj;
     private javax.swing.JLabel lblDefensa;
     private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblError;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblGolpe;
     private javax.swing.JLabel lblImagenAvatar;
