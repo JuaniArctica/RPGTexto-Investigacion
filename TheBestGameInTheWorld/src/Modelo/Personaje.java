@@ -5,8 +5,6 @@
  */
 package Modelo;
 
-import Menues.CrearPj;
-
 /**
  *
  * @author prouser
@@ -14,26 +12,25 @@ import Menues.CrearPj;
 public class Personaje extends Actores {
 
 //ATRIBUTOS    
-    private CrearPj refCrearPj;
     private int ExpMin;
     private int ExpMax;
-    private int Clase;
+    private String Clase;
 
     //private Combate refCombate;
 //CONSTRUCTORES    
     public Personaje() {
     }
 
-    public Personaje(String Nombre, int VidaMax, int GolpeMax, int GolpeMin, int Defensa, int Nivel, int ExpMin, int ExpMax) {
-        this.Nombre = Nombre;
-        this.VidaMax = VidaMax;
-        this.GolpeMax = GolpeMax;
-        this.GolpeMin = GolpeMin;
-        this.Defensa = Defensa;
-        this.Nivel = Nivel;
+    public Personaje(int ExpMin, int ExpMax, String Clase, String Nombre, int VidaMax, int GolpeMax, int GolpeMin, int Defensa, int Nivel) {
+        super(Nombre, VidaMax, GolpeMax, GolpeMin, Defensa, Nivel);
         this.ExpMin = ExpMin;
         this.ExpMax = ExpMax;
+        this.Clase = Clase;
     }
+    
+    
+
+
 
 //METODOS
     public int getExpMax() {
@@ -52,11 +49,11 @@ public class Personaje extends Actores {
         this.ExpMin = ExpMin;
     }
 
-    public int getClase() {
+    public String getClase() {
         return Clase;
     }
 
-    public void setClase(int Clase) {
+    public void setClase(String Clase) {
         this.Clase = Clase;
     }
 

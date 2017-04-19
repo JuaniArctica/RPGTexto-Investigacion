@@ -6,19 +6,14 @@
 package Menues;
 
 import javax.swing.JTextField;
-import Modelo.Personaje;
-
+import Controlador.ControladorCrearPj;
 /**
  *
  * @author prouser
  */
 public class CrearPj extends javax.swing.JFrame {
-
-    private Personaje refPersonaje;
-
-    /**
-     * Creates new form CrearPj
-     */
+    
+private ControladorCrearPj refControlador;    
     public CrearPj() {
         initComponents();
         this.setSize(800, 600);
@@ -28,6 +23,7 @@ public class CrearPj extends javax.swing.JFrame {
         
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        refControlador = new Controlador.ControladorCrearPj();
 
     }
 
@@ -220,8 +216,9 @@ public class CrearPj extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarActionPerformed
-        // TODO add your handling code here:
-
+    
+        refControlador.agregarValores(txtNombre.getText(), cmbClase.getSelectedItem().toString());
+            
         PantallaJuego bienvenida = new PantallaJuego();
 
         PantallaJuego jFrame = new PantallaJuego();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
