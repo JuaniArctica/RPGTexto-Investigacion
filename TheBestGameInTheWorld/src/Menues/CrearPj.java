@@ -55,6 +55,7 @@ public class CrearPj extends javax.swing.JFrame {
         lblDefensa = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
         lblVida = new javax.swing.JLabel();
+        lblError = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
 
         setTitle("The Best Game in the World");
@@ -194,6 +195,10 @@ public class CrearPj extends javax.swing.JFrame {
         getContentPane().add(lblVida);
         lblVida.setBounds(30, 390, 100, 26);
 
+        lblError.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(lblError);
+        lblError.setBounds(30, 35, 320, 30);
+
         lblFondo.setBackground(new java.awt.Color(0, 0, 0));
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/fondo1.jpg"))); // NOI18N
         lblFondo.setText("jLabel1");
@@ -219,12 +224,18 @@ public class CrearPj extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         PantallaJuego bienvenida = new PantallaJuego();
-        
+
         PantallaJuego jFrame = new PantallaJuego();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
 
-        jFrame.setVisible(true);
+        if (txtNombre.getText().length() == 0 || cmbClase.getSelectedItem().equals(" ")) {
+            
+            lblError.setText("Falta colocar nombre o clase");
 
-        this.dispose();
+        } else {
+            jFrame.setVisible(true);
+            this.dispose();
+
+        }
 
 
     }//GEN-LAST:event_btnComenzarActionPerformed
@@ -343,6 +354,7 @@ public class CrearPj extends javax.swing.JFrame {
     private javax.swing.JLabel lblCreaPj;
     private javax.swing.JLabel lblDefensa;
     private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblError;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblGolpe;
     private javax.swing.JLabel lblImagenAvatar;
