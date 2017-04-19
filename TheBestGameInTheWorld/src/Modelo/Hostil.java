@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package thebestgameintheworld;
+package Modelo;
 
 /**
  *
  * @author prouser
  */
 public class Hostil extends Actores {
-    
-//ATRIBUTOS    
-private int Experiencia;
 
+//ATRIBUTOS    
+    private int Experiencia;
 
 //CONSTRUCTORES    
     public Hostil() {
@@ -28,7 +27,7 @@ private int Experiencia;
         this.Nivel = Nivel;
         this.Experiencia = Experiencia;
     }
-     
+
 //METODOS
     public int getExperiencia() {
         return Experiencia;
@@ -36,18 +35,17 @@ private int Experiencia;
 
     public void setExperiencia(int Experiencia) {
         this.Experiencia = Experiencia;
-    }    
-    
-    public int NpcGetEstado (){
-        System.out.println("Nombre: "+ Hostil.this.getNombre()+" - Nivel "+ Hostil.this.getNivel());        
-        System.out.println("Vida: "+ Hostil.this.getVidaMax());
-        System.out.println("Golpe: "+ Hostil.this.getGolpeMin()+"/"+Hostil.this.getGolpeMax());
-        System.out.println("Defensa: "+ Hostil.this.getDefensa());
-        System.out.println("Otorga "+Hostil.this.getExperiencia()+" puntos de Experiencia.");
-        //return null;
-        return 0;
-        
     }
-   
+
+    public int NpcGetEstado() {
+        System.out.println("Nombre: " + Hostil.this.getNombre() + " - Nivel " + Hostil.this.getNivel());
+        System.out.println("Vida: " + Hostil.this.getVidaMax());
+        System.out.println("Golpe: " + Hostil.this.getGolpeMin() + "/" + Hostil.this.getGolpeMax());
+        System.out.println("Defensa: " + Hostil.this.getDefensa());
+        System.out.println("Otorga " + Hostil.this.getExperiencia() + " puntos de Experiencia.");
+        
+        return 0;
+
+    }
 
 }

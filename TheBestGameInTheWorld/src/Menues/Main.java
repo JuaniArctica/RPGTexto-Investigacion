@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package Menues;
+
 import java.applet.AudioClip;
+
 /**
  *
  * @author prouser
@@ -18,10 +20,10 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         this.setSize(800, 600);
         this.setLocationRelativeTo(this);
-        
-    AudioClip opening;
-    opening = java.applet.Applet.newAudioClip(getClass().getResource("/Sounds/presence.mid"));
-    opening.play();
+
+        AudioClip opening;
+        opening = java.applet.Applet.newAudioClip(getClass().getResource("/Sounds/presence.mid"));
+        opening.play();
     }
 
     /**
@@ -86,19 +88,18 @@ public class Main extends javax.swing.JFrame {
 
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
         // TODO add your handling code here:
-        
-        CrearPj jFrame= new CrearPj();
 
+        CrearPj jFrame = new CrearPj();
 
         jFrame.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_btnJugarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
-        
-         System.exit(0);
+
+        System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**

@@ -5,14 +5,8 @@
  */
 package Menues;
 
-import java.util.HashSet;
-import javax.accessibility.AccessibleContext;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JRootPane;
-import thebestgameintheworld.Personaje;
-import Menues.CrearPj;
-import java.util.Set;
 
 /**
  *
@@ -24,19 +18,16 @@ public class PantallaJuego extends javax.swing.JFrame {
      * Creates new form PantallaJuego
      */
     public PantallaJuego() {
-        
 
-        
         initComponents();
         this.setSize(800, 600);
         this.setLocationRelativeTo(this);
         lblHistoria.setText("<html><br>&nbsp;<font color=#ff0000><b>Felicitaciones! Has creado un personaje, comencemos la historia...</b></font><br></html>");
-         
+
         lblNombre.setText("Nombre");
         lblNumeroNivel.setText("7");
         lblTextoIntro.setText("<html><br>&nbsp;<font color=#99FF99>Para vanzanzar con la historia basta con presionar<p>el boton siguiente, esperamos que lo pases de lo<p>mejor!... Suerte en la aventura!...</font><br></html>");
-                
-               
+
     }
 
     /**
@@ -259,30 +250,28 @@ public class PantallaJuego extends javax.swing.JFrame {
     }
 
 
-
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
-        
-        Main jFrame= new Main();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
+
+        Main jFrame = new Main();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
 
         jFrame.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
         // TODO add your handling code here:
-        
+
         lblTextoIntro.setVisible(false);
         lblHistoria.setText("<html><font color=#ffffff> <style= text-align: justify> <br>‘Todos los niños van al cielo’ le había dicho su madre poco tiempo"
-                                                     + " antes de morir, ‘y te prometo que yo también estaré ahí y cuidaré de tu hermanito."
-                                                     + " Y juntos vendremos a buscarte pronto’. Es difícil para un niño de seis años aceptar"
-                                                     + " que su madre ya no estará a su lado, pero más aún comprender que algo llamado muerte"
-                                                     + " sea el responsable de arrebatarle todo lo que le hacía bien: primero su hermanito, "
-                                                     + " que nunca llegó a nacer, y poquitísimo tiempo después a su madre.</style></font></html>");
-        
-        
-        
+                + " antes de morir, ‘y te prometo que yo también estaré ahí y cuidaré de tu hermanito."
+                + " Y juntos vendremos a buscarte pronto’. Es difícil para un niño de seis años aceptar"
+                + " que su madre ya no estará a su lado, pero más aún comprender que algo llamado muerte"
+                + " sea el responsable de arrebatarle todo lo que le hacía bien: primero su hermanito, "
+                + " que nunca llegó a nacer, y poquitísimo tiempo después a su madre.</style></font></html>");
+
+
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     /**
@@ -344,6 +333,5 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel lblTextoIntro;
     private javax.swing.JLabel lblVida;
     // End of variables declaration//GEN-END:variables
-
 
 }

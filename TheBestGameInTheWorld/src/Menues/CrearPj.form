@@ -7,9 +7,6 @@
       <Color blue="0" green="0" red="0" type="rgb"/>
     </Property>
     <Property name="name" type="java.lang.String" value="The Best Game In the World" noResource="true"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[800, 600]"/>
-    </Property>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[800, 600]"/>
     </Property>

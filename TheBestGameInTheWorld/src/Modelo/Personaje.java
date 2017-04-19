@@ -5,36 +5,21 @@
  */
 package Modelo;
 
-import javax.swing.JOptionPane;
+import Menues.CrearPj;
 
 /**
  *
  * @author prouser
  */
-public class Personaje {
-    
+public class Personaje extends Actores {
+
 //ATRIBUTOS    
-    private String Nombre;
-    
-    private int VidaMax;
-    
-    private int GolpeMax;
-    
-    private int GolpeMin;
-    
-    private int Defensa;
-
-    private int Nivel;
-
+    private CrearPj refCrearPj;
     private int ExpMin;
-
     private int ExpMax;
-    
     private int Clase;
-    
+
     //private Combate refCombate;
-
-
 //CONSTRUCTORES    
     public Personaje() {
     }
@@ -50,64 +35,14 @@ public class Personaje {
         this.ExpMax = ExpMax;
     }
 
-    
 //METODOS
-    public int getGolpeMin() {
-        return GolpeMin;
-    }
-
-    public void setGolpeMin(int GolpeMin) {
-        this.GolpeMin = GolpeMin;
-    }
-
-    public int getGolpeMax() {
-        return GolpeMax;
-    }
-
-    public void setGolpeMax(int GolpeMax) {
-        this.GolpeMax = GolpeMax;
-    }
-
-    
-    public int getVidaMax() {
-        return VidaMax;
-    }
-
-    public void setVidaMax(int VidaMax) {
-        this.VidaMax = VidaMax;
-    }
-
-    public String getNombre() {
-        return Nombre;
-    }
-
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
-    }
-    
-    public int getDefensa() {
-        return Defensa;
-    }
-
-    public void setDefensa(int Defensa) {
-        this.Defensa = Defensa;
-    }
-
-    public int getNivel() {
-        return Nivel;
-    }
-
-    public void setNivel(int Nivel) {
-        this.Nivel = Nivel;
-    }    
-    
-     public int getExpMax() {
+    public int getExpMax() {
         return ExpMax;
     }
 
     public void setExpMax(int ExpMax) {
         this.ExpMax = ExpMax;
-    }    
+    }
 
     public int getExpMin() {
         return ExpMin;
@@ -116,7 +51,7 @@ public class Personaje {
     public void setExpMin(int ExpMin) {
         this.ExpMin = ExpMin;
     }
-    
+
     public int getClase() {
         return Clase;
     }
@@ -125,65 +60,80 @@ public class Personaje {
         this.Clase = Clase;
     }
 
-    public void ElegirClase(){
-        
+    public void ElegirClase() {
+
         int Detective = 1;
-        int Explorador= 2;
+        int Explorador = 2;
+        int Policia = 3;
+
         String claseC;
         int clase;
-        
-        claseC= JOptionPane.showInputDialog("Elige tu Clase:\n\nDetective = 1\nExplorador = 2");
-        clase= Integer.parseInt(claseC);
-        
-        if (clase == 1) {
-            //CREAMOS UN DETECTIVE CON SUS CORRESPONDIENTES STATS
-            Personaje.this.setVidaMax(10);
-            Personaje.this.setDefensa(7);
-            Personaje.this.setExpMax(15);
-            Personaje.this.setExpMin(0);
-            Personaje.this.setGolpeMax(5);
-            Personaje.this.setGolpeMin(3);            
-            Personaje.this.setNivel(1);
 
-            System.out.println("Felicitaciones Detective "+Personaje.this.getNombre()+" comencemos la historia...");
-            
-        } else {
-            //CREAMOS UN EXPLORADOR CON SUS CORRESPONDIENTES STATS
-            Personaje.this.setVidaMax(7);
-            Personaje.this.setDefensa(10);
-            Personaje.this.setExpMax(15);
-            Personaje.this.setExpMin(0);
-            Personaje.this.setGolpeMax(5);
-            Personaje.this.setGolpeMin(2);            
-            Personaje.this.setNivel(1);
-            
-            System.out.println("Felicitaciones Explorador "+Personaje.this.getNombre()+" comencemos la historia...");
-        }        
-        
-    }    
-    
-    public void NpcGetEstado (){
-        
-        System.out.println("Nombre: "+ Personaje.this.getNombre()+" - Nivel "+ Personaje.this.getNivel());        
-        System.out.println("Vida: "+ Personaje.this.getVidaMax());
-        System.out.println("Golpe: "+ Personaje.this.getGolpeMin()+"/"+Personaje.this.getGolpeMax());
-        System.out.println("Defensa: "+ Personaje.this.getDefensa());
-        System.out.println("Experiencia: "+Personaje.this.getExpMin()+"/"+Personaje.this.getExpMax());
+        // claseC= JOptionPane.showInputDialog("Elige tu Clase:\n\nDetective = 1\nExplorador = 2");
+        clase = 1;
 
-        
+        switch (clase) {
+            case 1:
+                //CREAMOS UN DETECTIVE CON SUS CORRESPONDIENTES STATS
+                Personaje.this.setVidaMax(10);
+                Personaje.this.setDefensa(10);
+                Personaje.this.setExpMax(15);
+                Personaje.this.setExpMin(0);
+                Personaje.this.setGolpeMax(10);
+                Personaje.this.setGolpeMin(5);
+                Personaje.this.setNivel(1);
+                
+                // System.out.println("Felicitaciones Detective "+Personaje.this.getNombre()+" comencemos la historia...");
+                break;
+            case 2:
+                //CREAMOS UN EXPLORADOR CON SUS CORRESPONDIENTES STATS
+                Personaje.this.setVidaMax(8);
+                Personaje.this.setDefensa(12);
+                Personaje.this.setExpMax(15);
+                Personaje.this.setExpMin(0);
+                Personaje.this.setGolpeMax(7);
+                Personaje.this.setGolpeMin(6);
+                Personaje.this.setNivel(1);
+                
+                // System.out.println("Felicitaciones Dr. "+Personaje.this.getNombre()+" comencemos la historia...");
+                break;
+            case 3:
+                //CREAMOS UN EXPLORADOR CON SUS CORRESPONDIENTES STATS
+                Personaje.this.setVidaMax(12);
+                Personaje.this.setDefensa(8);
+                Personaje.this.setExpMax(15);
+                Personaje.this.setExpMin(0);
+                Personaje.this.setGolpeMax(12);
+                Personaje.this.setGolpeMin(4);
+                Personaje.this.setNivel(1);
+                
+                //System.out.println("Felicitaciones Oficial "+ Personaje.this.getNombre()+ " comencemos la historia...");
+                break;
+            default:
+                break;
+        }
+
     }
-    
-    public void crearPj (){
-    
-    //PERSONAJE CONSTRUCTOR: Nombre, VidaMax, GolpeMax, GolpeMin, Defensa, Nivel, ExpMin, ExpMax 
-    Personaje pj1 = new Personaje();
-    pj1.setNombre(JOptionPane.showInputDialog("Ingrese un Nombre para su personaje:"));
-    pj1.ElegirClase();
-    
-    System.out.println("-----------------------");
-    pj1.NpcGetEstado();
-    System.out.println("-----------------------");  
-    
+
+    public void PjGetEstado() {
+
+        System.out.println("Nombre: " + Personaje.this.getNombre() + " - Nivel " + Personaje.this.getNivel());
+        System.out.println("Vida: " + Personaje.this.getVidaMax());
+        System.out.println("Golpe: " + Personaje.this.getGolpeMin() + "/" + Personaje.this.getGolpeMax());
+        System.out.println("Defensa: " + Personaje.this.getDefensa());
+        System.out.println("Experiencia: " + Personaje.this.getExpMin() + "/" + Personaje.this.getExpMax());
+
     }
-    
+
+    public void crearPj() {
+
+        //PERSONAJE CONSTRUCTOR: Nombre, VidaMax, GolpeMax, GolpeMin, Defensa, Nivel, ExpMin, ExpMax 
+        Personaje pj1 = new Personaje();
+
+        System.out.println("-----------------------");
+        pj1.PjGetEstado();
+        System.out.println("-----------------------");
+
+    }
+
 }

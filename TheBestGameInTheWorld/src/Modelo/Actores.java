@@ -3,25 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package thebestgameintheworld;
+package Modelo;
 
 /**
  *
  * @author Juani
  */
-public abstract class Actores  {
-    
-protected String Nombre;
-    
-protected int VidaMax;
-    
-protected int GolpeMax;
-    
-protected int GolpeMin;
-    
-protected int Defensa;
+public abstract class Actores {
 
-protected int Nivel;
+    protected String Nombre;
+    protected int VidaMax;
+    protected int GolpeMax;
+    protected int GolpeMin;
+    protected int Defensa;
+    protected int Nivel;
 
     public Actores() {
     }
@@ -34,8 +29,6 @@ protected int Nivel;
         this.Defensa = Defensa;
         this.Nivel = Nivel;
     }
-
-
 
     public String getNombre() {
         return Nombre;
@@ -85,6 +78,4 @@ protected int Nivel;
         this.Nivel = Nivel;
     }
 
-
-    
 }

@@ -4,14 +4,9 @@
  * and open the template in the editor.
  */
 package Menues;
-import java.io.PrintStream;
-import javax.accessibility.AccessibleContext;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JRootPane;
+
 import javax.swing.JTextField;
-import thebestgameintheworld.Personaje;
+import Modelo.Personaje;
 
 /**
  *
@@ -20,6 +15,7 @@ import thebestgameintheworld.Personaje;
 public class CrearPj extends javax.swing.JFrame {
 
     private Personaje refPersonaje;
+
     /**
      * Creates new form CrearPj
      */
@@ -28,7 +24,6 @@ public class CrearPj extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.setSize(800, 600);
         lblFondo.setSize(800, 600);
-        
 
     }
 
@@ -207,44 +202,39 @@ public class CrearPj extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
-        
-        Main jFrame= new Main();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
+
+        Main jFrame = new Main();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
 
         jFrame.setVisible(true);
         this.dispose();
-       
+
 
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarActionPerformed
         // TODO add your handling code here:
-        
+
         Personaje pj1 = new Personaje();
         CrearPj nuevo = new CrearPj();
-        PantallaJuego bienvenida= new PantallaJuego();
-        
+        PantallaJuego bienvenida = new PantallaJuego();
+
 //        
-          pj1.setNombre(txtNombre.getText());
+        pj1.setNombre(txtNombre.getText());
         //pj1.ElegirClase();
 //        pj1.crearPj();
 
-       PantallaJuego jFrame= new PantallaJuego();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
+        PantallaJuego jFrame = new PantallaJuego();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
 
         jFrame.setVisible(true);
-        
+
         this.dispose();
-        
-        
+
+
     }//GEN-LAST:event_btnComenzarActionPerformed
 
-    
-    
-    
-    
     public JTextField getTxtNombre() {
         return txtNombre;
     }
-
 
     public void setTxtNombre(JTextField txtNombre) {
         this.txtNombre = txtNombre;
@@ -252,61 +242,58 @@ public class CrearPj extends javax.swing.JFrame {
 
     private void cmbClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClaseActionPerformed
         // TODO add your handling code here:
-        
+
         if (cmbClase.getSelectedItem().equals("Detective")) {
-            
+
             lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/detective.jpg")));
             lblDescripcion.setText("<html><center>El Dective se caracteriza por<p>"
-                                 + " su astucia y su habilidad en <p>"
-                                 + " la pelea, es la clase más"
-                                 + " equilibrada del juego</center></html>");
-             lblValor1.setText("10");
-             lblValor2.setText("10");
-             lblValor3.setText("5/10");            
-            
-        } else if (cmbClase.getSelectedItem().equals("Policia")){
-            
-             lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/policia.jpg")));
-             lblDescripcion.setText("<html><center>Ser Policia no es fácil...<p>"
-                                 + "La fuerza es importante para<p>"
-                                 + " luchar contra las amenazas que<p>"
-                                 + " encontrarás en esta historia</center></html>"); 
-             lblValor1.setText("12");
-             lblValor2.setText("8");
-             lblValor3.setText("4/12");             
-        
-        } else if (cmbClase.getSelectedItem().equals("Explorador")){
-             lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/explorador.jpg")));
-             lblDescripcion.setText("<html><center>Para explorar hay que ser ágil<p>"
-                                 + " y esa es una caracteristica<p>"
-                                 + " de esta clase. Defensivo por<p>"
-                                 + " naturaleza.</center></html>");
-             lblValor1.setText("8");
-             lblValor2.setText("12");
-             lblValor3.setText("6/7");
-             
-        }else{
-            
-             lblImagenAvatar.setIcon(null);
-             lblDescripcion.setText("");
-             lblValor1.setText("");
-             lblValor2.setText("");
-             lblValor3.setText("");
-            
+                    + " su astucia y su habilidad en <p>"
+                    + " la pelea, es la clase más"
+                    + " equilibrada del juego</center></html>");
+            lblValor1.setText("10");
+            lblValor2.setText("10");
+            lblValor3.setText("5/10");
+
+        } else if (cmbClase.getSelectedItem().equals("Policia")) {
+
+            lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/policia.jpg")));
+            lblDescripcion.setText("<html><center>Ser Policia no es fácil...<p>"
+                    + "La fuerza es importante para<p>"
+                    + " luchar contra las amenazas que<p>"
+                    + " encontrarás en esta historia</center></html>");
+            lblValor1.setText("12");
+            lblValor2.setText("8");
+            lblValor3.setText("4/12");
+
+        } else if (cmbClase.getSelectedItem().equals("Explorador")) {
+            lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/explorador.jpg")));
+            lblDescripcion.setText("<html><center>Para explorar hay que ser ágil<p>"
+                    + " y esa es una caracteristica<p>"
+                    + " de esta clase. Defensivo por<p>"
+                    + " naturaleza.</center></html>");
+            lblValor1.setText("8");
+            lblValor2.setText("12");
+            lblValor3.setText("6/7");
+
+        } else {
+
+            lblImagenAvatar.setIcon(null);
+            lblDescripcion.setText("");
+            lblValor1.setText("");
+            lblValor2.setText("");
+            lblValor3.setText("");
+
         }
 
-        
+
     }//GEN-LAST:event_cmbClaseActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-        
+
 
     }//GEN-LAST:event_txtNombreActionPerformed
 
-    
-
-    
     /**
      * @param args the command line arguments
      */
@@ -337,13 +324,10 @@ public class CrearPj extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-            new CrearPj().setVisible(true);
-            
+                new CrearPj().setVisible(true);
 
             }
-            
 
-        
         });
     }
 
