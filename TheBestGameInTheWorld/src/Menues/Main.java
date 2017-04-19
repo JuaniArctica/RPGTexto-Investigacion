@@ -19,10 +19,11 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         this.setSize(800, 600);
-        this.setLocationRelativeTo(this);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 
         AudioClip opening;
-        opening = java.applet.Applet.newAudioClip(getClass().getResource("/Sounds/presence.mid"));
+        opening = java.applet.Applet.newAudioClip(getClass().getResource("/Menues/Sonidos/presence.mid"));
         opening.play();
     }
 
@@ -78,7 +79,7 @@ public class Main extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(50, 50, 580, 30);
 
-        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/main.jpg"))); // NOI18N
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/main.jpg"))); // NOI18N
         lblFondo.setText("jLabel1");
         getContentPane().add(lblFondo);
         lblFondo.setBounds(0, 0, 800, 600);

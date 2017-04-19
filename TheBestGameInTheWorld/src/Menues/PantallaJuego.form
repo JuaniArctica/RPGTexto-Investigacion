@@ -353,7 +353,7 @@
     <Component class="javax.swing.JLabel" name="lblFondo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagenes/tablero.jpg"/>
+          <Image iconType="3" name="/Menues/Imagenes/tablero.jpg"/>
         </Property>
       </Properties>
       <Constraints>

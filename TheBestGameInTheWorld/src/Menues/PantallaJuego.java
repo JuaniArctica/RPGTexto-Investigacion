@@ -21,7 +21,8 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         initComponents();
         this.setSize(800, 600);
-        this.setLocationRelativeTo(this);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         lblHistoria.setText("<html><br>&nbsp;<font color=#ff0000><b>Felicitaciones! Has creado un personaje, comencemos la historia...</b></font><br></html>");
 
         lblNombre.setText("Nombre");
@@ -202,7 +203,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         getContentPane().add(lblTextoIntro);
         lblTextoIntro.setBounds(10, 10, 370, 70);
 
-        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tablero.jpg"))); // NOI18N
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/tablero.jpg"))); // NOI18N
         getContentPane().add(lblFondo);
         lblFondo.setBounds(0, 0, 800, 600);
 

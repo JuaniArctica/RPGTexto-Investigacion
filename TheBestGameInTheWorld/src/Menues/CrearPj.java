@@ -21,9 +21,13 @@ public class CrearPj extends javax.swing.JFrame {
      */
     public CrearPj() {
         initComponents();
-        this.setLocationRelativeTo(this);
         this.setSize(800, 600);
         lblFondo.setSize(800, 600);
+        lblImagenAvatar.setVisible(false);
+        lblDescripcion.setVisible(false);
+        
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 
     }
 
@@ -56,7 +60,7 @@ public class CrearPj extends javax.swing.JFrame {
         setTitle("The Best Game in the World");
         setBackground(new java.awt.Color(0, 0, 0));
         setName("The Best Game In the World"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
         setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
@@ -71,7 +75,7 @@ public class CrearPj extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cmbClase);
-        cmbClase.setBounds(30, 260, 140, 22);
+        cmbClase.setBounds(30, 260, 140, 27);
 
         btnVolver.setBackground(new java.awt.Color(0, 0, 0));
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,7 +113,7 @@ public class CrearPj extends javax.swing.JFrame {
         lblNombre.setText(" Nombre:");
         lblNombre.setOpaque(true);
         getContentPane().add(lblNombre);
-        lblNombre.setBounds(30, 100, 100, 24);
+        lblNombre.setBounds(30, 100, 100, 26);
 
         lblImagenAvatar.setBackground(new java.awt.Color(0, 0, 0));
         lblImagenAvatar.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -134,7 +138,7 @@ public class CrearPj extends javax.swing.JFrame {
         lblGolpe.setText(" Golpe:");
         lblGolpe.setOpaque(true);
         getContentPane().add(lblGolpe);
-        lblGolpe.setBounds(30, 470, 100, 24);
+        lblGolpe.setBounds(30, 470, 100, 26);
 
         lblSeleccionaClase2.setBackground(new java.awt.Color(0, 0, 0));
         lblSeleccionaClase2.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
@@ -142,7 +146,7 @@ public class CrearPj extends javax.swing.JFrame {
         lblSeleccionaClase2.setText(" Selecciona tu Clase: ");
         lblSeleccionaClase2.setOpaque(true);
         getContentPane().add(lblSeleccionaClase2);
-        lblSeleccionaClase2.setBounds(30, 220, 250, 24);
+        lblSeleccionaClase2.setBounds(30, 220, 250, 26);
 
         lblValor1.setBackground(new java.awt.Color(255, 255, 255));
         lblValor1.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
@@ -171,7 +175,7 @@ public class CrearPj extends javax.swing.JFrame {
         lblDefensa.setText(" Defensa:");
         lblDefensa.setOpaque(true);
         getContentPane().add(lblDefensa);
-        lblDefensa.setBounds(30, 430, 100, 24);
+        lblDefensa.setBounds(30, 430, 100, 26);
 
         lblDescripcion.setBackground(new java.awt.Color(0, 0, 0));
         lblDescripcion.setFont(new java.awt.Font("TlwgMono", 1, 12)); // NOI18N
@@ -188,10 +192,10 @@ public class CrearPj extends javax.swing.JFrame {
         lblVida.setText(" Vida:");
         lblVida.setOpaque(true);
         getContentPane().add(lblVida);
-        lblVida.setBounds(30, 390, 100, 24);
+        lblVida.setBounds(30, 390, 100, 26);
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 0));
-        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo1.jpg"))); // NOI18N
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/fondo1.jpg"))); // NOI18N
         lblFondo.setText("jLabel1");
         lblFondo.setOpaque(true);
         getContentPane().add(lblFondo);
@@ -238,7 +242,7 @@ public class CrearPj extends javax.swing.JFrame {
 
         if (cmbClase.getSelectedItem().equals("Detective")) {
 
-            lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/detective.jpg")));
+            lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/detective.jpg")));
             lblDescripcion.setText("<html><center>El Dective se caracteriza por<p>"
                     + " su astucia y su habilidad en <p>"
                     + " la pelea, es la clase más"
@@ -246,10 +250,12 @@ public class CrearPj extends javax.swing.JFrame {
             lblValor1.setText("10");
             lblValor2.setText("10");
             lblValor3.setText("5/10");
+            lblImagenAvatar.setVisible(true);
+            lblDescripcion.setVisible(true);            
 
         } else if (cmbClase.getSelectedItem().equals("Policia")) {
 
-            lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/policia.jpg")));
+            lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/policia.jpg")));
             lblDescripcion.setText("<html><center>Ser Policia no es fácil...<p>"
                     + "La fuerza es importante para<p>"
                     + " luchar contra las amenazas que<p>"
@@ -257,9 +263,11 @@ public class CrearPj extends javax.swing.JFrame {
             lblValor1.setText("12");
             lblValor2.setText("8");
             lblValor3.setText("4/12");
+            lblImagenAvatar.setVisible(true);
+            lblDescripcion.setVisible(true);            
 
         } else if (cmbClase.getSelectedItem().equals("Explorador")) {
-            lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/explorador.jpg")));
+            lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/explorador.jpg")));
             lblDescripcion.setText("<html><center>Para explorar hay que ser ágil<p>"
                     + " y esa es una caracteristica<p>"
                     + " de esta clase. Defensivo por<p>"
@@ -267,6 +275,8 @@ public class CrearPj extends javax.swing.JFrame {
             lblValor1.setText("8");
             lblValor2.setText("12");
             lblValor3.setText("6/7");
+            lblImagenAvatar.setVisible(true);
+            lblDescripcion.setVisible(true);
 
         } else {
 
@@ -275,6 +285,8 @@ public class CrearPj extends javax.swing.JFrame {
             lblValor1.setText("");
             lblValor2.setText("");
             lblValor3.setText("");
+            lblImagenAvatar.setVisible(false);
+            lblDescripcion.setVisible(false);
 
         }
 
