@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Menues;
-
+import java.applet.AudioClip;
 /**
  *
  * @author prouser
@@ -18,6 +18,10 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         this.setSize(800, 600);
         this.setLocationRelativeTo(this);
+        
+    AudioClip opening;
+    opening = java.applet.Applet.newAudioClip(getClass().getResource("/Sounds/presence.mid"));
+    opening.play();
     }
 
     /**
