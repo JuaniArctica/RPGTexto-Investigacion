@@ -18,17 +18,12 @@ public class Hostil extends Actores {
     public Hostil() {
     }
 
-    public Hostil(String Nombre, int VidaMax, int GolpeMax, int GolpeMin, int Defensa, int Nivel, int Experiencia) {
-        this.Nombre = Nombre;
-        this.VidaMax = VidaMax;
-        this.GolpeMax = GolpeMax;
-        this.GolpeMin = GolpeMin;
-        this.Defensa = Defensa;
-        this.Nivel = Nivel;
+    public Hostil(int Experiencia, String Nombre, int VidaMax, int GolpeMax, int GolpeMin, int Defensa, int Nivel) {
+        super(Nombre, VidaMax, GolpeMax, GolpeMin, Defensa, Nivel);
         this.Experiencia = Experiencia;
     }
-
-//METODOS
+    
+    //METODOS
     public int getExperiencia() {
         return Experiencia;
     }
@@ -48,4 +43,7 @@ public class Hostil extends Actores {
 
     }
 
-}
+
+    }
+
+
