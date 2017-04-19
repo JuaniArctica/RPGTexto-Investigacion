@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Controlador.NpcList;
 import javax.swing.JOptionPane;
 
 /**
