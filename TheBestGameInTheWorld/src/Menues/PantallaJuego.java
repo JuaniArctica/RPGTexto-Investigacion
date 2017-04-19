@@ -86,19 +86,19 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnVolver);
-        btnVolver.setBounds(690, 540, 60, 23);
+        btnVolver.setBounds(680, 540, 70, 25);
 
         btnAtacar.setText("Atacar");
         getContentPane().add(btnAtacar);
-        btnAtacar.setBounds(350, 540, 80, 23);
+        btnAtacar.setBounds(340, 540, 80, 25);
 
         btnHuir.setText("Huir");
         getContentPane().add(btnHuir);
-        btnHuir.setBounds(450, 540, 70, 23);
+        btnHuir.setBounds(440, 540, 80, 25);
 
-        btnObservar.setText("Observar");
+        btnObservar.setText("Ver");
         getContentPane().add(btnObservar);
-        btnObservar.setBounds(240, 540, 90, 23);
+        btnObservar.setBounds(240, 540, 80, 25);
 
         btnSiguiente.setText("Siguiente >>");
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +107,7 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSiguiente);
-        btnSiguiente.setBounds(390, 40, 95, 23);
+        btnSiguiente.setBounds(390, 40, 126, 25);
 
         lblHistoria.setBackground(new java.awt.Color(0, 0, 0));
         lblHistoria.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,7 +135,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblNivel.setForeground(new java.awt.Color(255, 255, 255));
         lblNivel.setText("Nivel:");
         getContentPane().add(lblNivel);
-        lblNivel.setBounds(663, 44, 68, 24);
+        lblNivel.setBounds(663, 44, 68, 26);
 
         lblDescripcion.setBackground(new java.awt.Color(51, 51, 51));
         lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,12 +154,12 @@ public class PantallaJuego extends javax.swing.JFrame {
         PbExperiencia.setValue(35);
         PbExperiencia.setStringPainted(true);
         getContentPane().add(PbExperiencia);
-        PbExperiencia.setBounds(560, 150, 210, 17);
+        PbExperiencia.setBounds(560, 150, 210, 20);
 
         lblExperiencia.setForeground(new java.awt.Color(255, 255, 255));
         lblExperiencia.setText("Experiencia");
         getContentPane().add(lblExperiencia);
-        lblExperiencia.setBounds(560, 130, 90, 14);
+        lblExperiencia.setBounds(560, 130, 90, 15);
 
         lblVida.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
         lblVida.setForeground(new java.awt.Color(255, 255, 255));
@@ -171,23 +171,23 @@ public class PantallaJuego extends javax.swing.JFrame {
         PbVida.setValue(90);
         PbVida.setStringPainted(true);
         getContentPane().add(PbVida);
-        PbVida.setBounds(80, 540, 140, 17);
+        PbVida.setBounds(80, 540, 140, 20);
 
         lblEnLaMira.setFont(new java.awt.Font("TlwgMono", 1, 16)); // NOI18N
         lblEnLaMira.setForeground(new java.awt.Color(255, 255, 255));
         lblEnLaMira.setText("En la Mira: ");
         getContentPane().add(lblEnLaMira);
-        lblEnLaMira.setBounds(580, 310, 140, 21);
+        lblEnLaMira.setBounds(580, 310, 140, 23);
 
         lblDefensa.setForeground(new java.awt.Color(255, 255, 255));
         lblDefensa.setText("Defensa:");
         getContentPane().add(lblDefensa);
-        lblDefensa.setBounds(560, 180, 70, 14);
+        lblDefensa.setBounds(560, 180, 70, 15);
 
         lblGolpe.setForeground(new java.awt.Color(255, 255, 255));
         lblGolpe.setText("Golpe:");
         getContentPane().add(lblGolpe);
-        lblGolpe.setBounds(670, 180, 60, 14);
+        lblGolpe.setBounds(670, 180, 60, 15);
 
         lblNumeroGolpe.setBackground(new java.awt.Color(0, 0, 0));
         lblNumeroGolpe.setForeground(new java.awt.Color(204, 0, 0));
