@@ -133,4 +133,6 @@ public class Personaje extends Actores {
 
     }
 
+
+
 }

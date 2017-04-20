@@ -5,10 +5,14 @@
  */
 package Controlador;
 
+
 /**
  *
  * @author Juani
  */
 public class ControladorPantallaJuego {
+
+    
+    
     
 }

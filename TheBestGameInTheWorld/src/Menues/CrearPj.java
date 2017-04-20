@@ -219,7 +219,7 @@ private ControladorCrearPj refControlador;
     
         refControlador.agregarValores(txtNombre.getText(), cmbClase.getSelectedItem().toString());
             
-        PantallaJuego bienvenida = new PantallaJuego();
+       
 
         PantallaJuego jFrame = new PantallaJuego();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
 

@@ -7,7 +7,7 @@ package Menues;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
+import Controlador.ControladorCrearPj;
 /**
  *
  * @author prouser
@@ -23,10 +23,12 @@ public class PantallaJuego extends javax.swing.JFrame {
         this.setSize(800, 600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        
         lblHistoria.setText("<html><br>&nbsp;<font color=#ff0000><b>Felicitaciones! Has creado un personaje, comencemos la historia...</b></font><br></html>");
 
         lblNombre.setText("Nombre");
         lblNumeroNivel.setText("7");
+        
         lblTextoIntro.setText("<html><br>&nbsp;<font color=#99FF99>Para vanzanzar con la historia basta con presionar<p>el boton siguiente, esperamos que lo pases de lo<p>mejor!... Suerte en la aventura!...</font><br></html>");
 
     }
@@ -248,6 +250,22 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     public void setLblHistoria(JLabel lblHistoria) {
         this.lblHistoria = lblHistoria;
+    }
+
+    public JLabel getLblNivel() {
+        return lblNivel;
+    }
+
+    public void setLblNivel(JLabel lblNivel) {
+        this.lblNivel = lblNivel;
+    }
+
+    public JLabel getLblNombre() {
+        return lblNombre;
+    }
+
+    public void setLblNombre(JLabel lblNombre) {
+        this.lblNombre = lblNombre;
     }
 
 

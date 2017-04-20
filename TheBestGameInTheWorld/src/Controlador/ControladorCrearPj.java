@@ -19,8 +19,35 @@ public class ControladorCrearPj {
     public void agregarValores (String nombre, String clase){
     refPersonaje.setNombre(nombre);
     refPersonaje.setClase(clase);
+    refPersonaje.setNivel(1);
+    refPersonaje.setExpMax(20);
+    refPersonaje.setExpMin(0);
+    
+        if (refPersonaje.getClase().equals("Detective")) {
+             //vida, defensa y golpe max min
+            refPersonaje.setVidaMax(10);
+            refPersonaje.setDefensa(10);
+            refPersonaje.setGolpeMax(10);
+            refPersonaje.setGolpeMin(5);
+            
+        }else if(refPersonaje.getClase().equals("Explorador")){
+            //vida, defensa y golpe max min
+            refPersonaje.setVidaMax(8);
+            refPersonaje.setDefensa(12);
+            refPersonaje.setGolpeMax(7);
+            refPersonaje.setGolpeMin(6);
+        
+        } else {
+            //vida, defensa y golpe max min
+            refPersonaje.setVidaMax(12);
+            refPersonaje.setDefensa(8);
+            refPersonaje.setGolpeMax(12);
+            refPersonaje.setGolpeMin(4);
+        }
     
         System.out.println("nombre del pj: "+refPersonaje.getNombre());
         System.out.println("clase del pj: "+refPersonaje.getClase());
+        System.out.println("nivel del pj: "+refPersonaje.getNivel());
+        System.out.println("Vida: "+ refPersonaje.getVidaMax());
     }
 }
