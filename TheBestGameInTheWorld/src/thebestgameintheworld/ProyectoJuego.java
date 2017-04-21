@@ -5,9 +5,8 @@
  */
 package thebestgameintheworld;
 
+import Controlador.ControladorCrearPj;
 import Menues.Main;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 /**
  *
  * @author prouser
@@ -24,6 +23,7 @@ public class ProyectoJuego {
     
     inicio.setVisible (true); 
     
+    ControladorCrearPj mostrar = new ControladorCrearPj();
  
 //     Personaje pj1 = new Personaje();
 //     pj1.crearPj();

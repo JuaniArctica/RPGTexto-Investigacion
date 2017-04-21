@@ -7,6 +7,7 @@ package Menues;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import Controlador.ControladorPantallaJuego;
 import Controlador.ControladorCrearPj;
 /**
  *
@@ -26,8 +27,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         
         lblHistoria.setText("<html><br>&nbsp;<font color=#ff0000><b>Felicitaciones! Has creado un personaje, comencemos la historia...</b></font><br></html>");
 
-        lblNombre.setText("Nombre");
-        lblNumeroNivel.setText("7");
+        txtNombre.setText("llama nombre");
         
         lblTextoIntro.setText("<html><br>&nbsp;<font color=#99FF99>Para vanzanzar con la historia basta con presionar<p>el boton siguiente, esperamos que lo pases de lo<p>mejor!... Suerte en la aventura!...</font><br></html>");
 
@@ -48,7 +48,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnObservar = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
         lblHistoria = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
         lblNumeroNivel = new javax.swing.JLabel();
         lblNivel = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
@@ -63,6 +62,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblNumeroGolpe = new javax.swing.JLabel();
         lblNumeroDefensa1 = new javax.swing.JLabel();
         lblTextoIntro = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,19 +80,19 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnVolver);
-        btnVolver.setBounds(680, 540, 70, 25);
+        btnVolver.setBounds(680, 540, 70, 23);
 
         btnAtacar.setText("Atacar");
         getContentPane().add(btnAtacar);
-        btnAtacar.setBounds(340, 540, 80, 25);
+        btnAtacar.setBounds(340, 540, 80, 23);
 
         btnHuir.setText("Huir");
         getContentPane().add(btnHuir);
-        btnHuir.setBounds(440, 540, 80, 25);
+        btnHuir.setBounds(440, 540, 80, 23);
 
         btnObservar.setText("Ver");
         getContentPane().add(btnObservar);
-        btnObservar.setBounds(240, 540, 80, 25);
+        btnObservar.setBounds(240, 540, 80, 23);
 
         btnSiguiente.setText("Siguiente >>");
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +101,7 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSiguiente);
-        btnSiguiente.setBounds(390, 40, 126, 25);
+        btnSiguiente.setBounds(390, 40, 95, 23);
 
         lblHistoria.setBackground(new java.awt.Color(0, 0, 0));
         lblHistoria.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,12 +111,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblHistoria.setOpaque(true);
         getContentPane().add(lblHistoria);
         lblHistoria.setBounds(12, 88, 506, 437);
-
-        lblNombre.setFont(new java.awt.Font("TlwgMono", 1, 24)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(255, 255, 153));
-        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        getContentPane().add(lblNombre);
-        lblNombre.setBounds(570, 93, 202, 30);
 
         lblNumeroNivel.setBackground(new java.awt.Color(153, 153, 153));
         lblNumeroNivel.setFont(new java.awt.Font("TlwgMono", 1, 36)); // NOI18N
@@ -129,7 +123,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblNivel.setForeground(new java.awt.Color(255, 255, 255));
         lblNivel.setText("Nivel:");
         getContentPane().add(lblNivel);
-        lblNivel.setBounds(663, 44, 68, 26);
+        lblNivel.setBounds(663, 44, 68, 24);
 
         lblDescripcion.setBackground(new java.awt.Color(51, 51, 51));
         lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
@@ -148,12 +142,12 @@ public class PantallaJuego extends javax.swing.JFrame {
         PbExperiencia.setValue(35);
         PbExperiencia.setStringPainted(true);
         getContentPane().add(PbExperiencia);
-        PbExperiencia.setBounds(560, 150, 210, 20);
+        PbExperiencia.setBounds(560, 150, 210, 17);
 
         lblExperiencia.setForeground(new java.awt.Color(255, 255, 255));
         lblExperiencia.setText("Experiencia");
         getContentPane().add(lblExperiencia);
-        lblExperiencia.setBounds(560, 130, 90, 15);
+        lblExperiencia.setBounds(560, 130, 90, 14);
 
         lblVida.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
         lblVida.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,23 +159,23 @@ public class PantallaJuego extends javax.swing.JFrame {
         PbVida.setValue(90);
         PbVida.setStringPainted(true);
         getContentPane().add(PbVida);
-        PbVida.setBounds(80, 540, 140, 20);
+        PbVida.setBounds(80, 540, 140, 17);
 
         lblEnLaMira.setFont(new java.awt.Font("TlwgMono", 1, 16)); // NOI18N
         lblEnLaMira.setForeground(new java.awt.Color(255, 255, 255));
         lblEnLaMira.setText("En la Mira: ");
         getContentPane().add(lblEnLaMira);
-        lblEnLaMira.setBounds(580, 310, 140, 23);
+        lblEnLaMira.setBounds(580, 310, 140, 21);
 
         lblDefensa.setForeground(new java.awt.Color(255, 255, 255));
         lblDefensa.setText("Defensa:");
         getContentPane().add(lblDefensa);
-        lblDefensa.setBounds(560, 180, 70, 15);
+        lblDefensa.setBounds(560, 180, 70, 14);
 
         lblGolpe.setForeground(new java.awt.Color(255, 255, 255));
         lblGolpe.setText("Golpe:");
         getContentPane().add(lblGolpe);
-        lblGolpe.setBounds(670, 180, 60, 15);
+        lblGolpe.setBounds(670, 180, 60, 14);
 
         lblNumeroGolpe.setBackground(new java.awt.Color(0, 0, 0));
         lblNumeroGolpe.setForeground(new java.awt.Color(204, 0, 0));
@@ -204,6 +198,17 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblTextoIntro.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         getContentPane().add(lblTextoIntro);
         lblTextoIntro.setBounds(10, 10, 370, 70);
+
+        txtNombre.setEditable(false);
+        txtNombre.setBackground(new java.awt.Color(204, 204, 204));
+        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNombre);
+        txtNombre.setBounds(560, 90, 230, 30);
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/tablero.jpg"))); // NOI18N
         getContentPane().add(lblFondo);
@@ -260,13 +265,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         this.lblNivel = lblNivel;
     }
 
-    public JLabel getLblNombre() {
-        return lblNombre;
-    }
-
-    public void setLblNombre(JLabel lblNombre) {
-        this.lblNombre = lblNombre;
-    }
 
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
@@ -292,6 +290,10 @@ public class PantallaJuego extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnSiguienteActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+      
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -345,12 +347,12 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel lblHistoria;
     private javax.swing.JLabel lblImagenObjeto;
     private javax.swing.JLabel lblNivel;
-    private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNumeroDefensa1;
     private javax.swing.JLabel lblNumeroGolpe;
     private javax.swing.JLabel lblNumeroNivel;
     private javax.swing.JLabel lblTextoIntro;
     private javax.swing.JLabel lblVida;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 
 }

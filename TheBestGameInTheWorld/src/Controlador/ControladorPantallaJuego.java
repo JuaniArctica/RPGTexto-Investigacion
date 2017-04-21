@@ -10,9 +10,8 @@ package Controlador;
  *
  * @author Juani
  */
-public class ControladorPantallaJuego {
+public class ControladorPantallaJuego extends ControladorCrearPj {
 
-    
     
     
 }

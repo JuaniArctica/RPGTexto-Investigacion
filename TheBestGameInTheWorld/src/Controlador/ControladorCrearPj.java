@@ -10,7 +10,7 @@ import Modelo.Personaje;
  * @author Juani
  */
 public class ControladorCrearPj {
-    private Personaje refPersonaje;
+    public Personaje refPersonaje;
 
     public ControladorCrearPj(){
         refPersonaje = new Personaje();
@@ -45,9 +45,10 @@ public class ControladorCrearPj {
             refPersonaje.setGolpeMin(4);
         }
     
-        System.out.println("nombre del pj: "+refPersonaje.getNombre());
-        System.out.println("clase del pj: "+refPersonaje.getClase());
+        System.out.println("Nombre del pj: "+refPersonaje.getNombre());
+        System.out.println("Clase del pj: "+refPersonaje.getClase());
         System.out.println("nivel del pj: "+refPersonaje.getNivel());
         System.out.println("Vida: "+ refPersonaje.getVidaMax());
+        System.out.println("Ataque: "+refPersonaje.getGolpeMin()+"/"+refPersonaje.getGolpeMax());
     }
 }
