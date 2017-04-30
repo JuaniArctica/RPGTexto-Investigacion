@@ -496,8 +496,24 @@ int contador=  0;
                 String datosSeparados[] = linea.split("<s>");
                 String datoLimpio = datosSeparados[contador];
 
-                    acu += datoLimpio;
-                    txtpHistoria.setText(acu);
+                acu += datoLimpio;
+                    
+                String replace = acu.replace("NPC", "Preparate para el combate!! Criatura Nivel ");                    
+                
+                txtpHistoria.setText(replace);
+                    
+                    
+            if (acu.contains("NPC")) {
+                        
+            txtpHistoria.setForeground(Color.RED);
+              
+            } else {
+            
+            txtpHistoria.setForeground(Color.WHITE);
+            
+            }
+                   
+                    
 
 
             
