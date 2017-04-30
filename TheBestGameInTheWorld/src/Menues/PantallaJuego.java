@@ -364,12 +364,20 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         regenera();
     }//GEN-LAST:event_btnRegeneraActionPerformed
-
+int contador=  0;
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
         // TODO add your handling code here:
 
+        contador++;
+
+        System.out.println("Contador: "+contador);
+        
 
     }//GEN-LAST:event_btnSiguienteMouseClicked
+
+    public int getContador() {
+        return contador;
+    }
 
     /**
      * @param args the command line arguments
@@ -482,24 +490,17 @@ public class PantallaJuego extends javax.swing.JFrame {
 
             String acu = "";
 
-            while ((linea = br.readLine()) != null) {
+           
+                
+              
+                String datosSeparados[] = linea.split("<s>");
+                String datoLimpio = datosSeparados[contador];
 
-                String datosSeparados[] = linea.split("\\.");
-//                boolean datosNpc = linea.contains("NPC1");
-//
-//                if (datosNpc = true) {
-//                    txtpHistoria.setText("assdasaddsadsasadsadsadsdssdsadsadsasaasd");
-//                }
+                    acu += datoLimpio;
+                    txtpHistoria.setText(acu);
 
-                for (String valores : datosSeparados) {
 
-                    txtpHistoria.setText(acu += valores + "\n");
-
-//                    txtpHistoria.setText(datosSeparados[cont]);
-//                    cont++;
-                }
-
-            }
+            
 
         } catch (IOException e) {
         } finally {
