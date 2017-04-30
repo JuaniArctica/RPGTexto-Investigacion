@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author prouser
  */
 public class Combate {
-    
+
 //ATRIBUTOS    
     private int Dados;
     private int Golpear;

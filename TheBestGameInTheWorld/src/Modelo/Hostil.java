@@ -22,8 +22,8 @@ public class Hostil extends Actores {
         super(Nombre, VidaMax, GolpeMax, GolpeMin, Defensa, Nivel);
         this.Experiencia = Experiencia;
     }
-    
-    //METODOS
+
+//METODOS
     public int getExperiencia() {
         return Experiencia;
     }
@@ -38,12 +38,9 @@ public class Hostil extends Actores {
         System.out.println("Golpe: " + Hostil.this.getGolpeMin() + "/" + Hostil.this.getGolpeMax());
         System.out.println("Defensa: " + Hostil.this.getDefensa());
         System.out.println("Otorga " + Hostil.this.getExperiencia() + " puntos de Experiencia.");
-        
+
         return 0;
 
     }
 
-
-    }
-
-
+}

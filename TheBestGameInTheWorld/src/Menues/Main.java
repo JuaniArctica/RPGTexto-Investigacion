@@ -22,9 +22,9 @@ public class Main extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 
-        AudioClip opening;
-        opening = java.applet.Applet.newAudioClip(getClass().getResource("/Menues/Sonidos/presence.mid"));
-        opening.play();
+//        AudioClip opening;
+//        opening = java.applet.Applet.newAudioClip(getClass().getResource("/Menues/Sonidos/presence.mid"));
+//        opening.play();
     }
 
     /**
@@ -45,7 +45,6 @@ public class Main extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("The Best Game In the World"); // NOI18N
         setSize(new java.awt.Dimension(800, 600));
-        setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
 
         btnJugar.setBackground(new java.awt.Color(0, 0, 0));

@@ -7,30 +7,52 @@ package Menues;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import Controlador.ControladorCrearPj;
+import Modelo.Personaje;
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  *
  * @author prouser
  */
 public class PantallaJuego extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PantallaJuego
-     */
-    public PantallaJuego() {
+    private final String ruta = System.getProperties().getProperty("user.dir");
+
+    protected Personaje refPersonaje;
+
+    public PantallaJuego(Personaje refPersonaje) {
 
         initComponents();
+
         this.setSize(800, 600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-        
-        lblHistoria.setText("<html><br>&nbsp;<font color=#ff0000><b>Felicitaciones! Has creado un personaje, comencemos la historia...</b></font><br></html>");
 
-        lblNombre.setText("Nombre");
-        lblNumeroNivel.setText("7");
-        
+        txtpHistoria.setForeground(Color.RED);
+
+        txtpHistoria.setText("Felicitaciones! Has creado un personaje, comencemos la historia...");
+
+        lblNombre.setText(refPersonaje.getNombre());
+        lblNumeroNivel.setText(String.valueOf(refPersonaje.getNivel()));
+        lblNumeroDefensa1.setText(String.valueOf(refPersonaje.getDefensa()));
+        lblNumeroGolpe.setText(String.valueOf(refPersonaje.getGolpeMin()) + "/" + String.valueOf(refPersonaje.getGolpeMax()));
+
+        PbVida.setValue(refPersonaje.getVidaMax()); //Setea como maximo de la barra la vida actual del personaje
+        PbVida.setMaximum(refPersonaje.getVidaMax());
+
+        PbExperiencia.setValue(refPersonaje.getExpMin());
+
         lblTextoIntro.setText("<html><br>&nbsp;<font color=#99FF99>Para vanzanzar con la historia basta con presionar<p>el boton siguiente, esperamos que lo pases de lo<p>mejor!... Suerte en la aventura!...</font><br></html>");
 
+        txtpHistoria.setEditable(false);
+        txtpHistoria.setBackground(Color.BLACK);
+        txtpHistoria.setBorder(null);
     }
 
     /**
@@ -47,7 +69,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnHuir = new javax.swing.JButton();
         btnObservar = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
-        lblHistoria = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         lblNumeroNivel = new javax.swing.JLabel();
         lblNivel = new javax.swing.JLabel();
@@ -63,6 +84,10 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblNumeroGolpe = new javax.swing.JLabel();
         lblNumeroDefensa1 = new javax.swing.JLabel();
         lblTextoIntro = new javax.swing.JLabel();
+        btnGolpe = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtpHistoria = new javax.swing.JTextPane();
+        btnRegenera = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,7 +95,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         setBackground(new java.awt.Color(153, 153, 153));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
-        setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
 
         btnVolver.setText("Salir");
@@ -95,33 +119,31 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnObservar.setBounds(240, 540, 80, 25);
 
         btnSiguiente.setText("Siguiente >>");
+        btnSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSiguienteMouseClicked(evt);
+            }
+        });
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSiguienteActionPerformed(evt);
             }
         });
         getContentPane().add(btnSiguiente);
-        btnSiguiente.setBounds(390, 40, 126, 25);
-
-        lblHistoria.setBackground(new java.awt.Color(0, 0, 0));
-        lblHistoria.setForeground(new java.awt.Color(255, 255, 255));
-        lblHistoria.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblHistoria.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        lblHistoria.setAutoscrolls(true);
-        lblHistoria.setOpaque(true);
-        getContentPane().add(lblHistoria);
-        lblHistoria.setBounds(12, 88, 506, 437);
+        btnSiguiente.setBounds(390, 40, 127, 25);
 
         lblNombre.setFont(new java.awt.Font("TlwgMono", 1, 24)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(255, 255, 153));
+        lblNombre.setForeground(new java.awt.Color(204, 0, 0));
         lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombre.setText("Damian");
         getContentPane().add(lblNombre);
-        lblNombre.setBounds(570, 93, 202, 30);
+        lblNombre.setBounds(520, 20, 202, 30);
 
         lblNumeroNivel.setBackground(new java.awt.Color(153, 153, 153));
         lblNumeroNivel.setFont(new java.awt.Font("TlwgMono", 1, 36)); // NOI18N
         lblNumeroNivel.setForeground(new java.awt.Color(255, 255, 255));
         lblNumeroNivel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNumeroNivel.setText("1");
         getContentPane().add(lblNumeroNivel);
         lblNumeroNivel.setBounds(733, 35, 39, 35);
 
@@ -143,29 +165,34 @@ public class PantallaJuego extends javax.swing.JFrame {
         getContentPane().add(lblImagenObjeto);
         lblImagenObjeto.setBounds(700, 250, 80, 80);
 
-        PbExperiencia.setForeground(new java.awt.Color(0, 102, 102));
+        PbExperiencia.setForeground(new java.awt.Color(255, 255, 51));
         PbExperiencia.setToolTipText("");
-        PbExperiencia.setValue(35);
         PbExperiencia.setStringPainted(true);
         getContentPane().add(PbExperiencia);
-        PbExperiencia.setBounds(560, 150, 210, 20);
+        PbExperiencia.setBounds(620, 110, 140, 20);
 
+        lblExperiencia.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         lblExperiencia.setForeground(new java.awt.Color(255, 255, 255));
         lblExperiencia.setText("Experiencia");
         getContentPane().add(lblExperiencia);
-        lblExperiencia.setBounds(560, 130, 90, 15);
+        lblExperiencia.setBounds(550, 110, 90, 20);
 
-        lblVida.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
+        lblVida.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         lblVida.setForeground(new java.awt.Color(255, 255, 255));
         lblVida.setText("Vida");
         getContentPane().add(lblVida);
-        lblVida.setBounds(30, 543, 51, 15);
+        lblVida.setBounds(550, 140, 70, 15);
 
-        PbVida.setForeground(new java.awt.Color(102, 0, 0));
-        PbVida.setValue(90);
+        PbVida.setForeground(new java.awt.Color(255, 0, 0));
+        PbVida.setToolTipText("");
         PbVida.setStringPainted(true);
+        PbVida.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PbVidaMouseClicked(evt);
+            }
+        });
         getContentPane().add(PbVida);
-        PbVida.setBounds(80, 540, 140, 20);
+        PbVida.setBounds(590, 140, 170, 20);
 
         lblEnLaMira.setFont(new java.awt.Font("TlwgMono", 1, 16)); // NOI18N
         lblEnLaMira.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,15 +200,17 @@ public class PantallaJuego extends javax.swing.JFrame {
         getContentPane().add(lblEnLaMira);
         lblEnLaMira.setBounds(580, 310, 140, 23);
 
+        lblDefensa.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         lblDefensa.setForeground(new java.awt.Color(255, 255, 255));
         lblDefensa.setText("Defensa:");
         getContentPane().add(lblDefensa);
-        lblDefensa.setBounds(560, 180, 70, 15);
+        lblDefensa.setBounds(550, 170, 60, 13);
 
+        lblGolpe.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         lblGolpe.setForeground(new java.awt.Color(255, 255, 255));
         lblGolpe.setText("Golpe:");
         getContentPane().add(lblGolpe);
-        lblGolpe.setBounds(670, 180, 60, 15);
+        lblGolpe.setBounds(680, 170, 36, 13);
 
         lblNumeroGolpe.setBackground(new java.awt.Color(0, 0, 0));
         lblNumeroGolpe.setForeground(new java.awt.Color(204, 0, 0));
@@ -189,21 +218,58 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblNumeroGolpe.setText("10/50");
         lblNumeroGolpe.setOpaque(true);
         getContentPane().add(lblNumeroGolpe);
-        lblNumeroGolpe.setBounds(720, 180, 55, 20);
+        lblNumeroGolpe.setBounds(720, 170, 40, 20);
 
         lblNumeroDefensa1.setBackground(new java.awt.Color(0, 0, 0));
         lblNumeroDefensa1.setForeground(new java.awt.Color(0, 153, 0));
         lblNumeroDefensa1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNumeroDefensa1.setText("50");
+        lblNumeroDefensa1.setText("3");
         lblNumeroDefensa1.setOpaque(true);
         getContentPane().add(lblNumeroDefensa1);
-        lblNumeroDefensa1.setBounds(630, 180, 30, 20);
+        lblNumeroDefensa1.setBounds(610, 170, 20, 20);
 
         lblTextoIntro.setForeground(new java.awt.Color(102, 255, 102));
         lblTextoIntro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTextoIntro.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         getContentPane().add(lblTextoIntro);
         lblTextoIntro.setBounds(10, 10, 370, 70);
+
+        btnGolpe.setBackground(new java.awt.Color(204, 0, 0));
+        btnGolpe.setForeground(new java.awt.Color(255, 255, 255));
+        btnGolpe.setText("Golpe");
+        btnGolpe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGolpeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGolpe);
+        btnGolpe.setBounds(20, 540, 80, 25);
+
+        jScrollPane2.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane2.setForeground(new java.awt.Color(153, 204, 0));
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setToolTipText("");
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane2.setAutoscrolls(true);
+
+        txtpHistoria.setEditable(false);
+        txtpHistoria.setBorder(null);
+        txtpHistoria.setForeground(new java.awt.Color(255, 0, 0));
+        txtpHistoria.setSelectionColor(new java.awt.Color(102, 255, 102));
+        jScrollPane2.setViewportView(txtpHistoria);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(30, 90, 480, 440);
+
+        btnRegenera.setBackground(new java.awt.Color(102, 255, 102));
+        btnRegenera.setText("Curar");
+        btnRegenera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegeneraActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRegenera);
+        btnRegenera.setBounds(110, 540, 80, 25);
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/tablero.jpg"))); // NOI18N
         getContentPane().add(lblFondo);
@@ -244,14 +310,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         this.btnVolver = btnVolver;
     }
 
-    public JLabel getLblHistoria() {
-        return lblHistoria;
-    }
-
-    public void setLblHistoria(JLabel lblHistoria) {
-        this.lblHistoria = lblHistoria;
-    }
-
     public JLabel getLblNivel() {
         return lblNivel;
     }
@@ -280,18 +338,38 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        // TODO add your handling code here:
 
         lblTextoIntro.setVisible(false);
-        lblHistoria.setText("<html><font color=#ffffff> <style= text-align: justify> <br>‘Todos los niños van al cielo’ le había dicho su madre poco tiempo"
-                + " antes de morir, ‘y te prometo que yo también estaré ahí y cuidaré de tu hermanito."
-                + " Y juntos vendremos a buscarte pronto’. Es difícil para un niño de seis años aceptar"
-                + " que su madre ya no estará a su lado, pero más aún comprender que algo llamado muerte"
-                + " sea el responsable de arrebatarle todo lo que le hacía bien: primero su hermanito, "
-                + " que nunca llegó a nacer, y poquitísimo tiempo después a su madre.</style></font></html>");
+
+        incrementaTexto();
 
 
     }//GEN-LAST:event_btnSiguienteActionPerformed
+
+    private void PbVidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PbVidaMouseClicked
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_PbVidaMouseClicked
+
+    private void btnGolpeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGolpeActionPerformed
+        // TODO add your handling code here:
+
+        golpe();
+
+
+    }//GEN-LAST:event_btnGolpeActionPerformed
+
+    private void btnRegeneraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegeneraActionPerformed
+
+        regenera();
+    }//GEN-LAST:event_btnRegeneraActionPerformed
+
+    private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_btnSiguienteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -323,7 +401,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaJuego().setVisible(true);
+                new PantallaJuego(new Personaje()).setVisible(true);
             }
         });
     }
@@ -332,17 +410,19 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JProgressBar PbExperiencia;
     private javax.swing.JProgressBar PbVida;
     private javax.swing.JButton btnAtacar;
+    private javax.swing.JButton btnGolpe;
     private javax.swing.JButton btnHuir;
     private javax.swing.JButton btnObservar;
+    private javax.swing.JButton btnRegenera;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblDefensa;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblEnLaMira;
     private javax.swing.JLabel lblExperiencia;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblGolpe;
-    private javax.swing.JLabel lblHistoria;
     private javax.swing.JLabel lblImagenObjeto;
     private javax.swing.JLabel lblNivel;
     private javax.swing.JLabel lblNombre;
@@ -351,6 +431,87 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel lblNumeroNivel;
     private javax.swing.JLabel lblTextoIntro;
     private javax.swing.JLabel lblVida;
+    private javax.swing.JTextPane txtpHistoria;
     // End of variables declaration//GEN-END:variables
+
+    private void golpe() {
+
+        int max = 5;
+        int min = 1;
+        PbVida.setValue((int) (PbVida.getValue() - Math.floor((Math.random() * max) + min)));
+    }
+
+    private void regenera() {
+
+        int pociones = 10;
+
+        int max = 3;
+        int min = 1;
+
+        if (pociones > 0) {
+
+            PbVida.setValue((int) (PbVida.getValue() + Math.floor((Math.random() * max) + min)));
+
+        } else {
+
+            PbVida.setValue(PbVida.getValue() + 0);
+
+        }
+
+    }
+
+    public void incrementaTexto() {
+
+        txtpHistoria.setForeground(Color.WHITE);
+
+////////LECTURA DE TXT Y SETEO EN LBLHISTORIA///////////////////////////////////
+        File archivo = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+
+        try {
+            // Apertura del fichero y creacion de BufferedReader para poder
+            // hacer una lectura comoda (disponer del metodo readLine()).
+            archivo = new File(ruta + "//archivo.txt");
+            fr = new FileReader(archivo);
+            br = new BufferedReader(fr);
+
+            // Lectura del fichero
+            String linea;
+            linea = br.readLine();
+
+            String acu = "";
+
+            while ((linea = br.readLine()) != null) {
+
+                String datosSeparados[] = linea.split("\\.");
+//                boolean datosNpc = linea.contains("NPC1");
+//
+//                if (datosNpc = true) {
+//                    txtpHistoria.setText("assdasaddsadsasadsadsadsdssdsadsadsasaasd");
+//                }
+
+                for (String valores : datosSeparados) {
+
+                    txtpHistoria.setText(acu += valores + "\n");
+
+//                    txtpHistoria.setText(datosSeparados[cont]);
+//                    cont++;
+                }
+
+            }
+
+        } catch (IOException e) {
+        } finally {
+            try {
+                if (null != fr) {
+                    fr.close();
+                }
+            } catch (IOException e2) {
+            }
+        }
+////////////////////////////////////////////////////////////////////////////////// 
+
+    }
 
 }

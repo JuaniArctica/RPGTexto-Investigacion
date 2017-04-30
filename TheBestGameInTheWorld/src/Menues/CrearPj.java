@@ -6,25 +6,27 @@
 package Menues;
 
 import javax.swing.JTextField;
-import Controlador.ControladorCrearPj;
+import Modelo.Personaje;
+
 /**
  *
  * @author prouser
  */
 public class CrearPj extends javax.swing.JFrame {
-    
-private ControladorCrearPj refControlador;    
+
+    protected Personaje refPersonaje;
+
     public CrearPj() {
         initComponents();
         this.setSize(800, 600);
         lblFondo.setSize(800, 600);
         lblImagenAvatar.setVisible(false);
         lblDescripcion.setVisible(false);
-        
+
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-        refControlador = new Controlador.ControladorCrearPj();
 
+        refPersonaje = new Personaje();
     }
 
     /**
@@ -59,13 +61,13 @@ private ControladorCrearPj refControlador;
         setName("The Best Game In the World"); // NOI18N
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
-        setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
 
         cmbClase.setBackground(new java.awt.Color(0, 0, 0));
         cmbClase.setFont(new java.awt.Font("TlwgMono", 1, 12)); // NOI18N
         cmbClase.setForeground(new java.awt.Color(255, 255, 255));
         cmbClase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Detective", "Explorador", "Policia" }));
+        cmbClase.setToolTipText("");
         cmbClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbClaseActionPerformed(evt);
@@ -216,26 +218,24 @@ private ControladorCrearPj refControlador;
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarActionPerformed
-    
-        refControlador.agregarValores(txtNombre.getText(), cmbClase.getSelectedItem().toString());
-            
-       
 
-        PantallaJuego jFrame = new PantallaJuego();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
+        refPersonaje.agregarValores(txtNombre.getText(), cmbClase.getSelectedItem().toString());
 
-        if (txtNombre.getText().length() == 0 && cmbClase.getSelectedItem().equals("..." )) {
-            
+        PantallaJuego jFrame = new PantallaJuego(refPersonaje);//"Frame2" es el nombre que  le pusiste al 2do jframe
+
+        if (txtNombre.getText().length() == 0 && cmbClase.getSelectedItem().equals("...")) {
+
             lblError.setText("Falta colocar nombre y clase");
-            
-        }else if (cmbClase.getSelectedItem().equals("...")) {
-            
-            lblError.setText("Falta colocar clase");  
-            
-        }else if (txtNombre.getText().length() == 0){    
-            
-                  lblError.setText("Falta colocar nombre");
+
+        } else if (cmbClase.getSelectedItem().equals("...")) {
+
+            lblError.setText("Falta colocar clase");
+
+        } else if (txtNombre.getText().length() == 0) {
+
+            lblError.setText("Falta colocar nombre");
         } else {
-            
+
             jFrame.setVisible(true);
             this.dispose();
 
@@ -253,7 +253,6 @@ private ControladorCrearPj refControlador;
     }
 
     private void cmbClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClaseActionPerformed
-        // TODO add your handling code here:
 
         if (cmbClase.getSelectedItem().equals("Detective")) {
 
@@ -266,7 +265,7 @@ private ControladorCrearPj refControlador;
             lblValor2.setText("10");
             lblValor3.setText("5/10");
             lblImagenAvatar.setVisible(true);
-            lblDescripcion.setVisible(true);            
+            lblDescripcion.setVisible(true);
 
         } else if (cmbClase.getSelectedItem().equals("Policia")) {
 
@@ -279,7 +278,7 @@ private ControladorCrearPj refControlador;
             lblValor2.setText("8");
             lblValor3.setText("4/12");
             lblImagenAvatar.setVisible(true);
-            lblDescripcion.setVisible(true);            
+            lblDescripcion.setVisible(true);
 
         } else if (cmbClase.getSelectedItem().equals("Explorador")) {
             lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/explorador.jpg")));
@@ -309,7 +308,6 @@ private ControladorCrearPj refControlador;
     }//GEN-LAST:event_cmbClaseActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-    
 
 
     }//GEN-LAST:event_txtNombreActionPerformed

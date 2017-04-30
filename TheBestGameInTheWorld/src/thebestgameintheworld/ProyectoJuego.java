@@ -6,8 +6,6 @@
 package thebestgameintheworld;
 
 import Menues.Main;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 /**
  *
  * @author prouser
@@ -25,17 +23,7 @@ public class ProyectoJuego {
     inicio.setVisible (true); 
     
  
-//     Personaje pj1 = new Personaje();
-//     pj1.crearPj();
-//    
-//    Combate comb1 = new Combate();
-//    
-//    
-//    //SALIDAS DE PANTALLA
-//    
-//  
-//
-//        
+       
 //    comb1.quienAtaca();
 
 
