@@ -514,7 +514,12 @@ int contador=  0;
             }
                    
                     
-
+            if (datoLimpio.contains("NPC1")) {
+                        
+            System.out.println("Llamamos combate con Npc Nivel 1");
+                
+            } else {
+            }
 
             
 
