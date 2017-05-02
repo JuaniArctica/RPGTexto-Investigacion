@@ -9,12 +9,13 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import Modelo.Personaje;
 import java.awt.Color;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.BorderFactory;
+import static javax.swing.SwingConstants.VERTICAL;
+import javax.swing.border.Border;
 
 /**
  *
@@ -36,7 +37,10 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         txtpHistoria.setForeground(Color.RED);
 
-        txtpHistoria.setText("Felicitaciones! Has creado un personaje, comencemos la historia...");
+        txtpHistoria.setText("Felicitaciones! Has creado un personaje, comencemos la historia... "
+                + "Para comenzar con la historia basta con presionar el boton 'Siguiente >>' en"
+                + "la parte inferior derecha de la pantalla, "
+                + "esperamos que lo pases de lo mejor!... Suerte en la aventura!...");
 
         lblNombre.setText(refPersonaje.getNombre());
         lblNumeroNivel.setText(String.valueOf(refPersonaje.getNivel()));
@@ -48,11 +52,20 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         PbExperiencia.setValue(refPersonaje.getExpMin());
 
-        lblTextoIntro.setText("<html><br>&nbsp;<font color=#99FF99>Para vanzanzar con la historia basta con presionar<p>el boton siguiente, esperamos que lo pases de lo<p>mejor!... Suerte en la aventura!...</font><br></html>");
+
 
         txtpHistoria.setEditable(false);
         txtpHistoria.setBackground(Color.BLACK);
         txtpHistoria.setBorder(null);
+        
+        PbVida.setOrientation(VERTICAL);
+        PbExperiencia.setOrientation(VERTICAL);
+        
+        btnAtacar.setVisible(false);
+        btnHuir.setVisible(false);
+        btnObservar.setVisible(false); 
+        
+
     }
 
     /**
@@ -64,30 +77,36 @@ public class PantallaJuego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblNumeroPociones = new javax.swing.JLabel();
+        btnRegenera = new javax.swing.JButton();
+        lblCuracion = new javax.swing.JLabel();
+        lblExperiencia = new javax.swing.JLabel();
+        lblVida = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
         btnAtacar = new javax.swing.JButton();
         btnHuir = new javax.swing.JButton();
         btnObservar = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
         lblNombre = new javax.swing.JLabel();
+        lblfondoNombre = new javax.swing.JLabel();
         lblNumeroNivel = new javax.swing.JLabel();
         lblNivel = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
-        lblImagenObjeto = new javax.swing.JLabel();
+        lblImagenPj = new javax.swing.JLabel();
         PbExperiencia = new javax.swing.JProgressBar();
-        lblExperiencia = new javax.swing.JLabel();
-        lblVida = new javax.swing.JLabel();
         PbVida = new javax.swing.JProgressBar();
-        lblEnLaMira = new javax.swing.JLabel();
         lblDefensa = new javax.swing.JLabel();
         lblGolpe = new javax.swing.JLabel();
         lblNumeroGolpe = new javax.swing.JLabel();
         lblNumeroDefensa1 = new javax.swing.JLabel();
-        lblTextoIntro = new javax.swing.JLabel();
         btnGolpe = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtpHistoria = new javax.swing.JTextPane();
-        btnRegenera = new javax.swing.JButton();
+        lblFotos = new javax.swing.JLabel();
+        lblImagenObjeto = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,28 +116,88 @@ public class PantallaJuego extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(null);
 
-        btnVolver.setText("Salir");
+        lblNumeroPociones.setBackground(new java.awt.Color(0, 0, 0));
+        lblNumeroPociones.setForeground(new java.awt.Color(255, 255, 255));
+        lblNumeroPociones.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNumeroPociones.setText("10");
+        lblNumeroPociones.setOpaque(true);
+        getContentPane().add(lblNumeroPociones);
+        lblNumeroPociones.setBounds(760, 170, 20, 20);
+
+        btnRegenera.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegenera.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        btnRegenera.setForeground(new java.awt.Color(255, 0, 0));
+        btnRegenera.setText("+");
+        btnRegenera.setBorderPainted(false);
+        btnRegenera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegeneraActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRegenera);
+        btnRegenera.setBounds(700, 180, 50, 10);
+
+        lblCuracion.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        lblCuracion.setForeground(new java.awt.Color(255, 255, 255));
+        lblCuracion.setText("Curación");
+        getContentPane().add(lblCuracion);
+        lblCuracion.setBounds(700, 165, 60, 13);
+
+        lblExperiencia.setBackground(new java.awt.Color(0, 0, 0));
+        lblExperiencia.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        lblExperiencia.setForeground(new java.awt.Color(255, 255, 255));
+        lblExperiencia.setText("Exp");
+        getContentPane().add(lblExperiencia);
+        lblExperiencia.setBounds(753, 350, 30, 20);
+
+        lblVida.setBackground(new java.awt.Color(0, 0, 0));
+        lblVida.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        lblVida.setForeground(new java.awt.Color(255, 255, 255));
+        lblVida.setText("Vida");
+        getContentPane().add(lblVida);
+        lblVida.setBounds(700, 350, 30, 20);
+
+        btnVolver.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        btnVolver.setText("X");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
             }
         });
         getContentPane().add(btnVolver);
-        btnVolver.setBounds(680, 540, 70, 25);
+        btnVolver.setBounds(740, 16, 40, 10);
 
+        btnAtacar.setBackground(new java.awt.Color(51, 0, 0));
+        btnAtacar.setForeground(new java.awt.Color(204, 0, 0));
         btnAtacar.setText("Atacar");
+        btnAtacar.setBorderPainted(false);
+        btnAtacar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtacarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAtacar);
-        btnAtacar.setBounds(340, 540, 80, 25);
+        btnAtacar.setBounds(500, 500, 80, 25);
 
+        btnHuir.setBackground(new java.awt.Color(0, 51, 0));
+        btnHuir.setForeground(new java.awt.Color(51, 204, 0));
         btnHuir.setText("Huir");
+        btnHuir.setBorderPainted(false);
         getContentPane().add(btnHuir);
-        btnHuir.setBounds(440, 540, 80, 25);
+        btnHuir.setBounds(600, 500, 80, 25);
 
+        btnObservar.setBackground(new java.awt.Color(0, 51, 51));
+        btnObservar.setForeground(new java.awt.Color(0, 102, 204));
         btnObservar.setText("Ver");
+        btnObservar.setBorderPainted(false);
         getContentPane().add(btnObservar);
-        btnObservar.setBounds(240, 540, 80, 25);
+        btnObservar.setBounds(700, 500, 80, 25);
+
+        btnSiguiente.setBackground(new java.awt.Color(177, 151, 75));
+        btnSiguiente.setForeground(new java.awt.Color(0, 0, 0));
 
         btnSiguiente.setText("Siguiente >>");
+        btnSiguiente.setBorderPainted(false);
         btnSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSiguienteMouseClicked(evt);
@@ -130,61 +209,60 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSiguiente);
-        btnSiguiente.setBounds(390, 40, 127, 25);
+        btnSiguiente.setBounds(500, 530, 280, 20);
 
-        lblNombre.setFont(new java.awt.Font("TlwgMono", 1, 24)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(204, 0, 0));
-        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombre.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombre.setText("Damian");
         getContentPane().add(lblNombre);
-        lblNombre.setBounds(520, 20, 202, 30);
+        lblNombre.setBounds(700, 140, 80, 20);
+
+        lblfondoNombre.setBackground(new java.awt.Color(0, 0, 0));
+        lblfondoNombre.setOpaque(true);
+        getContentPane().add(lblfondoNombre);
+        lblfondoNombre.setBounds(700, 140, 80, 20);
 
         lblNumeroNivel.setBackground(new java.awt.Color(153, 153, 153));
-        lblNumeroNivel.setFont(new java.awt.Font("TlwgMono", 1, 36)); // NOI18N
+        lblNumeroNivel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblNumeroNivel.setForeground(new java.awt.Color(255, 255, 255));
-        lblNumeroNivel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNumeroNivel.setText("1");
+        lblNumeroNivel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNumeroNivel.setText("10");
         getContentPane().add(lblNumeroNivel);
-        lblNumeroNivel.setBounds(733, 35, 39, 35);
+        lblNumeroNivel.setBounds(750, 40, 30, 20);
 
-        lblNivel.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
+        lblNivel.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         lblNivel.setForeground(new java.awt.Color(255, 255, 255));
         lblNivel.setText("Nivel:");
         getContentPane().add(lblNivel);
-        lblNivel.setBounds(663, 44, 68, 26);
+        lblNivel.setBounds(700, 40, 68, 20);
 
-        lblDescripcion.setBackground(new java.awt.Color(51, 51, 51));
+        lblDescripcion.setBackground(new java.awt.Color(0, 0, 0));
         lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
-        lblDescripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        lblDescripcion.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         lblDescripcion.setOpaque(true);
         getContentPane().add(lblDescripcion);
-        lblDescripcion.setBounds(580, 340, 202, 180);
+        lblDescripcion.setBounds(500, 390, 180, 100);
 
-        lblImagenObjeto.setBackground(new java.awt.Color(255, 255, 255));
-        lblImagenObjeto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
-        getContentPane().add(lblImagenObjeto);
-        lblImagenObjeto.setBounds(700, 250, 80, 80);
+        lblImagenPj.setBackground(new java.awt.Color(0, 0, 0));
+        lblImagenPj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImagenPj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/raininghelm.gif"))); // NOI18N
+        lblImagenPj.setOpaque(true);
+        getContentPane().add(lblImagenPj);
+        lblImagenPj.setBounds(700, 60, 80, 80);
 
-        PbExperiencia.setForeground(new java.awt.Color(255, 255, 51));
+        PbExperiencia.setForeground(new java.awt.Color(0, 102, 153));
         PbExperiencia.setToolTipText("");
+        PbExperiencia.setValue(50);
+        PbExperiencia.setBorderPainted(false);
         PbExperiencia.setStringPainted(true);
         getContentPane().add(PbExperiencia);
-        PbExperiencia.setBounds(620, 110, 140, 20);
+        PbExperiencia.setBounds(750, 260, 30, 90);
 
-        lblExperiencia.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        lblExperiencia.setForeground(new java.awt.Color(255, 255, 255));
-        lblExperiencia.setText("Experiencia");
-        getContentPane().add(lblExperiencia);
-        lblExperiencia.setBounds(550, 110, 90, 20);
-
-        lblVida.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        lblVida.setForeground(new java.awt.Color(255, 255, 255));
-        lblVida.setText("Vida");
-        getContentPane().add(lblVida);
-        lblVida.setBounds(550, 140, 70, 15);
-
-        PbVida.setForeground(new java.awt.Color(255, 0, 0));
+        PbVida.setForeground(new java.awt.Color(153, 0, 0));
         PbVida.setToolTipText("");
+        PbVida.setValue(50);
+        PbVida.setBorderPainted(false);
         PbVida.setStringPainted(true);
         PbVida.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -192,25 +270,19 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(PbVida);
-        PbVida.setBounds(590, 140, 170, 20);
-
-        lblEnLaMira.setFont(new java.awt.Font("TlwgMono", 1, 16)); // NOI18N
-        lblEnLaMira.setForeground(new java.awt.Color(255, 255, 255));
-        lblEnLaMira.setText("En la Mira: ");
-        getContentPane().add(lblEnLaMira);
-        lblEnLaMira.setBounds(580, 310, 140, 23);
+        PbVida.setBounds(700, 260, 30, 90);
 
         lblDefensa.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         lblDefensa.setForeground(new java.awt.Color(255, 255, 255));
         lblDefensa.setText("Defensa:");
         getContentPane().add(lblDefensa);
-        lblDefensa.setBounds(550, 170, 60, 13);
+        lblDefensa.setBounds(700, 200, 60, 13);
 
         lblGolpe.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         lblGolpe.setForeground(new java.awt.Color(255, 255, 255));
         lblGolpe.setText("Golpe:");
         getContentPane().add(lblGolpe);
-        lblGolpe.setBounds(680, 170, 36, 13);
+        lblGolpe.setBounds(700, 230, 36, 13);
 
         lblNumeroGolpe.setBackground(new java.awt.Color(0, 0, 0));
         lblNumeroGolpe.setForeground(new java.awt.Color(204, 0, 0));
@@ -218,32 +290,27 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblNumeroGolpe.setText("10/50");
         lblNumeroGolpe.setOpaque(true);
         getContentPane().add(lblNumeroGolpe);
-        lblNumeroGolpe.setBounds(720, 170, 40, 20);
+        lblNumeroGolpe.setBounds(740, 230, 40, 20);
 
         lblNumeroDefensa1.setBackground(new java.awt.Color(0, 0, 0));
-        lblNumeroDefensa1.setForeground(new java.awt.Color(0, 153, 0));
+        lblNumeroDefensa1.setForeground(new java.awt.Color(0, 102, 153));
         lblNumeroDefensa1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNumeroDefensa1.setText("3");
         lblNumeroDefensa1.setOpaque(true);
         getContentPane().add(lblNumeroDefensa1);
-        lblNumeroDefensa1.setBounds(610, 170, 20, 20);
-
-        lblTextoIntro.setForeground(new java.awt.Color(102, 255, 102));
-        lblTextoIntro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblTextoIntro.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        getContentPane().add(lblTextoIntro);
-        lblTextoIntro.setBounds(10, 10, 370, 70);
+        lblNumeroDefensa1.setBounds(760, 200, 20, 20);
 
         btnGolpe.setBackground(new java.awt.Color(204, 0, 0));
+        btnGolpe.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         btnGolpe.setForeground(new java.awt.Color(255, 255, 255));
-        btnGolpe.setText("Golpe");
+        btnGolpe.setBorderPainted(false);
         btnGolpe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGolpeActionPerformed(evt);
             }
         });
         getContentPane().add(btnGolpe);
-        btnGolpe.setBounds(20, 540, 80, 25);
+        btnGolpe.setBounds(710, 16, 20, 10);
 
         jScrollPane2.setBackground(new java.awt.Color(0, 0, 0));
         jScrollPane2.setForeground(new java.awt.Color(153, 204, 0));
@@ -255,23 +322,44 @@ public class PantallaJuego extends javax.swing.JFrame {
         txtpHistoria.setEditable(false);
         txtpHistoria.setBorder(null);
         txtpHistoria.setForeground(new java.awt.Color(255, 0, 0));
+        txtpHistoria.setMargin(new java.awt.Insets(5, 5, 5, 5));
         txtpHistoria.setSelectionColor(new java.awt.Color(102, 255, 102));
         jScrollPane2.setViewportView(txtpHistoria);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(30, 90, 480, 440);
+        jScrollPane2.setBounds(20, 390, 460, 160);
 
-        btnRegenera.setBackground(new java.awt.Color(102, 255, 102));
-        btnRegenera.setText("Curar");
-        btnRegenera.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegeneraActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnRegenera);
-        btnRegenera.setBounds(110, 540, 80, 25);
+        lblFotos.setBackground(new java.awt.Color(0, 0, 0));
+        lblFotos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFotos.setOpaque(true);
+        getContentPane().add(lblFotos);
+        lblFotos.setBounds(40, 60, 610, 280);
 
-        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/tablero.jpg"))); // NOI18N
+        lblImagenObjeto.setBackground(new java.awt.Color(0, 0, 0));
+        lblImagenObjeto.setOpaque(true);
+        getContentPane().add(lblImagenObjeto);
+        lblImagenObjeto.setBounds(700, 390, 80, 100);
+
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setOpaque(true);
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(16, 40, 660, 320);
+
+        jLabel3.setBackground(new java.awt.Color(255, 204, 51));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/base.jpg"))); // NOI18N
+        jLabel3.setOpaque(true);
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 370, 800, 210);
+
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/barra.jpg"))); // NOI18N
+        jLabel4.setOpaque(true);
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(0, 10, 800, 20);
+
+        lblFondo.setBackground(new java.awt.Color(102, 102, 102));
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/orig_92048.jpg"))); // NOI18N
+        lblFondo.setOpaque(true);
         getContentPane().add(lblFondo);
         lblFondo.setBounds(0, 0, 800, 600);
 
@@ -339,8 +427,6 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
 
-        lblTextoIntro.setVisible(false);
-
         incrementaTexto();
 
 
@@ -360,9 +446,27 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnGolpeActionPerformed
 
+    int pociones = 10;
+    
+   
     private void btnRegeneraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegeneraActionPerformed
+   
+         lblNumeroPociones.setText(String.valueOf(pociones));          
+         
+         if (pociones>0) {
+         
+  
+             
+             pociones --;
+             regenera();
+             
+         } else {
+             
+             lblDescripcion.setText("<html><font color=ff0000> No hay mas pociones!</font></html>");
+         }
+        
 
-        regenera();
+
     }//GEN-LAST:event_btnRegeneraActionPerformed
 int contador=  0;
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
@@ -372,11 +476,31 @@ int contador=  0;
 
         System.out.println("Contador: "+contador);
         
+        switch (contador) {
+            case 1:
+                lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/im5.jpeg")));
+                break;
+            case 2:
+                lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/payaso.jpg")));  
+                break;
+            case 3:
+                lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/im4.jpg")));
+                break;
+            default:
+                break;
+        }
+        
 
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
+    private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAtacarActionPerformed
+
     public int getContador() {
         return contador;
+        
+
     }
 
     /**
@@ -424,21 +548,27 @@ int contador=  0;
     private javax.swing.JButton btnRegenera;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblCuracion;
     private javax.swing.JLabel lblDefensa;
     private javax.swing.JLabel lblDescripcion;
-    private javax.swing.JLabel lblEnLaMira;
     private javax.swing.JLabel lblExperiencia;
     private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblFotos;
     private javax.swing.JLabel lblGolpe;
     private javax.swing.JLabel lblImagenObjeto;
+    private javax.swing.JLabel lblImagenPj;
     private javax.swing.JLabel lblNivel;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNumeroDefensa1;
     private javax.swing.JLabel lblNumeroGolpe;
     private javax.swing.JLabel lblNumeroNivel;
-    private javax.swing.JLabel lblTextoIntro;
+    private javax.swing.JLabel lblNumeroPociones;
     private javax.swing.JLabel lblVida;
+    private javax.swing.JLabel lblfondoNombre;
     private javax.swing.JTextPane txtpHistoria;
     // End of variables declaration//GEN-END:variables
 
@@ -469,7 +599,10 @@ int contador=  0;
     }
 
     public void incrementaTexto() {
+       
 
+
+        
         txtpHistoria.setForeground(Color.WHITE);
 
 ////////LECTURA DE TXT Y SETEO EN LBLHISTORIA///////////////////////////////////
@@ -488,9 +621,7 @@ int contador=  0;
             String linea;
             linea = br.readLine();
 
-            String acu = "";
-
-           
+            String acu = "";  
                 
               
                 String datosSeparados[] = linea.split("<s>");
@@ -501,22 +632,30 @@ int contador=  0;
                 String replace = acu.replace("NPC", "Preparate para el combate!! Criatura Nivel ");                    
                 
                 txtpHistoria.setText(replace);
-                    
+
                     
             if (acu.contains("NPC")) {
                         
             txtpHistoria.setForeground(Color.RED);
+            
+                btnAtacar.setVisible(true);
+                btnHuir.setVisible(true);
+                btnObservar.setVisible(true);
               
             } else {
             
             txtpHistoria.setForeground(Color.WHITE);
+            
+                btnAtacar.setVisible(false);
+                btnHuir.setVisible(false);
+                btnObservar.setVisible(false);            
             
             }
                    
                     
             if (datoLimpio.contains("NPC1")) {
                         
-            System.out.println("Llamamos combate con Npc Nivel 1");
+                        System.out.println("Llamamos combate con Npc Nivel 1");
                 
             } else {
             }
@@ -528,8 +667,10 @@ int contador=  0;
             try {
                 if (null != fr) {
                     fr.close();
+
                 }
             } catch (IOException e2) {
+
             }
         }
 ////////////////////////////////////////////////////////////////////////////////// 
