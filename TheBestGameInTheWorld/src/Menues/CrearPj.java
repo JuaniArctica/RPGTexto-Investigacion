@@ -61,6 +61,7 @@ public class CrearPj extends javax.swing.JFrame {
         setName("The Best Game In the World"); // NOI18N
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
+        setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
 
         cmbClase.setBackground(new java.awt.Color(0, 0, 0));

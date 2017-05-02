@@ -45,6 +45,7 @@ public class Main extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("The Best Game In the World"); // NOI18N
         setSize(new java.awt.Dimension(800, 600));
+        setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
 
         btnJugar.setBackground(new java.awt.Color(0, 0, 0));
@@ -89,9 +90,9 @@ public class Main extends javax.swing.JFrame {
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
         // TODO add your handling code here:
 
-        CrearPj jFrame = new CrearPj();
+        CrearPj ventana = new CrearPj();
 
-        jFrame.setVisible(true);
+        ventana.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_btnJugarActionPerformed

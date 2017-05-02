@@ -13,9 +13,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import javax.swing.BorderFactory;
 import static javax.swing.SwingConstants.VERTICAL;
-import javax.swing.border.Border;
 
 /**
  *
@@ -37,10 +35,10 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         txtpHistoria.setForeground(Color.RED);
 
-        txtpHistoria.setText("Felicitaciones! Has creado un personaje, comencemos la historia... "
-                + "Para comenzar con la historia basta con presionar el boton 'Siguiente >>' en"
-                + "la parte inferior derecha de la pantalla, "
-                + "esperamos que lo pases de lo mejor!... Suerte en la aventura!...");
+        txtpHistoria.setText("Felicitaciones "+refPersonaje.getClase()+ " "+ refPersonaje.getNombre()+"!, ya eres parte de esta historia... "
+                + "Para comenzar basta con presionar el boton 'Siguiente >>' en"
+                + " la parte inferior derecha de la pantalla, "
+                + "esperamos que lo pases de lo mejor!... Suerte en la aventura...");
 
         lblNombre.setText(refPersonaje.getNombre());
         lblNumeroNivel.setText(String.valueOf(refPersonaje.getNivel()));
@@ -66,6 +64,9 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnObservar.setVisible(false); 
         
 
+    }  
+
+    PantallaJuego() {
     }
 
     /**
@@ -110,10 +111,10 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
         setBackground(new java.awt.Color(153, 153, 153));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
+        setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
 
         lblNumeroPociones.setBackground(new java.awt.Color(0, 0, 0));
@@ -157,15 +158,18 @@ public class PantallaJuego extends javax.swing.JFrame {
         getContentPane().add(lblVida);
         lblVida.setBounds(700, 350, 30, 20);
 
+        btnVolver.setBackground(new java.awt.Color(0, 0, 0));
         btnVolver.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
-        btnVolver.setText("X");
+        btnVolver.setForeground(new java.awt.Color(204, 204, 204));
+        btnVolver.setText("Menú");
+        btnVolver.setBorderPainted(false);
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
             }
         });
         getContentPane().add(btnVolver);
-        btnVolver.setBounds(740, 16, 40, 10);
+        btnVolver.setBounds(720, 16, 60, 10);
 
         btnAtacar.setBackground(new java.awt.Color(51, 0, 0));
         btnAtacar.setForeground(new java.awt.Color(204, 0, 0));
@@ -238,8 +242,10 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblNivel.setBounds(700, 40, 68, 20);
 
         lblDescripcion.setBackground(new java.awt.Color(0, 0, 0));
+        lblDescripcion.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblDescripcion.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Descripción", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 10), new java.awt.Color(153, 153, 153))); // NOI18N
         lblDescripcion.setOpaque(true);
         getContentPane().add(lblDescripcion);
         lblDescripcion.setBounds(500, 390, 180, 100);
@@ -248,6 +254,14 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblImagenPj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImagenPj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/raininghelm.gif"))); // NOI18N
         lblImagenPj.setOpaque(true);
+        lblImagenPj.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblImagenPjMousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagenPjMouseClicked(evt);
+            }
+        });
         getContentPane().add(lblImagenPj);
         lblImagenPj.setBounds(700, 60, 80, 80);
 
@@ -276,13 +290,13 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblDefensa.setForeground(new java.awt.Color(255, 255, 255));
         lblDefensa.setText("Defensa:");
         getContentPane().add(lblDefensa);
-        lblDefensa.setBounds(700, 200, 60, 13);
+        lblDefensa.setBounds(700, 202, 60, 13);
 
         lblGolpe.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         lblGolpe.setForeground(new java.awt.Color(255, 255, 255));
         lblGolpe.setText("Golpe:");
         getContentPane().add(lblGolpe);
-        lblGolpe.setBounds(700, 230, 36, 13);
+        lblGolpe.setBounds(700, 233, 36, 13);
 
         lblNumeroGolpe.setBackground(new java.awt.Color(0, 0, 0));
         lblNumeroGolpe.setForeground(new java.awt.Color(204, 0, 0));
@@ -310,7 +324,7 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnGolpe);
-        btnGolpe.setBounds(710, 16, 20, 10);
+        btnGolpe.setBounds(690, 16, 20, 10);
 
         jScrollPane2.setBackground(new java.awt.Color(0, 0, 0));
         jScrollPane2.setForeground(new java.awt.Color(153, 204, 0));
@@ -418,10 +432,10 @@ public class PantallaJuego extends javax.swing.JFrame {
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
 
-        Main jFrame = new Main();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
+        MenuSalir jFrame = new MenuSalir();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
 
         jFrame.setVisible(true);
-        this.dispose();
+     //   this.dispose();
 
     }//GEN-LAST:event_btnVolverActionPerformed
 
@@ -446,7 +460,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnGolpeActionPerformed
 
-    int pociones = 10;
+    int pociones = 10; // Damos 10 pociones iniciales
     
    
     private void btnRegeneraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegeneraActionPerformed
@@ -497,11 +511,18 @@ int contador=  0;
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAtacarActionPerformed
 
-    public int getContador() {
-        return contador;
-        
+    private void lblImagenPjMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenPjMouseClicked
+        // TODO add your handling code here:
 
-    }
+
+    }//GEN-LAST:event_lblImagenPjMouseClicked
+
+    private void lblImagenPjMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenPjMousePressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_lblImagenPjMousePressed
+
+
 
     /**
      * @param args the command line arguments
@@ -578,6 +599,8 @@ int contador=  0;
         int min = 1;
         PbVida.setValue((int) (PbVida.getValue() - Math.floor((Math.random() * max) + min)));
     }
+    
+        
 
     private void regenera() {
 
@@ -675,6 +698,6 @@ int contador=  0;
         }
 ////////////////////////////////////////////////////////////////////////////////// 
 
-    }
+    }  
 
 }
