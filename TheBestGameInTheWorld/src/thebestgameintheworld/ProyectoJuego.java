@@ -6,28 +6,20 @@
 package thebestgameintheworld;
 
 import Menues.Main;
+
 /**
  *
  * @author prouser
  */
 public class ProyectoJuego {
-    
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    
-    Main inicio = new Main();
-    
-    inicio.setVisible (true); 
-    
- 
-       
-//    comb1.quienAtaca();
 
+        Main inicio = new Main();
 
-}
-
-
+        inicio.setVisible(true);
+    }
 }

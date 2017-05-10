@@ -10,7 +10,8 @@ package Modelo;
  * @author Juani
  */
 public abstract class Actores {
-
+    
+    //Atributos
     protected String Nombre;
     protected int VidaMax;
     protected int GolpeMax;
@@ -77,5 +78,4 @@ public abstract class Actores {
     public void setNivel(int Nivel) {
         this.Nivel = Nivel;
     }
-
 }

@@ -46,9 +46,8 @@ public class NpcList {
 
         int rnd = (int) (Math.random() * arrayNpc.length);
 
-        System.out.println(arrayNpc[rnd].NpcGetEstado());
+        //System.out.println(arrayNpc[rnd].NpcGetEstado());
+        
         return 0;
-
     }
-
 }

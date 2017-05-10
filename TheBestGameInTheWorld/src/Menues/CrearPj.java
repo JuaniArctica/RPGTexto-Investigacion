@@ -5,8 +5,7 @@
  */
 package Menues;
 
-import javax.swing.JTextField;
-import Modelo.Personaje;
+import Controlador.ControladorPersonaje;
 
 /**
  *
@@ -14,9 +13,10 @@ import Modelo.Personaje;
  */
 public class CrearPj extends javax.swing.JFrame {
 
-    protected Personaje refPersonaje;
+    ControladorPersonaje controladorPersonaje = new ControladorPersonaje();
 
     public CrearPj() {
+        
         initComponents();
         this.setSize(800, 600);
         lblFondo.setSize(800, 600);
@@ -25,8 +25,6 @@ public class CrearPj extends javax.swing.JFrame {
 
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-
-        refPersonaje = new Personaje();
     }
 
     /**
@@ -208,50 +206,42 @@ public class CrearPj extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        // TODO add your handling code here:
 
-        Main jFrame = new Main();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
+        Main main = new Main();
 
-        jFrame.setVisible(true);
+        main.setVisible(true);
         this.dispose();
-
-
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarActionPerformed
 
-        refPersonaje.agregarValores(txtNombre.getText(), cmbClase.getSelectedItem().toString());
+        controladorPersonaje.agregarValores(txtNombre.getText(), cmbClase.getSelectedItem().toString());
 
-        PantallaJuego jFrame = new PantallaJuego(refPersonaje);//"Frame2" es el nombre que  le pusiste al 2do jframe
+        PantallaJuego pantallaJuego = new PantallaJuego(controladorPersonaje);
 
         if (txtNombre.getText().length() == 0 && cmbClase.getSelectedItem().equals("...")) {
 
             lblError.setText("Falta colocar nombre y clase");
-
         } else if (cmbClase.getSelectedItem().equals("...")) {
 
             lblError.setText("Falta colocar clase");
-
         } else if (txtNombre.getText().length() == 0) {
 
             lblError.setText("Falta colocar nombre");
         } else {
 
-            jFrame.setVisible(true);
+            pantallaJuego.setVisible(true);
             this.dispose();
-
         }
-
-
     }//GEN-LAST:event_btnComenzarActionPerformed
 
-    public JTextField getTxtNombre() {
-        return txtNombre;
-    }
-
-    public void setTxtNombre(JTextField txtNombre) {
-        this.txtNombre = txtNombre;
-    }
+//    public JTextField getTxtNombre() {
+//        return txtNombre;
+//    }
+//
+//    public void setTxtNombre(JTextField txtNombre) {
+//        this.txtNombre = txtNombre;
+//    }
 
     private void cmbClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClaseActionPerformed
 
@@ -267,7 +257,6 @@ public class CrearPj extends javax.swing.JFrame {
             lblValor3.setText("5/10");
             lblImagenAvatar.setVisible(true);
             lblDescripcion.setVisible(true);
-
         } else if (cmbClase.getSelectedItem().equals("Policia")) {
 
             lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/policia.jpg")));
@@ -280,8 +269,8 @@ public class CrearPj extends javax.swing.JFrame {
             lblValor3.setText("4/12");
             lblImagenAvatar.setVisible(true);
             lblDescripcion.setVisible(true);
-
         } else if (cmbClase.getSelectedItem().equals("Explorador")) {
+            
             lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/explorador.jpg")));
             lblDescripcion.setText("<html><center>Para explorar hay que ser ágil<p>"
                     + " y esa es una caracteristica<p>"
@@ -292,9 +281,8 @@ public class CrearPj extends javax.swing.JFrame {
             lblValor3.setText("6/7");
             lblImagenAvatar.setVisible(true);
             lblDescripcion.setVisible(true);
-
         } else {
-
+            
             lblImagenAvatar.setIcon(null);
             lblDescripcion.setText("");
             lblValor1.setText("");
@@ -302,53 +290,49 @@ public class CrearPj extends javax.swing.JFrame {
             lblValor3.setText("");
             lblImagenAvatar.setVisible(false);
             lblDescripcion.setVisible(false);
-
         }
-
-
     }//GEN-LAST:event_cmbClaseActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-
 
     }//GEN-LAST:event_txtNombreActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CrearPj.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CrearPj.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CrearPj.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CrearPj.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CrearPj().setVisible(true);
-
-            }
-
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(CrearPj.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(CrearPj.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(CrearPj.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(CrearPj.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new CrearPj().setVisible(true);
+//
+//            }
+//
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnComenzar;

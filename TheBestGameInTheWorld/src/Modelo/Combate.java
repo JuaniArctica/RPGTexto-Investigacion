@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Controlador.ControladorPersonaje;
 import Controlador.NpcList;
 import javax.swing.JOptionPane;
 
@@ -14,6 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class Combate {
 
+    private ControladorPersonaje refControlador;
+    
 //ATRIBUTOS    
     private int Dados;
     private int Golpear;

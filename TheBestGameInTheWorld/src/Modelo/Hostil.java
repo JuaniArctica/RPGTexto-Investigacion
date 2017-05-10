@@ -11,10 +11,10 @@ package Modelo;
  */
 public class Hostil extends Actores {
 
-//ATRIBUTOS    
+    //Atributos
     private int Experiencia;
 
-//CONSTRUCTORES    
+    //Constructores
     public Hostil() {
     }
 
@@ -23,7 +23,7 @@ public class Hostil extends Actores {
         this.Experiencia = Experiencia;
     }
 
-//METODOS
+    //Metodos
     public int getExperiencia() {
         return Experiencia;
     }
@@ -31,16 +31,4 @@ public class Hostil extends Actores {
     public void setExperiencia(int Experiencia) {
         this.Experiencia = Experiencia;
     }
-
-    public int NpcGetEstado() {
-        System.out.println("Nombre: " + Hostil.this.getNombre() + " - Nivel " + Hostil.this.getNivel());
-        System.out.println("Vida: " + Hostil.this.getVidaMax());
-        System.out.println("Golpe: " + Hostil.this.getGolpeMin() + "/" + Hostil.this.getGolpeMax());
-        System.out.println("Defensa: " + Hostil.this.getDefensa());
-        System.out.println("Otorga " + Hostil.this.getExperiencia() + " puntos de Experiencia.");
-
-        return 0;
-
-    }
-
 }

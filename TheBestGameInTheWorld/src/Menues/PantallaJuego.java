@@ -5,9 +5,9 @@
  */
 package Menues;
 
+import Controlador.ControladorPersonaje;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import Modelo.Personaje;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,9 +23,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private final String ruta = System.getProperties().getProperty("user.dir");
 
-    protected Personaje refPersonaje;
-
-    public PantallaJuego(Personaje refPersonaje) {
+    public PantallaJuego(ControladorPersonaje controladorPersonaje) {
 
         initComponents();
 
@@ -35,38 +33,36 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         txtpHistoria.setForeground(Color.RED);
 
-        txtpHistoria.setText("Felicitaciones "+refPersonaje.getClase()+ " "+ refPersonaje.getNombre()+"!, ya eres parte de esta historia... "
+        txtpHistoria.setText("Felicitaciones " + controladorPersonaje.getPersonaje1().getClase() + " " + controladorPersonaje.getPersonaje1().getNombre()
+                + "!, ya eres parte de esta historia... "
                 + "Para comenzar basta con presionar el boton 'Siguiente >>' en"
                 + " la parte inferior derecha de la pantalla, "
                 + "esperamos que lo pases de lo mejor!... Suerte en la aventura...");
 
-        lblNombre.setText(refPersonaje.getNombre());
-        lblNumeroNivel.setText(String.valueOf(refPersonaje.getNivel()));
-        lblNumeroDefensa1.setText(String.valueOf(refPersonaje.getDefensa()));
-        lblNumeroGolpe.setText(String.valueOf(refPersonaje.getGolpeMin()) + "/" + String.valueOf(refPersonaje.getGolpeMax()));
+        lblNombre.setText(controladorPersonaje.getPersonaje1().getNombre());
+        lblNumeroNivel.setText(String.valueOf(controladorPersonaje.getPersonaje1().getNivel()));
+        lblNumeroDefensa1.setText(String.valueOf(controladorPersonaje.getPersonaje1().getDefensa()));
+        lblNumeroGolpe.setText(String.valueOf(controladorPersonaje.getPersonaje1().getGolpeMin()) + "/" + String.valueOf(controladorPersonaje.getPersonaje1().getGolpeMax()));
 
-        PbVida.setValue(refPersonaje.getVidaMax()); //Setea como maximo de la barra la vida actual del personaje
-        PbVida.setMaximum(refPersonaje.getVidaMax());
+        PbVida.setValue(controladorPersonaje.getPersonaje1().getVidaMax()); //Setea como maximo de la barra la vida actual del personaje
+        PbVida.setMaximum(controladorPersonaje.getPersonaje1().getVidaMax());
 
-        PbExperiencia.setValue(refPersonaje.getExpMin());
-
-
+        PbExperiencia.setValue(controladorPersonaje.getPersonaje1().getExpMin());
 
         txtpHistoria.setEditable(false);
         txtpHistoria.setBackground(Color.BLACK);
         txtpHistoria.setBorder(null);
-        
+
         PbVida.setOrientation(VERTICAL);
         PbExperiencia.setOrientation(VERTICAL);
-        
+
         btnAtacar.setVisible(false);
         btnHuir.setVisible(false);
-        btnObservar.setVisible(false); 
-        
-
-    }  
+        btnObservar.setVisible(false);
+    }
 
     PantallaJuego() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -380,122 +376,107 @@ public class PantallaJuego extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public JButton getBtnAtacar() {
-        return btnAtacar;
-    }
-
-    public void setBtnAtacar(JButton btnAtacar) {
-        this.btnAtacar = btnAtacar;
-    }
-
-    public JButton getBtnHuir() {
-        return btnHuir;
-    }
-
-    public void setBtnHuir(JButton btnHuir) {
-        this.btnHuir = btnHuir;
-    }
-
-    public JButton getBtnObservar() {
-        return btnObservar;
-    }
-
-    public void setBtnObservar(JButton btnObservar) {
-        this.btnObservar = btnObservar;
-    }
-
-    public JButton getBtnVolver() {
-        return btnVolver;
-    }
-
-    public void setBtnVolver(JButton btnVolver) {
-        this.btnVolver = btnVolver;
-    }
-
-    public JLabel getLblNivel() {
-        return lblNivel;
-    }
-
-    public void setLblNivel(JLabel lblNivel) {
-        this.lblNivel = lblNivel;
-    }
-
-    public JLabel getLblNombre() {
-        return lblNombre;
-    }
-
-    public void setLblNombre(JLabel lblNombre) {
-        this.lblNombre = lblNombre;
-    }
+//    public JButton getBtnAtacar() {
+//        return btnAtacar;
+//    }
+//
+//    public void setBtnAtacar(JButton btnAtacar) {
+//        this.btnAtacar = btnAtacar;
+//    }
+//
+//    public JButton getBtnHuir() {
+//        return btnHuir;
+//    }
+//
+//    public void setBtnHuir(JButton btnHuir) {
+//        this.btnHuir = btnHuir;
+//    }
+//
+//    public JButton getBtnObservar() {
+//        return btnObservar;
+//    }
+//
+//    public void setBtnObservar(JButton btnObservar) {
+//        this.btnObservar = btnObservar;
+//    }
+//
+//    public JButton getBtnVolver() {
+//        return btnVolver;
+//    }
+//
+//    public void setBtnVolver(JButton btnVolver) {
+//        this.btnVolver = btnVolver;
+//    }
+//
+//    public JLabel getLblNivel() {
+//        return lblNivel;
+//    }
+//
+//    public void setLblNivel(JLabel lblNivel) {
+//        this.lblNivel = lblNivel;
+//    }
+//
+//    public JLabel getLblNombre() {
+//        return lblNombre;
+//    }
+//
+//    public void setLblNombre(JLabel lblNombre) {
+//        this.lblNombre = lblNombre;
+//    }
 
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        // TODO add your handling code here:
 
-        MenuSalir jFrame = new MenuSalir();//"Frame2" es el nombre que  le pusiste a tu 2do jframe
+        MenuSalir menuSalir = new MenuSalir();
 
-        jFrame.setVisible(true);
-     //   this.dispose();
-
+        menuSalir.setVisible(true);
+        //this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
 
         incrementaTexto();
-
-
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void PbVidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PbVidaMouseClicked
         // TODO add your handling code here:
-
-
     }//GEN-LAST:event_PbVidaMouseClicked
 
     private void btnGolpeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGolpeActionPerformed
-        // TODO add your handling code here:
 
         golpe();
-
-
     }//GEN-LAST:event_btnGolpeActionPerformed
 
     int pociones = 10; // Damos 10 pociones iniciales
-    
-   
+
     private void btnRegeneraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegeneraActionPerformed
-   
-         lblNumeroPociones.setText(String.valueOf(pociones));          
-         
-         if (pociones>0) {
-         
-  
-             
-             pociones --;
-             regenera();
-             
-         } else {
-             
-             lblDescripcion.setText("<html><font color=ff0000> No hay mas pociones!</font></html>");
-         }
-        
 
+        lblNumeroPociones.setText(String.valueOf(pociones));
 
+        if (pociones > 0) {
+
+            pociones--;
+            regenera();
+        } else {
+
+            lblDescripcion.setText("<html><font color=ff0000> No hay mas pociones!</font></html>");
+        }
     }//GEN-LAST:event_btnRegeneraActionPerformed
-int contador=  0;
+   
+    int contador = 0;
+    
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        // TODO add your handling code here:
 
         contador++;
 
-        System.out.println("Contador: "+contador);
-        
+        System.out.println("Contador: " + contador);
+
         switch (contador) {
             case 1:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/im5.jpeg")));
                 break;
             case 2:
-                lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/payaso.jpg")));  
+                lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/payaso.jpg")));
                 break;
             case 3:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/im4.jpg")));
@@ -503,8 +484,6 @@ int contador=  0;
             default:
                 break;
         }
-        
-
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
@@ -513,51 +492,46 @@ int contador=  0;
 
     private void lblImagenPjMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenPjMouseClicked
         // TODO add your handling code here:
-
-
     }//GEN-LAST:event_lblImagenPjMouseClicked
 
     private void lblImagenPjMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenPjMousePressed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_lblImagenPjMousePressed
-
-
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PantallaJuego(new Personaje()).setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(PantallaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(PantallaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(PantallaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(PantallaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new PantallaJuego().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar PbExperiencia;
@@ -599,8 +573,6 @@ int contador=  0;
         int min = 1;
         PbVida.setValue((int) (PbVida.getValue() - Math.floor((Math.random() * max) + min)));
     }
-    
-        
 
     private void regenera() {
 
@@ -612,28 +584,23 @@ int contador=  0;
         if (pociones > 0) {
 
             PbVida.setValue((int) (PbVida.getValue() + Math.floor((Math.random() * max) + min)));
-
         } else {
 
             PbVida.setValue(PbVida.getValue() + 0);
-
         }
-
     }
 
     public void incrementaTexto() {
-       
 
-
-        
         txtpHistoria.setForeground(Color.WHITE);
 
-////////LECTURA DE TXT Y SETEO EN LBLHISTORIA///////////////////////////////////
+        //Lectura de txt y set en lblHistoria
         File archivo = null;
         FileReader fr = null;
         BufferedReader br = null;
 
         try {
+            
             // Apertura del fichero y creacion de BufferedReader para poder
             // hacer una lectura comoda (disponer del metodo readLine()).
             archivo = new File(ruta + "//archivo.txt");
@@ -644,60 +611,49 @@ int contador=  0;
             String linea;
             linea = br.readLine();
 
-            String acu = "";  
-                
-              
-                String datosSeparados[] = linea.split("<s>");
-                String datoLimpio = datosSeparados[contador];
+            String acu = "";
 
-                acu += datoLimpio;
-                    
-                String replace = acu.replace("NPC", "Preparate para el combate!! Criatura Nivel ");                    
-                
-                txtpHistoria.setText(replace);
+            String datosSeparados[] = linea.split("<s>");
+            String datoLimpio = datosSeparados[contador];
 
-                    
+            acu += datoLimpio;
+
+            String replace = acu.replace("NPC", "Preparate para el combate!! Criatura Nivel ");
+
+            txtpHistoria.setText(replace);
+
             if (acu.contains("NPC")) {
-                        
-            txtpHistoria.setForeground(Color.RED);
-            
+
+                txtpHistoria.setForeground(Color.RED);
+
                 btnAtacar.setVisible(true);
                 btnHuir.setVisible(true);
                 btnObservar.setVisible(true);
-              
             } else {
-            
-            txtpHistoria.setForeground(Color.WHITE);
-            
+
+                txtpHistoria.setForeground(Color.WHITE);
+
                 btnAtacar.setVisible(false);
                 btnHuir.setVisible(false);
-                btnObservar.setVisible(false);            
-            
-            }
-                   
-                    
-            if (datoLimpio.contains("NPC1")) {
-                        
-                        System.out.println("Llamamos combate con Npc Nivel 1");
-                
-            } else {
+                btnObservar.setVisible(false);
             }
 
-            
+            if (datoLimpio.contains("NPC1")) {
+
+                System.out.println("Llamamos combate con Npc Nivel 1");
+            } else {
+            }
 
         } catch (IOException e) {
         } finally {
+            
             try {
                 if (null != fr) {
                     fr.close();
 
                 }
             } catch (IOException e2) {
-
             }
         }
-////////////////////////////////////////////////////////////////////////////////// 
-
-    }  
-
+    }
 }
