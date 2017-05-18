@@ -5,21 +5,24 @@
  */
 package thebestgameintheworld;
 
-import Menues.Main;
+import Menues.Reso;
+import java.awt.GraphicsDevice;
+
+
 
 /**
  *
  * @author prouser
  */
+
+
 public class ProyectoJuego {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-
-        Main inicio = new Main();
-
-        inicio.setVisible(true);
+                  
+    public static void main(String[] args, GraphicsDevice device) {            
+       
+        Reso ventana = new Reso(device);
+        ventana.setVisible(true);
+        
     }
 }

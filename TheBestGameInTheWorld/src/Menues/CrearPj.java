@@ -6,6 +6,8 @@
 package Menues;
 
 import Controlador.ControladorPersonaje;
+import java.awt.Color;
+
 
 /**
  *
@@ -18,13 +20,20 @@ public class CrearPj extends javax.swing.JFrame {
     public CrearPj() {
         
         initComponents();
-        this.setSize(800, 600);
-        lblFondo.setSize(800, 600);
+        
+        
+
+        this.getContentPane().setBackground(Color.BLACK);
+        
+        
+        this.setSize(800 , 600);
+
         lblImagenAvatar.setVisible(false);
         lblDescripcion.setVisible(false);
 
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        
+        this.setDefaultCloseOperation(CrearPj.EXIT_ON_CLOSE);
     }
 
     /**
@@ -41,7 +50,6 @@ public class CrearPj extends javax.swing.JFrame {
         btnComenzar = new javax.swing.JButton();
         lblCreaPj = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
-        lblImagenAvatar = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         lblGolpe = new javax.swing.JLabel();
         lblSeleccionaClase2 = new javax.swing.JLabel();
@@ -49,9 +57,10 @@ public class CrearPj extends javax.swing.JFrame {
         lblValor2 = new javax.swing.JLabel();
         lblValor3 = new javax.swing.JLabel();
         lblDefensa = new javax.swing.JLabel();
-        lblDescripcion = new javax.swing.JLabel();
         lblVida = new javax.swing.JLabel();
         lblError = new javax.swing.JLabel();
+        lblImagenAvatar = new javax.swing.JLabel();
+        lblDescripcion = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
 
         setTitle("The Best Game in the World");
@@ -78,7 +87,6 @@ public class CrearPj extends javax.swing.JFrame {
         btnVolver.setBackground(new java.awt.Color(0, 0, 0));
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver");
-        btnVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 153, 153), null, null));
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
@@ -90,7 +98,6 @@ public class CrearPj extends javax.swing.JFrame {
         btnComenzar.setBackground(new java.awt.Color(0, 0, 0));
         btnComenzar.setForeground(new java.awt.Color(255, 255, 255));
         btnComenzar.setText("Comenzar");
-        btnComenzar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 153, 153), null, null));
         btnComenzar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnComenzarActionPerformed(evt);
@@ -112,13 +119,6 @@ public class CrearPj extends javax.swing.JFrame {
         lblNombre.setOpaque(true);
         getContentPane().add(lblNombre);
         lblNombre.setBounds(30, 100, 100, 24);
-
-        lblImagenAvatar.setBackground(new java.awt.Color(0, 0, 0));
-        lblImagenAvatar.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        lblImagenAvatar.setForeground(new java.awt.Color(255, 255, 255));
-        lblImagenAvatar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
-        getContentPane().add(lblImagenAvatar);
-        lblImagenAvatar.setBounds(540, 100, 230, 320);
 
         txtNombre.setFont(new java.awt.Font("TlwgMono", 2, 24)); // NOI18N
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -174,15 +174,6 @@ public class CrearPj extends javax.swing.JFrame {
         getContentPane().add(lblDefensa);
         lblDefensa.setBounds(30, 430, 100, 24);
 
-        lblDescripcion.setBackground(new java.awt.Color(0, 0, 0));
-        lblDescripcion.setFont(new java.awt.Font("TlwgMono", 1, 12)); // NOI18N
-        lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
-        lblDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDescripcion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        lblDescripcion.setOpaque(true);
-        getContentPane().add(lblDescripcion);
-        lblDescripcion.setBounds(540, 430, 230, 80);
-
         lblVida.setBackground(new java.awt.Color(0, 0, 0));
         lblVida.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
         lblVida.setForeground(new java.awt.Color(255, 255, 255));
@@ -194,6 +185,26 @@ public class CrearPj extends javax.swing.JFrame {
         lblError.setForeground(new java.awt.Color(255, 0, 0));
         getContentPane().add(lblError);
         lblError.setBounds(30, 35, 320, 30);
+
+        lblImagenAvatar.setBackground(new java.awt.Color(0, 0, 0));
+        lblImagenAvatar.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lblImagenAvatar.setForeground(new java.awt.Color(255, 255, 255));
+        lblImagenAvatar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblImagenAvatar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblImagenAvatar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        lblImagenAvatar.setFocusable(false);
+        lblImagenAvatar.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        getContentPane().add(lblImagenAvatar);
+        lblImagenAvatar.setBounds(540, 100, 230, 320);
+
+        lblDescripcion.setBackground(new java.awt.Color(0, 0, 0));
+        lblDescripcion.setFont(new java.awt.Font("TlwgMono", 1, 12)); // NOI18N
+        lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
+        lblDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDescripcion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        lblDescripcion.setOpaque(true);
+        getContentPane().add(lblDescripcion);
+        lblDescripcion.setBounds(540, 430, 230, 80);
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 0));
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/fondo1.jpg"))); // NOI18N

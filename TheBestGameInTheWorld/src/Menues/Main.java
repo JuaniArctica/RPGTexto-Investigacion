@@ -5,6 +5,7 @@
  */
 package Menues;
 
+import java.awt.Color;
 /**
  *
  * @author prouser
@@ -13,13 +14,18 @@ public class Main extends javax.swing.JFrame {
 
     /**
      * Creates new form Main
-     */
+     */   
     public Main() {
-        
+
         initComponents();
-        this.setSize(800, 600);
+        this.getContentPane().setBackground(Color.BLACK);
+        
+        this.setSize(800 , 600);
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(Main.EXIT_ON_CLOSE);
+
+
+        
 
 //        AudioClip opening;
 //        opening = java.applet.Applet.newAudioClip(getClass().getResource("/Menues/Sonidos/presence.mid"));
@@ -41,6 +47,7 @@ public class Main extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("The Best Game In the World"); // NOI18N
         setUndecorated(true);
@@ -89,7 +96,6 @@ public class Main extends javax.swing.JFrame {
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
 
         CrearPj crearPj = new CrearPj();
-
         crearPj.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnJugarActionPerformed

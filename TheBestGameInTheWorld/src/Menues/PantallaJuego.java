@@ -6,8 +6,6 @@
 package Menues;
 
 import Controlador.ControladorPersonaje;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
@@ -27,7 +25,10 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         initComponents();
 
-        this.setSize(800, 600);
+        this.getContentPane().setBackground(Color.BLACK);
+        
+        
+        this.setSize(800 , 600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 
@@ -374,55 +375,6 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-//    public JButton getBtnAtacar() {
-//        return btnAtacar;
-//    }
-//
-//    public void setBtnAtacar(JButton btnAtacar) {
-//        this.btnAtacar = btnAtacar;
-//    }
-//
-//    public JButton getBtnHuir() {
-//        return btnHuir;
-//    }
-//
-//    public void setBtnHuir(JButton btnHuir) {
-//        this.btnHuir = btnHuir;
-//    }
-//
-//    public JButton getBtnObservar() {
-//        return btnObservar;
-//    }
-//
-//    public void setBtnObservar(JButton btnObservar) {
-//        this.btnObservar = btnObservar;
-//    }
-//
-//    public JButton getBtnVolver() {
-//        return btnVolver;
-//    }
-//
-//    public void setBtnVolver(JButton btnVolver) {
-//        this.btnVolver = btnVolver;
-//    }
-//
-//    public JLabel getLblNivel() {
-//        return lblNivel;
-//    }
-//
-//    public void setLblNivel(JLabel lblNivel) {
-//        this.lblNivel = lblNivel;
-//    }
-//
-//    public JLabel getLblNombre() {
-//        return lblNombre;
-//    }
-//
-//    public void setLblNombre(JLabel lblNombre) {
-//        this.lblNombre = lblNombre;
-//    }
-
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
