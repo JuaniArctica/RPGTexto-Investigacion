@@ -108,9 +108,9 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
+        setUndecorated(true);
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
-        setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
 
         lblNumeroPociones.setBackground(new java.awt.Color(0, 0, 0));
@@ -138,7 +138,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblCuracion.setForeground(new java.awt.Color(255, 255, 255));
         lblCuracion.setText("Curación");
         getContentPane().add(lblCuracion);
-        lblCuracion.setBounds(700, 165, 60, 13);
+        lblCuracion.setBounds(700, 165, 60, 14);
 
         lblExperiencia.setBackground(new java.awt.Color(0, 0, 0));
         lblExperiencia.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
@@ -177,24 +177,23 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAtacar);
-        btnAtacar.setBounds(500, 500, 80, 25);
+        btnAtacar.setBounds(500, 500, 80, 23);
 
         btnHuir.setBackground(new java.awt.Color(0, 51, 0));
         btnHuir.setForeground(new java.awt.Color(51, 204, 0));
         btnHuir.setText("Huir");
         btnHuir.setBorderPainted(false);
         getContentPane().add(btnHuir);
-        btnHuir.setBounds(600, 500, 80, 25);
+        btnHuir.setBounds(600, 500, 80, 23);
 
         btnObservar.setBackground(new java.awt.Color(0, 51, 51));
         btnObservar.setForeground(new java.awt.Color(0, 102, 204));
         btnObservar.setText("Ver");
         btnObservar.setBorderPainted(false);
         getContentPane().add(btnObservar);
-        btnObservar.setBounds(700, 500, 80, 25);
+        btnObservar.setBounds(700, 500, 80, 23);
 
         btnSiguiente.setBackground(new java.awt.Color(177, 151, 75));
-        btnSiguiente.setForeground(new java.awt.Color(0, 0, 0));
 
         btnSiguiente.setText("Siguiente >>");
         btnSiguiente.setBorderPainted(false);
@@ -286,13 +285,13 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblDefensa.setForeground(new java.awt.Color(255, 255, 255));
         lblDefensa.setText("Defensa:");
         getContentPane().add(lblDefensa);
-        lblDefensa.setBounds(700, 202, 60, 13);
+        lblDefensa.setBounds(700, 202, 60, 14);
 
         lblGolpe.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         lblGolpe.setForeground(new java.awt.Color(255, 255, 255));
         lblGolpe.setText("Golpe:");
         getContentPane().add(lblGolpe);
-        lblGolpe.setBounds(700, 233, 36, 13);
+        lblGolpe.setBounds(700, 233, 32, 14);
 
         lblNumeroGolpe.setBackground(new java.awt.Color(0, 0, 0));
         lblNumeroGolpe.setForeground(new java.awt.Color(204, 0, 0));
@@ -535,7 +534,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar PbExperiencia;
-    private javax.swing.JProgressBar PbVida;
+    public javax.swing.JProgressBar PbVida;
     private javax.swing.JButton btnAtacar;
     private javax.swing.JButton btnGolpe;
     private javax.swing.JButton btnHuir;

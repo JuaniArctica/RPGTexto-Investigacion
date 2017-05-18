@@ -43,8 +43,8 @@ public class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("The Best Game In the World"); // NOI18N
+        setUndecorated(true);
         setSize(new java.awt.Dimension(800, 600));
-        setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
 
         btnJugar.setBackground(new java.awt.Color(0, 0, 0));

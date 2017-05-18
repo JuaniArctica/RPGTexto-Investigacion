@@ -57,9 +57,9 @@ public class CrearPj extends javax.swing.JFrame {
         setTitle("The Best Game in the World");
         setBackground(new java.awt.Color(0, 0, 0));
         setName("The Best Game In the World"); // NOI18N
+        setUndecorated(true);
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
-        setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
 
         cmbClase.setBackground(new java.awt.Color(0, 0, 0));
@@ -73,7 +73,7 @@ public class CrearPj extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cmbClase);
-        cmbClase.setBounds(30, 260, 140, 27);
+        cmbClase.setBounds(30, 260, 140, 22);
 
         btnVolver.setBackground(new java.awt.Color(0, 0, 0));
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,7 +111,7 @@ public class CrearPj extends javax.swing.JFrame {
         lblNombre.setText(" Nombre:");
         lblNombre.setOpaque(true);
         getContentPane().add(lblNombre);
-        lblNombre.setBounds(30, 100, 100, 26);
+        lblNombre.setBounds(30, 100, 100, 24);
 
         lblImagenAvatar.setBackground(new java.awt.Color(0, 0, 0));
         lblImagenAvatar.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -135,7 +135,7 @@ public class CrearPj extends javax.swing.JFrame {
         lblGolpe.setText(" Golpe:");
         lblGolpe.setOpaque(true);
         getContentPane().add(lblGolpe);
-        lblGolpe.setBounds(30, 470, 100, 26);
+        lblGolpe.setBounds(30, 470, 100, 24);
 
         lblSeleccionaClase2.setBackground(new java.awt.Color(0, 0, 0));
         lblSeleccionaClase2.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
@@ -143,7 +143,7 @@ public class CrearPj extends javax.swing.JFrame {
         lblSeleccionaClase2.setText(" Selecciona tu Clase: ");
         lblSeleccionaClase2.setOpaque(true);
         getContentPane().add(lblSeleccionaClase2);
-        lblSeleccionaClase2.setBounds(30, 220, 250, 26);
+        lblSeleccionaClase2.setBounds(30, 220, 250, 24);
 
         lblValor1.setBackground(new java.awt.Color(255, 255, 255));
         lblValor1.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
@@ -172,7 +172,7 @@ public class CrearPj extends javax.swing.JFrame {
         lblDefensa.setText(" Defensa:");
         lblDefensa.setOpaque(true);
         getContentPane().add(lblDefensa);
-        lblDefensa.setBounds(30, 430, 100, 26);
+        lblDefensa.setBounds(30, 430, 100, 24);
 
         lblDescripcion.setBackground(new java.awt.Color(0, 0, 0));
         lblDescripcion.setFont(new java.awt.Font("TlwgMono", 1, 12)); // NOI18N
@@ -189,7 +189,7 @@ public class CrearPj extends javax.swing.JFrame {
         lblVida.setText(" Vida:");
         lblVida.setOpaque(true);
         getContentPane().add(lblVida);
-        lblVida.setBounds(30, 390, 100, 26);
+        lblVida.setBounds(30, 390, 100, 24);
 
         lblError.setForeground(new java.awt.Color(255, 0, 0));
         getContentPane().add(lblError);

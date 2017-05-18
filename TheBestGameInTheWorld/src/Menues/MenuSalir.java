@@ -44,6 +44,7 @@ public class MenuSalir extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
+        setUndecorated(true);
         setType(java.awt.Window.Type.POPUP);
 
         jLabel2.setForeground(new java.awt.Color(204, 204, 204));
