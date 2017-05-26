@@ -20,6 +20,7 @@ import static javax.swing.SwingConstants.VERTICAL;
 public class PantallaJuego extends javax.swing.JFrame {
 
     private final String ruta = System.getProperties().getProperty("user.dir");
+    protected ControladorPersonaje controladorPersonaje;
 
     public PantallaJuego(ControladorPersonaje controladorPersonaje) {
 
@@ -30,7 +31,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         
         this.setSize(800 , 600);
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(PantallaJuego.EXIT_ON_CLOSE);
 
         txtpHistoria.setForeground(Color.RED);
 
@@ -62,9 +63,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnObservar.setVisible(false);
     }
 
-    PantallaJuego() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -330,6 +328,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         jScrollPane2.setAutoscrolls(true);
 
         txtpHistoria.setEditable(false);
+        txtpHistoria.setBackground(new java.awt.Color(0, 0, 0));
         txtpHistoria.setBorder(null);
         txtpHistoria.setForeground(new java.awt.Color(255, 0, 0));
         txtpHistoria.setMargin(new java.awt.Insets(5, 5, 5, 5));
@@ -438,7 +437,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
-        // TODO add your handling code here:
+ 
+    
+    
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     private void lblImagenPjMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenPjMouseClicked
@@ -607,4 +608,9 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
         }
     }
+
+
+    
+   
+       
 }

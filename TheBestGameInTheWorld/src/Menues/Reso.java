@@ -109,7 +109,7 @@ public class Reso extends javax.swing.JFrame {
             validate();
             
             this.setVisible(false);           
-            Main inicio = new Main();            
+            BoldPrograming inicio = new BoldPrograming();            
             inicio.setVisible(true);
             
     }//GEN-LAST:event_changeDMActionPerformed
@@ -122,7 +122,7 @@ public class Reso extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        Main inicio = new Main(); 
+        BoldPrograming inicio = new BoldPrograming(); 
         inicio.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
