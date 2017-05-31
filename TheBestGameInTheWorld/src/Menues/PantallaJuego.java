@@ -33,6 +33,9 @@ public class PantallaJuego extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(PantallaJuego.EXIT_ON_CLOSE);
 
+        jScrollPane2.setBackground(Color.BLACK);
+        txtpHistoria.setBackground(Color.BLACK);
+        
         txtpHistoria.setForeground(Color.RED);
 
         txtpHistoria.setText("Felicitaciones " + controladorPersonaje.getPersonaje1().getClase() + " " + controladorPersonaje.getPersonaje1().getNombre()
@@ -438,7 +441,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
  
-    
+    Modelo.Combate.quienAtaca();
     
     }//GEN-LAST:event_btnAtacarActionPerformed
 
@@ -545,8 +548,8 @@ public class PantallaJuego extends javax.swing.JFrame {
     public void incrementaTexto() {
 
         txtpHistoria.setForeground(Color.WHITE);
-
-        //Lectura de txt y set en lblHistoria
+        
+        //Lectura de txt y set en txtpHistoria
         File archivo = null;
         FileReader fr = null;
         BufferedReader br = null;
@@ -583,7 +586,7 @@ public class PantallaJuego extends javax.swing.JFrame {
                 btnObservar.setVisible(true);
             } else {
 
-                txtpHistoria.setForeground(Color.WHITE);
+                txtpHistoria.setForeground(Color.BLACK);
 
                 btnAtacar.setVisible(false);
                 btnHuir.setVisible(false);

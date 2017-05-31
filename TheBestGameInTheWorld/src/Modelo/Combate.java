@@ -56,7 +56,7 @@ public class Combate {
         this.Dados = Dados;
     }
 
-   public void quienAtaca() {
+   public static void quienAtaca() {
 //FALTA AGREGAR EL PARAMETRO NIVEL Y DEFENSA PARA HACERLO MAS INTERESANTE EN LA TIRADA
 //NO PUDE TRAER EL getNivel ni getDefensa
 
