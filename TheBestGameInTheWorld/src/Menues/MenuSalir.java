@@ -5,6 +5,13 @@
  */
 package Menues;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 /**
  *
  * @author prouser
@@ -142,7 +149,12 @@ public class MenuSalir extends javax.swing.JFrame {
 
     private void btnSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiActionPerformed
 
-        Main main = new Main();
+        Main main = null;
+        try {
+            main = new Main();
+        } catch (LineUnavailableException | URISyntaxException | UnsupportedAudioFileException | IOException ex) {
+            Logger.getLogger(MenuSalir.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         this.dispose();
         main.setVisible(true);

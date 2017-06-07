@@ -7,16 +7,26 @@ package Menues;
 
 import Controlador.ControladorPersonaje;
 import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 
 /**
  *
  * @author prouser
  */
+
 public class CrearPj extends javax.swing.JFrame {
 
     ControladorPersonaje controladorPersonaje = new ControladorPersonaje();
-
+    Clip sonidoo = null;
     public CrearPj() {
         
         initComponents();
@@ -34,6 +44,19 @@ public class CrearPj extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         this.setDefaultCloseOperation(CrearPj.EXIT_ON_CLOSE);
+        
+        
+            try {
+            sonidoo = AudioSystem.getClip();
+        } catch (LineUnavailableException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+        sonidoo.open(AudioSystem.getAudioInputStream(new File("src/Menues/Sonidos/main.wav")));
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        sonidoo.start();
     }
 
     /**
@@ -69,6 +92,11 @@ public class CrearPj extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         cmbClase.setBackground(new java.awt.Color(0, 0, 0));
@@ -218,8 +246,13 @@ public class CrearPj extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
-        Main main = new Main();
-
+        Main main = null;
+        try {
+            main = new Main();
+        } catch (LineUnavailableException | URISyntaxException | UnsupportedAudioFileException | IOException ex) {
+            Logger.getLogger(CrearPj.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        sonidoo.stop();
         main.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
@@ -240,7 +273,7 @@ public class CrearPj extends javax.swing.JFrame {
 
             lblError.setText("Falta colocar nombre");
         } else {
-
+            sonidoo.stop();
             pantallaJuego.setVisible(true);
             this.dispose();
         }
@@ -307,6 +340,12 @@ public class CrearPj extends javax.swing.JFrame {
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
 
     }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        
+            
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

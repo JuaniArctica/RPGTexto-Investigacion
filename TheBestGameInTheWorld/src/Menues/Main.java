@@ -5,7 +5,25 @@
  */
 package Menues;
 
-import java.awt.Color;
+
+import java.awt.BorderLayout;
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 /**
  *
  * @author prouser
@@ -15,10 +33,39 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */   
-    public Main() {
+    
+    private final JFXPanel jfxPanel = new JFXPanel();  
+        Clip sonido = null;
+    public Main() throws LineUnavailableException, URISyntaxException, UnsupportedAudioFileException, IOException {
 
         initComponents();
-        this.getContentPane().setBackground(Color.BLACK);
+
+        jPanel1.setSize(800, 600);
+        jPanel1.setLayout(new BorderLayout());
+        jPanel1.add(jfxPanel,BorderLayout.CENTER); 
+        
+        
+
+          //VIDEO
+          Platform.runLater(() -> {
+          File file = new File("src/Menues/Videos/main.mp4");                                  
+                    MediaPlayer oracleVid = new MediaPlayer(                                       
+                        new Media(file.toURI().toString())
+                    );
+            
+            //se añade video al jfxPanel
+            jfxPanel.setScene(new Scene(new Group(new MediaView(oracleVid))));
+            oracleVid.setVolume(1);//volumen
+            oracleVid.setCycleCount(MediaPlayer.INDEFINITE);//repite video
+            oracleVid.play();//play video
+        });
+        //FIN VIDEO    
+        
+            
+
+        
+        
+        
         
         this.setSize(800 , 600);
         this.setLocationRelativeTo(null);
@@ -27,10 +74,9 @@ public class Main extends javax.swing.JFrame {
 
         
 
-//        AudioClip opening;
-//        opening = java.applet.Applet.newAudioClip(getClass().getResource("/Menues/Sonidos/presence.mid"));
-//        opening.play();
     }
+    
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,10 +87,9 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnJugar = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        lblFondo = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblJugar = new javax.swing.JLabel();
+        lblSalir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -52,58 +97,111 @@ public class Main extends javax.swing.JFrame {
         setName("The Best Game In the World"); // NOI18N
         setUndecorated(true);
         setSize(new java.awt.Dimension(800, 600));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
-        btnJugar.setBackground(new java.awt.Color(0, 0, 0));
-        btnJugar.setForeground(new java.awt.Color(255, 255, 255));
-        btnJugar.setText("Jugar");
-        btnJugar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 153, 153), null, null));
-        btnJugar.setFocusPainted(false);
-        btnJugar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnJugarActionPerformed(evt);
+        jPanel1.setLayout(null);
+
+        lblJugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/jugar.png"))); // NOI18N
+        lblJugar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblJugarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblJugarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblJugarMouseExited(evt);
             }
         });
-        getContentPane().add(btnJugar);
-        btnJugar.setBounds(680, 490, 80, 25);
+        jPanel1.add(lblJugar);
+        lblJugar.setBounds(610, 450, 190, 50);
 
-        btnSalir.setBackground(new java.awt.Color(0, 0, 0));
-        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir");
-        btnSalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 153, 153), null, null));
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+        lblSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/salir.png"))); // NOI18N
+        lblSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblSalirMouseExited(evt);
             }
         });
-        getContentPane().add(btnSalir);
-        btnSalir.setBounds(680, 525, 80, 25);
+        jPanel1.add(lblSalir);
+        lblSalir.setBounds(650, 500, 150, 50);
 
-        jLabel2.setFont(new java.awt.Font("TlwgMono", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("The Best Game In the World");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(50, 50, 580, 30);
-
-        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/main.jpg"))); // NOI18N
-        lblFondo.setText("jLabel1");
-        getContentPane().add(lblFondo);
-        lblFondo.setBounds(0, 0, 800, 600);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 770, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
-
+    private void lblJugarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblJugarMouseClicked
+        // TODO add your handling code here:
+        
         CrearPj crearPj = new CrearPj();
         crearPj.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnJugarActionPerformed
+        this.setVisible(false);
+        
+        sonido.stop();
+        
+        
+    }//GEN-LAST:event_lblJugarMouseClicked
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-
+    private void lblSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseClicked
+        // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_btnSalirActionPerformed
+        
+
+        
+    }//GEN-LAST:event_lblSalirMouseClicked
+
+    private void lblJugarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblJugarMouseEntered
+        // TODO add your handling code here:
+
+        lblJugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/jugar2.png")));
+    }//GEN-LAST:event_lblJugarMouseEntered
+
+    private void lblJugarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblJugarMouseExited
+        // TODO add your handling code here:
+                lblJugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/jugar.png")));
+    }//GEN-LAST:event_lblJugarMouseExited
+
+    private void lblSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseEntered
+        // TODO add your handling code here:
+                lblSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/salir2.png")));
+    }//GEN-LAST:event_lblSalirMouseEntered
+
+    private void lblSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseExited
+        // TODO add your handling code here:
+                lblSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/salir.png")));
+    }//GEN-LAST:event_lblSalirMouseExited
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        
+
+
+        try {
+            sonido = AudioSystem.getClip();
+        } catch (LineUnavailableException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+        sonido.open(AudioSystem.getAudioInputStream(new File("src/Menues/Sonidos/crearpj.wav")));
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        sonido.start();
+        
+
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -141,9 +239,8 @@ public class Main extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnJugar;
-    private javax.swing.JButton btnSalir;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel lblFondo;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblJugar;
+    private javax.swing.JLabel lblSalir;
     // End of variables declaration//GEN-END:variables
 }
