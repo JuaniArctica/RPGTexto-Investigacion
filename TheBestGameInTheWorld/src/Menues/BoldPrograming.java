@@ -1,5 +1,3 @@
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,7 +9,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
-import java.sql.Time;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Group;
@@ -19,89 +16,73 @@ import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+
 /**
  *
  * @author Damian
  */
 public class BoldPrograming extends javax.swing.JFrame {
 
-    private final JFXPanel jfxPanel = new JFXPanel();  
-    
+    private final JFXPanel jfxPanel = new JFXPanel();
+
     /**
      * Creates new form BoldPrograming
      */
-    public BoldPrograming()  {
+    public BoldPrograming() {
         initComponents();
         Main ventana = new Main();
-        
+
         createScene(ventana);
         setResizable(false);
-       
+
         this.setLocationRelativeTo(null);
         this.setBackground(Color.BLACK);
-        
-        
-        
-        
+
         //Añadimos el panel de JavaFX al JPanel Swing
         jPanel1.setSize(800, 600);
         jPanel1.setLayout(new BorderLayout());
-        jPanel1.add(jfxPanel,BorderLayout.CENTER);
-        
-                   
-
-        
-        
+        jPanel1.add(jfxPanel, BorderLayout.CENTER);
 
         //Metodo para saltar presentacion con letra escape///////////////////////////////
         KeyboardFocusManager kb = KeyboardFocusManager.getCurrentKeyboardFocusManager();
         kb.addKeyEventPostProcessor((KeyEvent e) -> {
-            if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
-                
-            ventana.setVisible(true);
+            if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                ventana.setVisible(true);
+            }
             this.dispose();
-            
+
             return true;
         });
         //Metodo para saltar presentacion con letra escape///////////////////////////////
     }
-    
+
     //Reproduccion del video
-     private void createScene(Main ventana){
+    private void createScene(Main ventana) {
         Platform.runLater(() -> {
             Media med = new Media("file:///C:/Users/Damian/Videos/chavodel8/b.mp4");
-            
+
             MediaPlayer oracleVid = new MediaPlayer(med);
-            
+
             //se añade video al jfxPanel
             jfxPanel.setScene(new Scene(new Group(new MediaView(oracleVid))));
             oracleVid.setVolume(0.1);//volumen
             oracleVid.setCycleCount(MediaPlayer.INDEFINITE);//repite video
             oracleVid.play();//play video
 
-
-            
 //            if(){
 //                
 //            ventana.setVisible(true);
 //            this.dispose();
 //            
 //            }
-            
 //            if(oracleVid.getCycleCount()> 1){
 //                
 //            ventana.setVisible(true);
 //            this.dispose();
 //            
 //            }
-            
-
-
         });
-        
 
-        
-        
     }
 
     /**
@@ -142,35 +123,35 @@ public class BoldPrograming extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BoldPrograming.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BoldPrograming.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BoldPrograming.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BoldPrograming.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new BoldPrograming().setVisible(true);
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(BoldPrograming.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(BoldPrograming.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(BoldPrograming.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(BoldPrograming.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(() -> {
+//            new BoldPrograming().setVisible(true);
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;

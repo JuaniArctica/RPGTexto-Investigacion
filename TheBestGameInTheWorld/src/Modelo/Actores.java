@@ -13,7 +13,7 @@ public abstract class Actores {
     
     //Atributos
     protected String Nombre;
-    protected int VidaMax;
+    protected int Vida;
     protected int GolpeMax;
     protected int GolpeMin;
     protected int Defensa;
@@ -22,9 +22,9 @@ public abstract class Actores {
     public Actores() {
     }
 
-    public Actores(String Nombre, int VidaMax, int GolpeMax, int GolpeMin, int Defensa, int Nivel) {
+    public Actores(String Nombre, int Vida, int GolpeMax, int GolpeMin, int Defensa, int Nivel) {
         this.Nombre = Nombre;
-        this.VidaMax = VidaMax;
+        this.Vida = Vida;
         this.GolpeMax = GolpeMax;
         this.GolpeMin = GolpeMin;
         this.Defensa = Defensa;
@@ -39,12 +39,12 @@ public abstract class Actores {
         this.Nombre = Nombre;
     }
 
-    public int getVidaMax() {
-        return VidaMax;
+    public int getVida() {
+        return Vida;
     }
 
     public void setVidaMax(int VidaMax) {
-        this.VidaMax = VidaMax;
+        this.Vida = VidaMax;
     }
 
     public int getGolpeMax() {

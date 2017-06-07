@@ -5,30 +5,73 @@
  */
 package Modelo;
 
+import java.util.Random;
+
 /**
  *
  * @author prouser
  */
-public class Hostil extends Actores {
+public class Hostil {
 
-    //Atributos
-    private int Experiencia;
+    private final String nombre;
+    private final String descripcion;
+    private int vida;
+    private final int golpeMin;
+    private final int golpeMax;
+    private final static Random random = new Random();
 
-    //Constructores
-    public Hostil() {
+    public Hostil(String nombre, String descripcion, int vida, int golpeMin, int golpeMax) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.vida = vida;
+        this.golpeMin = golpeMin;
+        this.golpeMax = golpeMax;
     }
 
-    public Hostil(int Experiencia, String Nombre, int VidaMax, int GolpeMax, int GolpeMin, int Defensa, int Nivel) {
-        super(Nombre, VidaMax, GolpeMax, GolpeMin, Defensa, Nivel);
-        this.Experiencia = Experiencia;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    //Metodos
-    public int getExperiencia() {
-        return Experiencia;
+    public int getGolpeMin() {
+        return golpeMin;
     }
 
-    public void setExperiencia(int Experiencia) {
-        this.Experiencia = Experiencia;
+    public int getGolpeMax() {
+        return golpeMax;
+    }
+    
+    
+    public Hostil nuevoEnemigo() {
+        
+        int i;
+        
+        do {
+            i = (int)(Math.random() * 3 + 1);
+        } while (i == 0);
+        
+        switch (i) {
+            case 1:
+                return new Hostil("Lobo", "Un feroz lobo sediento de sangre", 100, 15, 18);
+            case 2:
+                return new Hostil("Gallina", "Una pequeña y adorable gallinita... verdad?", 100, 22, 24);
+            default:
+                return new Hostil("Orco", "Un enorme y feroz orco listo para atacar", 100, 16, 18);
+        }
+    }
+
+    public String getVida() {
+        return "Vida del enemigo: " + vida;
+    }
+    
+    public boolean estaVivo() {
+        return vida > 0;
+    }
+    
+    public int ataque() {
+        return random.nextInt(golpeMax - golpeMin + 1) + golpeMin;
+    }
+    
+    public void defensa() {
+        
     }
 }

@@ -18,24 +18,23 @@ import static javax.swing.SwingConstants.VERTICAL;
  * @author prouser
  */
 public class PantallaJuego extends javax.swing.JFrame {
-
+    
     private final String ruta = System.getProperties().getProperty("user.dir");
     protected ControladorPersonaje controladorPersonaje;
 
     public PantallaJuego(ControladorPersonaje controladorPersonaje) {
 
         initComponents();
-
+        
         this.getContentPane().setBackground(Color.BLACK);
-        
-        
-        this.setSize(800 , 600);
+
+        this.setSize(800, 600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(PantallaJuego.EXIT_ON_CLOSE);
 
         jScrollPane2.setBackground(Color.BLACK);
         txtpHistoria.setBackground(Color.BLACK);
-        
+
         txtpHistoria.setForeground(Color.RED);
 
         txtpHistoria.setText("Felicitaciones " + controladorPersonaje.getPersonaje1().getClase() + " " + controladorPersonaje.getPersonaje1().getNombre()
@@ -49,10 +48,10 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblNumeroDefensa1.setText(String.valueOf(controladorPersonaje.getPersonaje1().getDefensa()));
         lblNumeroGolpe.setText(String.valueOf(controladorPersonaje.getPersonaje1().getGolpeMin()) + "/" + String.valueOf(controladorPersonaje.getPersonaje1().getGolpeMax()));
 
-        PbVida.setValue(controladorPersonaje.getPersonaje1().getVidaMax()); //Setea como maximo de la barra la vida actual del personaje
+        PbVida.setValue(controladorPersonaje.getPersonaje1().getVida()); //Setea como maximo de la barra la vida actual del personaje
         PbVida.setMaximum(controladorPersonaje.getPersonaje1().getVidaMax());
 
-        PbExperiencia.setValue(controladorPersonaje.getPersonaje1().getExpMin());
+        PbExperiencia.setValue(controladorPersonaje.getPersonaje1().getExp());
 
         txtpHistoria.setEditable(false);
         txtpHistoria.setBackground(Color.BLACK);
@@ -65,7 +64,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnHuir.setVisible(false);
         btnObservar.setVisible(false);
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -415,9 +413,9 @@ public class PantallaJuego extends javax.swing.JFrame {
             lblDescripcion.setText("<html><font color=ff0000> No hay mas pociones!</font></html>");
         }
     }//GEN-LAST:event_btnRegeneraActionPerformed
-   
+
     int contador = 0;
-    
+
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
 
         contador++;
@@ -440,9 +438,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
- 
-    Modelo.Combate.quienAtaca();
-    
+
+        //Modelo.Combate.quienAtaca();
+
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     private void lblImagenPjMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenPjMouseClicked
@@ -524,8 +522,8 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void golpe() {
 
-        int max = 5;
-        int min = 1;
+        int max = 15;
+        int min = 8;
         PbVida.setValue((int) (PbVida.getValue() - Math.floor((Math.random() * max) + min)));
     }
 
@@ -533,8 +531,8 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         int pociones = 10;
 
-        int max = 3;
-        int min = 1;
+        int max = 20;
+        int min = 18;
 
         if (pociones > 0) {
 
@@ -548,14 +546,14 @@ public class PantallaJuego extends javax.swing.JFrame {
     public void incrementaTexto() {
 
         txtpHistoria.setForeground(Color.WHITE);
-        
+
         //Lectura de txt y set en txtpHistoria
         File archivo = null;
         FileReader fr = null;
         BufferedReader br = null;
 
         try {
-            
+
             // Apertura del fichero y creacion de BufferedReader para poder
             // hacer una lectura comoda (disponer del metodo readLine()).
             archivo = new File(ruta + "//archivo.txt");
@@ -601,7 +599,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         } catch (IOException e) {
         } finally {
-            
+
             try {
                 if (null != fr) {
                     fr.close();
@@ -612,8 +610,4 @@ public class PantallaJuego extends javax.swing.JFrame {
         }
     }
 
-
-    
-   
-       
 }
