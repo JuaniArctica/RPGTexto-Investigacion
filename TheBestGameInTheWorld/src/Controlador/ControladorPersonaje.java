@@ -28,13 +28,15 @@ public class ControladorPersonaje {
         personaje1.setClase(clase);
         personaje1.setNivel(1);
         personaje1.setExpMax(20);
-        personaje1.setExpMin(0);
+        personaje1.setExp(0);
+        personaje1.setPociones(10);
 
         switch (personaje1.getClase()) {
             case "Detective":
 
                 //Vida, defensa y golpe max min
-                personaje1.setVidaMax(10);
+                personaje1.setVidaMax(100);
+                personaje1.setVida(100);
                 personaje1.setDefensa(10);
                 personaje1.setGolpeMax(10);
                 personaje1.setGolpeMin(5);
@@ -42,7 +44,8 @@ public class ControladorPersonaje {
             case "Explorador":
 
                 //Vida, defensa y golpe max min
-                personaje1.setVidaMax(8);
+                personaje1.setVidaMax(80);
+                personaje1.setVida(80);
                 personaje1.setDefensa(12);
                 personaje1.setGolpeMax(7);
                 personaje1.setGolpeMin(6);
@@ -50,7 +53,8 @@ public class ControladorPersonaje {
             default:
 
                 //Vida, defensa y golpe max min
-                personaje1.setVidaMax(12);
+                personaje1.setVidaMax(120);
+                personaje1.setVida(120);
                 personaje1.setDefensa(8);
                 personaje1.setGolpeMax(12);
                 personaje1.setGolpeMin(4);

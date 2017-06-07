@@ -49,10 +49,10 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblNumeroDefensa1.setText(String.valueOf(controladorPersonaje.getPersonaje1().getDefensa()));
         lblNumeroGolpe.setText(String.valueOf(controladorPersonaje.getPersonaje1().getGolpeMin()) + "/" + String.valueOf(controladorPersonaje.getPersonaje1().getGolpeMax()));
 
-        PbVida.setValue(controladorPersonaje.getPersonaje1().getVidaMax()); //Setea como maximo de la barra la vida actual del personaje
+        PbVida.setValue(controladorPersonaje.getPersonaje1().getVida()); //Setea como maximo de la barra la vida actual del personaje
         PbVida.setMaximum(controladorPersonaje.getPersonaje1().getVidaMax());
 
-        PbExperiencia.setValue(controladorPersonaje.getPersonaje1().getExpMin());
+        PbExperiencia.setValue(controladorPersonaje.getPersonaje1().getExp());
 
         txtpHistoria.setEditable(false);
         txtpHistoria.setBackground(Color.BLACK);
@@ -524,8 +524,8 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void golpe() {
 
-        int max = 5;
-        int min = 1;
+        int max = 12;
+        int min = 10;
         PbVida.setValue((int) (PbVida.getValue() - Math.floor((Math.random() * max) + min)));
     }
 
@@ -533,8 +533,8 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         int pociones = 10;
 
-        int max = 3;
-        int min = 1;
+        int max = 20;
+        int min = 18;
 
         if (pociones > 0) {
 

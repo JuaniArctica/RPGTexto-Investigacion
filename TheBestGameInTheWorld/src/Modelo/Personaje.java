@@ -5,44 +5,126 @@
  */
 package Modelo;
 
+import java.util.Random;
+
 /**
  *
  * @author prouser
  */
-public class Personaje extends Actores {
+public class Personaje {
 
     //Atributos
-    private int ExpMin;
-    private int ExpMax;
+    private String nombre;
+    private int vidaMax;
+    private int vida;
+    private int pociones;
+    private int golpeMax;
+    private int golpeMin;
+    private int defensa;
+    private int nivel;
+    private int expMax;
+    private int exp;
     private String Clase;
+    private final Random random = new Random();
     
     
-    //Constructores
+    //Constructores    
     public Personaje() {
     }
 
-    public Personaje(int ExpMin, int ExpMax, String Clase, String Nombre, int VidaMax, int GolpeMax, int GolpeMin, int Defensa, int Nivel) {
-        super(Nombre, VidaMax, GolpeMax, GolpeMin, Defensa, Nivel);
-        this.ExpMin = ExpMin;
-        this.ExpMax = ExpMax;
+    public Personaje(String nombre, int vidaMax, int vida, int pociones, int golpeMax, int golpeMin, int defensa, int nivel, int expMax, int exp, String Clase) {
+        this.nombre = nombre;
+        this.vidaMax = vidaMax;
+        this.vida = vida;
+        this.pociones = pociones;
+        this.golpeMax = golpeMax;
+        this.golpeMin = golpeMin;
+        this.defensa = defensa;
+        this.nivel = nivel;
+        this.expMax = expMax;
+        this.exp = exp;
         this.Clase = Clase;
     }
-
+    
     //Metodos
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getVidaMax() {
+        return vidaMax;
+    }
+
+    public void setVidaMax(int vidaMax) {
+        this.vidaMax = vidaMax;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+    public int getPociones() {
+        return pociones;
+    }
+
+    public void setPociones(int pociones) {
+        this.pociones = pociones;
+    }
+
+    public int getGolpeMax() {
+        return golpeMax;
+    }
+
+    public void setGolpeMax(int golpeMax) {
+        this.golpeMax = golpeMax;
+    }
+
+    public int getGolpeMin() {
+        return golpeMin;
+    }
+
+    public void setGolpeMin(int golpeMin) {
+        this.golpeMin = golpeMin;
+    }
+
+    public int getDefensa() {
+        return defensa;
+    }
+
+    public void setDefensa(int defensa) {
+        this.defensa = defensa;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
     public int getExpMax() {
-        return ExpMax;
+        return expMax;
     }
 
-    public void setExpMax(int ExpMax) {
-        this.ExpMax = ExpMax;
+    public void setExpMax(int expMax) {
+        this.expMax = expMax;
     }
 
-    public int getExpMin() {
-        return ExpMin;
+    public int getExp() {
+        return exp;
     }
 
-    public void setExpMin(int ExpMin) {
-        this.ExpMin = ExpMin;
+    public void setExp(int exp) {
+        this.exp = exp;
     }
 
     public String getClase() {
@@ -51,5 +133,36 @@ public class Personaje extends Actores {
 
     public void setClase(String Clase) {
         this.Clase = Clase;
+    }
+    
+    
+    public int ataque() {
+        return random.nextInt(golpeMax - golpeMin + 1) + golpeMin;
+    }
+    
+    public void defensa(Hostil hostil) {
+        
+        vida = vida - hostil.ataque();
+        System.out.println("    Eres golpeado por " + hostil.ataque() + " de daño (Vida actual " + vida + ")");
+        
+        if (vida <= 0) {
+            System.out.println("Has sido derrotado");
+        }
+    }
+    
+    public void curar() {
+        
+        if (pociones > 0) {
+            
+            vida = vida + 20;
+            pociones--;
+            System.out.println("Tomas una pocion de salud (Vida: " + vida + ", pociones restantes " + pociones + ")");
+        } else {
+            System.out.println("No tienes mas pociones");
+        }
+    }
+    
+    public boolean estaVivo() {
+        return vida > 0;
     }
 }
