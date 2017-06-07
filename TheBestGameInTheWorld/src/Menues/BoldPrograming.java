@@ -1,5 +1,3 @@
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -33,8 +31,8 @@ import javax.swing.Timer;
  */
 public class BoldPrograming extends javax.swing.JFrame {
 
-    private final JFXPanel jfxPanel = new JFXPanel();  
-    
+    private final JFXPanel jfxPanel = new JFXPanel();
+
     /**
      * Creates new form BoldPrograming
      * @throws javax.sound.sampled.LineUnavailableException
