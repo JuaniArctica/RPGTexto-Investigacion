@@ -5,6 +5,7 @@
  */
 package Menues;
 
+import Controlador.ControladorPersonaje;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
@@ -18,7 +19,6 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  */
 public class MenuSalir extends javax.swing.JFrame {
 
-    public PantallaJuego refPantallaJuego;
 
     /**
      * Creates new form MenuSalir
@@ -149,15 +149,24 @@ public class MenuSalir extends javax.swing.JFrame {
 
     private void btnSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiActionPerformed
 
+
         Main main = null;
+
+        
         try {
             main = new Main();
+
         } catch (LineUnavailableException | URISyntaxException | UnsupportedAudioFileException | IOException ex) {
             Logger.getLogger(MenuSalir.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         this.dispose();
+        
+        
+
         main.setVisible(true);
+        
+       
     }//GEN-LAST:event_btnSiActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
