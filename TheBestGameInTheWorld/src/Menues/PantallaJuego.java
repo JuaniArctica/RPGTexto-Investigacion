@@ -147,10 +147,10 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblNumeroNivel = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         lblAnotaciones = new javax.swing.JLabel();
+        btnSi = new javax.swing.JButton();
         lblPluma = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         btbConfiguraciones = new javax.swing.JButton();
-        btnSi = new javax.swing.JButton();
         btnVolveralJuego = new javax.swing.JButton();
         lblseguro = new javax.swing.JLabel();
         lblmenu = new javax.swing.JLabel();
@@ -296,6 +296,17 @@ public class PantallaJuego extends javax.swing.JFrame {
         jPanel1.add(lblAnotaciones);
         lblAnotaciones.setBounds(580, 320, 220, 190);
 
+        btnSi.setBackground(new java.awt.Color(51, 102, 0));
+        btnSi.setForeground(new java.awt.Color(255, 255, 255));
+        btnSi.setText("Si");
+        btnSi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSi);
+        btnSi.setBounds(490, 570, 50, 23);
+
         lblPluma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/plumachica.png"))); // NOI18N
         lblPluma.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -328,17 +339,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         });
         jPanel1.add(btbConfiguraciones);
         btbConfiguraciones.setBounds(10, 540, 120, 23);
-
-        btnSi.setBackground(new java.awt.Color(51, 102, 0));
-        btnSi.setForeground(new java.awt.Color(255, 255, 255));
-        btnSi.setText("Si");
-        btnSi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnSi);
-        btnSi.setBounds(490, 570, 50, 23);
 
         btnVolveralJuego.setText("Volver al Juego");
         btnVolveralJuego.addActionListener(new java.awt.event.ActionListener() {
