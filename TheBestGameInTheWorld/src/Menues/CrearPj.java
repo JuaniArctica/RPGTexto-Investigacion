@@ -38,8 +38,10 @@ public class CrearPj extends javax.swing.JFrame {
         
         this.setSize(800 , 600);
 
-        lblImagenAvatar.setVisible(false);
+        lblDescripcion1.setVisible(false);
         lblDescripcion.setVisible(false);
+        lblDescripcion2.setVisible(false);
+        lblError.setVisible(false);
 
         this.setLocationRelativeTo(null);
         
@@ -69,21 +71,21 @@ public class CrearPj extends javax.swing.JFrame {
     private void initComponents() {
 
         cmbClase = new javax.swing.JComboBox<>();
-        btnVolver = new javax.swing.JButton();
-        btnComenzar = new javax.swing.JButton();
-        lblCreaPj = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        lblGolpe = new javax.swing.JLabel();
-        lblSeleccionaClase2 = new javax.swing.JLabel();
         lblValor1 = new javax.swing.JLabel();
         lblValor2 = new javax.swing.JLabel();
         lblValor3 = new javax.swing.JLabel();
-        lblDefensa = new javax.swing.JLabel();
-        lblVida = new javax.swing.JLabel();
         lblError = new javax.swing.JLabel();
-        lblImagenAvatar = new javax.swing.JLabel();
+        lblDescripcion2 = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
+        lblDescripcion1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblDetective = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblPolicia = new javax.swing.JLabel();
+        lblExplorador = new javax.swing.JLabel();
+        lblVolver = new javax.swing.JLabel();
+        lblComenzar = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
 
         setTitle("The Best Game in the World");
@@ -110,132 +112,129 @@ public class CrearPj extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cmbClase);
-        cmbClase.setBounds(30, 260, 140, 22);
+        cmbClase.setBounds(50, 150, 130, 22);
 
-        btnVolver.setBackground(new java.awt.Color(0, 0, 0));
-        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
-        btnVolver.setText("Volver");
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnVolver);
-        btnVolver.setBounds(680, 535, 80, 25);
-
-        btnComenzar.setBackground(new java.awt.Color(0, 0, 0));
-        btnComenzar.setForeground(new java.awt.Color(255, 255, 255));
-        btnComenzar.setText("Comenzar");
-        btnComenzar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComenzarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnComenzar);
-        btnComenzar.setBounds(520, 535, 80, 25);
-
-        lblCreaPj.setFont(new java.awt.Font("TlwgMono", 1, 36)); // NOI18N
-        lblCreaPj.setForeground(new java.awt.Color(255, 255, 255));
-        lblCreaPj.setText("Crea tu Personaje");
-        getContentPane().add(lblCreaPj);
-        lblCreaPj.setBounds(390, 20, 380, 40);
-
-        lblNombre.setBackground(new java.awt.Color(0, 0, 0));
-        lblNombre.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
-        lblNombre.setText(" Nombre:");
-        lblNombre.setOpaque(true);
-        getContentPane().add(lblNombre);
-        lblNombre.setBounds(30, 100, 100, 24);
-
-        txtNombre.setFont(new java.awt.Font("TlwgMono", 2, 24)); // NOI18N
+        txtNombre.setBackground(new java.awt.Color(0, 0, 0));
+        txtNombre.setFont(new java.awt.Font("TlwgMono", 2, 14)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(255, 255, 255));
+        txtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNombre.setBorder(null);
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
         getContentPane().add(txtNombre);
-        txtNombre.setBounds(30, 140, 290, 40);
-
-        lblGolpe.setBackground(new java.awt.Color(0, 0, 0));
-        lblGolpe.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
-        lblGolpe.setForeground(new java.awt.Color(255, 255, 255));
-        lblGolpe.setText(" Golpe:");
-        lblGolpe.setOpaque(true);
-        getContentPane().add(lblGolpe);
-        lblGolpe.setBounds(30, 470, 100, 24);
-
-        lblSeleccionaClase2.setBackground(new java.awt.Color(0, 0, 0));
-        lblSeleccionaClase2.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
-        lblSeleccionaClase2.setForeground(new java.awt.Color(255, 255, 255));
-        lblSeleccionaClase2.setText(" Selecciona tu Clase: ");
-        lblSeleccionaClase2.setOpaque(true);
-        getContentPane().add(lblSeleccionaClase2);
-        lblSeleccionaClase2.setBounds(30, 220, 250, 24);
+        txtNombre.setBounds(130, 52, 170, 20);
 
         lblValor1.setBackground(new java.awt.Color(255, 255, 255));
-        lblValor1.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
+        lblValor1.setFont(new java.awt.Font("TlwgMono", 1, 14)); // NOI18N
+        lblValor1.setForeground(new java.awt.Color(255, 255, 255));
         lblValor1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblValor1.setOpaque(true);
         getContentPane().add(lblValor1);
-        lblValor1.setBounds(140, 390, 50, 26);
+        lblValor1.setBounds(270, 130, 30, 18);
 
         lblValor2.setBackground(new java.awt.Color(255, 255, 255));
-        lblValor2.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
+        lblValor2.setFont(new java.awt.Font("TlwgMono", 1, 12)); // NOI18N
+        lblValor2.setForeground(new java.awt.Color(255, 255, 255));
         lblValor2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblValor2.setOpaque(true);
         getContentPane().add(lblValor2);
-        lblValor2.setBounds(140, 430, 50, 26);
+        lblValor2.setBounds(270, 180, 30, 18);
 
         lblValor3.setBackground(new java.awt.Color(255, 255, 255));
-        lblValor3.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
+        lblValor3.setFont(new java.awt.Font("TlwgMono", 1, 12)); // NOI18N
+        lblValor3.setForeground(new java.awt.Color(255, 255, 255));
         lblValor3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblValor3.setOpaque(true);
         getContentPane().add(lblValor3);
-        lblValor3.setBounds(140, 470, 70, 26);
+        lblValor3.setBounds(260, 155, 50, 18);
 
-        lblDefensa.setBackground(new java.awt.Color(0, 0, 0));
-        lblDefensa.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
-        lblDefensa.setForeground(new java.awt.Color(255, 255, 255));
-        lblDefensa.setText(" Defensa:");
-        lblDefensa.setOpaque(true);
-        getContentPane().add(lblDefensa);
-        lblDefensa.setBounds(30, 430, 100, 24);
-
-        lblVida.setBackground(new java.awt.Color(0, 0, 0));
-        lblVida.setFont(new java.awt.Font("TlwgMono", 1, 18)); // NOI18N
-        lblVida.setForeground(new java.awt.Color(255, 255, 255));
-        lblVida.setText(" Vida:");
-        lblVida.setOpaque(true);
-        getContentPane().add(lblVida);
-        lblVida.setBounds(30, 390, 100, 24);
-
-        lblError.setForeground(new java.awt.Color(255, 0, 0));
+        lblError.setBackground(new java.awt.Color(0, 0, 0));
+        lblError.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        lblError.setForeground(new java.awt.Color(255, 204, 204));
+        lblError.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblError.setOpaque(true);
         getContentPane().add(lblError);
-        lblError.setBounds(30, 35, 320, 30);
+        lblError.setBounds(320, 44, 170, 35);
 
-        lblImagenAvatar.setBackground(new java.awt.Color(0, 0, 0));
-        lblImagenAvatar.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        lblImagenAvatar.setForeground(new java.awt.Color(255, 255, 255));
-        lblImagenAvatar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblImagenAvatar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        lblImagenAvatar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
-        lblImagenAvatar.setFocusable(false);
-        lblImagenAvatar.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        getContentPane().add(lblImagenAvatar);
-        lblImagenAvatar.setBounds(540, 100, 230, 320);
+        lblDescripcion2.setBackground(new java.awt.Color(0, 0, 0));
+        lblDescripcion2.setFont(new java.awt.Font("TlwgMono", 1, 12)); // NOI18N
+        lblDescripcion2.setForeground(new java.awt.Color(255, 255, 255));
+        lblDescripcion2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDescripcion2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        lblDescripcion2.setOpaque(true);
+        getContentPane().add(lblDescripcion2);
+        lblDescripcion2.setBounds(310, 44, 20, 35);
 
         lblDescripcion.setBackground(new java.awt.Color(0, 0, 0));
         lblDescripcion.setFont(new java.awt.Font("TlwgMono", 1, 12)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
-        lblDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblDescripcion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         lblDescripcion.setOpaque(true);
         getContentPane().add(lblDescripcion);
-        lblDescripcion.setBounds(540, 430, 230, 80);
+        lblDescripcion.setBounds(320, 112, 170, 96);
+
+        lblDescripcion1.setBackground(new java.awt.Color(0, 0, 0));
+        lblDescripcion1.setFont(new java.awt.Font("TlwgMono", 1, 12)); // NOI18N
+        lblDescripcion1.setForeground(new java.awt.Color(255, 255, 255));
+        lblDescripcion1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDescripcion1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        lblDescripcion1.setOpaque(true);
+        getContentPane().add(lblDescripcion1);
+        lblDescripcion1.setBounds(310, 112, 20, 96);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/trampa.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 563, 290, 50);
+
+        lblDetective.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/detective.png"))); // NOI18N
+        getContentPane().add(lblDetective);
+        lblDetective.setBounds(-30, 260, 160, 380);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/fuente.png"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(330, 292, 240, 230);
+
+        lblPolicia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/policia.png"))); // NOI18N
+        getContentPane().add(lblPolicia);
+        lblPolicia.setBounds(340, 270, 200, 210);
+
+        lblExplorador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/explorador.png"))); // NOI18N
+        getContentPane().add(lblExplorador);
+        lblExplorador.setBounds(570, 240, 210, 340);
+
+        lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/regresar.png"))); // NOI18N
+        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblVolverMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblVolverMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblVolverMouseExited(evt);
+            }
+        });
+        getContentPane().add(lblVolver);
+        lblVolver.setBounds(550, 20, 210, 70);
+
+        lblComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/comenzar.png"))); // NOI18N
+        lblComenzar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblComenzarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblComenzarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblComenzarMouseExited(evt);
+            }
+        });
+        getContentPane().add(lblComenzar);
+        lblComenzar.setBounds(70, 207, 210, 70);
 
         lblFondo.setBackground(new java.awt.Color(0, 0, 0));
-        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/fondo1.jpg"))); // NOI18N
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/crearPj.jpg"))); // NOI18N
         lblFondo.setText("jLabel1");
         lblFondo.setOpaque(true);
         getContentPane().add(lblFondo);
@@ -243,41 +242,6 @@ public class CrearPj extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-
-        Main main = null;
-        try {
-            main = new Main();
-        } catch (LineUnavailableException | URISyntaxException | UnsupportedAudioFileException | IOException ex) {
-            Logger.getLogger(CrearPj.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        sonidoo.stop();
-        main.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnVolverActionPerformed
-
-    private void btnComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarActionPerformed
-
-        controladorPersonaje.agregarValores(txtNombre.getText(), cmbClase.getSelectedItem().toString());
-
-        PantallaJuego pantallaJuego = new PantallaJuego(controladorPersonaje);
-
-        if (txtNombre.getText().length() == 0 && cmbClase.getSelectedItem().equals("...")) {
-
-            lblError.setText("Falta colocar nombre y clase");
-        } else if (cmbClase.getSelectedItem().equals("...")) {
-
-            lblError.setText("Falta colocar clase");
-        } else if (txtNombre.getText().length() == 0) {
-
-            lblError.setText("Falta colocar nombre");
-        } else {
-            sonidoo.stop();
-            pantallaJuego.setVisible(true);
-            this.dispose();
-        }
-    }//GEN-LAST:event_btnComenzarActionPerformed
 
 //    public JTextField getTxtNombre() {
 //        return txtNombre;
@@ -291,49 +255,58 @@ public class CrearPj extends javax.swing.JFrame {
 
         if (cmbClase.getSelectedItem().equals("Detective")) {
 
-            lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/detective.jpg")));
-            lblDescripcion.setText("<html><center>El Dective se caracteriza por<p>"
-                    + " su astucia y su habilidad en <p>"
-                    + " la pelea, es la clase más"
-                    + " equilibrada del juego</center></html>");
+            lblDescripcion.setText("<html>El Dective se caracteriza por su astucia y a habilidad en la pelea, es la "
+                    + "clase más equilibrada del juego.</html>");
             lblValor1.setText("10");
             lblValor2.setText("10");
             lblValor3.setText("5/10");
-            lblImagenAvatar.setVisible(true);
             lblDescripcion.setVisible(true);
+            lblDescripcion1.setVisible(true);
+            lblDetective.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/detectivesobre.png")));
+           
+            lblExplorador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/explorador.png")));
+            lblPolicia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/policia.png")));
+
+       
         } else if (cmbClase.getSelectedItem().equals("Policia")) {
 
-            lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/policia.jpg")));
-            lblDescripcion.setText("<html><center>Ser Policia no es fácil...<p>"
-                    + "La fuerza es importante para<p>"
-                    + " luchar contra las amenazas que<p>"
-                    + " encontrarás en esta historia</center></html>");
+            lblDescripcion.setText("<html>Ser Policia no es fácil... La fuerza es importante para luchar contra las "
+                    + "amenazas que encontrarás en esta historia.</html>");
             lblValor1.setText("12");
             lblValor2.setText("8");
             lblValor3.setText("4/12");
-            lblImagenAvatar.setVisible(true);
             lblDescripcion.setVisible(true);
+            lblDescripcion1.setVisible(true);
+            lblPolicia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/policiasobre.png"))); 
+            
+            lblExplorador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/explorador.png")));
+            lblDetective.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/detective.png")));
+            
         } else if (cmbClase.getSelectedItem().equals("Explorador")) {
             
-            lblImagenAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/explorador.jpg")));
-            lblDescripcion.setText("<html><center>Para explorar hay que ser ágil<p>"
-                    + " y esa es una caracteristica<p>"
-                    + " de esta clase. Defensivo por<p>"
-                    + " naturaleza.</center></html>");
+            lblDescripcion.setText("<html>Para explorar hay que ser ágil y esa es una caracteristica de esta clase. "
+                    + "Defensivo por naturaleza.</html>");
             lblValor1.setText("8");
             lblValor2.setText("12");
             lblValor3.setText("6/7");
-            lblImagenAvatar.setVisible(true);
             lblDescripcion.setVisible(true);
+            lblDescripcion1.setVisible(true);
+            lblExplorador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/exploradorsobre.png")));
+            
+            lblPolicia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/policia.png")));
+            lblDetective.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/detective.png")));
+            
         } else {
             
-            lblImagenAvatar.setIcon(null);
             lblDescripcion.setText("");
             lblValor1.setText("");
             lblValor2.setText("");
             lblValor3.setText("");
-            lblImagenAvatar.setVisible(false);
             lblDescripcion.setVisible(false);
+            lblDescripcion1.setVisible(false);
+            lblExplorador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/explorador.png")));
+            lblPolicia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/policia.png")));
+            lblDetective.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/detective.png")));
         }
     }//GEN-LAST:event_cmbClaseActionPerformed
 
@@ -346,6 +319,67 @@ public class CrearPj extends javax.swing.JFrame {
         
             
     }//GEN-LAST:event_formWindowOpened
+
+    private void lblVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseEntered
+        // TODO add your handling code here:
+        lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/regresarsobre.png")));
+        
+    }//GEN-LAST:event_lblVolverMouseEntered
+
+    private void lblVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseExited
+        // TODO add your handling code here:
+        lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/regresar.png")));
+    }//GEN-LAST:event_lblVolverMouseExited
+
+    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+        // TODO add your handling code here:
+        
+        Main main = null;
+        try {
+            main = new Main();
+        } catch (LineUnavailableException | URISyntaxException | UnsupportedAudioFileException | IOException ex) {
+            Logger.getLogger(CrearPj.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        sonidoo.stop();
+        main.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblVolverMouseClicked
+
+    private void lblComenzarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblComenzarMouseEntered
+        // TODO add your handling code here:
+        lblComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/comenzarsobre.png")));
+    }//GEN-LAST:event_lblComenzarMouseEntered
+
+    private void lblComenzarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblComenzarMouseExited
+        // TODO add your handling code here:
+        lblComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/comenzar.png")));        
+    }//GEN-LAST:event_lblComenzarMouseExited
+
+    private void lblComenzarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblComenzarMouseClicked
+        // TODO add your handling code here:
+                controladorPersonaje.agregarValores(txtNombre.getText(), cmbClase.getSelectedItem().toString());
+
+        PantallaJuego pantallaJuego = new PantallaJuego(controladorPersonaje);
+
+        if (txtNombre.getText().length() == 0 && cmbClase.getSelectedItem().equals("...")) {
+            lblError.setVisible(true);
+            lblError.setText("Falta colocar Nombre y Clase!");
+            lblDescripcion2.setVisible(true);
+        } else if (cmbClase.getSelectedItem().equals("...")) {
+            lblError.setVisible(true);
+            lblError.setText("Falta colocar Clase!");
+            lblDescripcion2.setVisible(true);
+        } else if (txtNombre.getText().length() == 0) {
+            lblError.setVisible(true);
+            lblError.setText("Falta colocar Nombre!");
+            lblDescripcion2.setVisible(true);
+        } else {
+            sonidoo.stop();
+            pantallaJuego.setVisible(true);
+            this.dispose();
+        }
+        
+    }//GEN-LAST:event_lblComenzarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -385,22 +419,22 @@ public class CrearPj extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnComenzar;
-    private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cmbClase;
-    private javax.swing.JLabel lblCreaPj;
-    private javax.swing.JLabel lblDefensa;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblComenzar;
     private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblDescripcion1;
+    private javax.swing.JLabel lblDescripcion2;
+    private javax.swing.JLabel lblDetective;
     private javax.swing.JLabel lblError;
+    private javax.swing.JLabel lblExplorador;
     private javax.swing.JLabel lblFondo;
-    private javax.swing.JLabel lblGolpe;
-    private javax.swing.JLabel lblImagenAvatar;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblSeleccionaClase2;
+    private javax.swing.JLabel lblPolicia;
     private javax.swing.JLabel lblValor1;
     private javax.swing.JLabel lblValor2;
     private javax.swing.JLabel lblValor3;
-    private javax.swing.JLabel lblVida;
+    private javax.swing.JLabel lblVolver;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
