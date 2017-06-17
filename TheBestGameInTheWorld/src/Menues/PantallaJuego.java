@@ -40,7 +40,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     private final String ruta = System.getProperties().getProperty("user.dir");
     protected ControladorPersonaje controladorPersonaje;
     
-            MenuSalir menuSalir = new MenuSalir();
+
     
        private final JFXPanel jfxPanel = new JFXPanel();  
         Clip sonido = null;
