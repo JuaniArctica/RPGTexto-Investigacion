@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Menues.PantallaJuego;
 import java.util.Random;
 
 /**
@@ -12,7 +13,10 @@ import java.util.Random;
  * @author prouser
  */
 public class Hostil {
-
+    
+    private Personaje refPersonaje;
+    private PantallaJuego refPantJuego;
+    
     private final String nombre;
     private final String descripcion;
     private int vida;
@@ -38,6 +42,10 @@ public class Hostil {
 
     public int getGolpeMax() {
         return golpeMax;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
     
     
@@ -72,6 +80,12 @@ public class Hostil {
     }
     
     public void defensa() {
+
+        vida = vida - refPersonaje.ataque();
+        refPantJuego.lblTextoHistoria.setText("    El enemigo es golpeado por " + refPersonaje.ataque() + " de daño (Vida actual = " + vida + ")");
         
+        if (vida <= 0) {
+            refPantJuego.lblTextoHistoria.setText("El enemigo ha muerto");
+        }
     }
 }
