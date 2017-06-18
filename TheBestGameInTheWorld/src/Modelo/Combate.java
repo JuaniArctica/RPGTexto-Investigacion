@@ -19,7 +19,7 @@ public class Combate {
     
     public Combate(Personaje personaje, Hostil hostil, PantallaJuego pantJuego) throws IOException {
         
-        pantJuego.lblTextoHistoria.setText("Encontras un " + hostil1.getNombre() + ":\n");
+        pantJuego.lblTextoHistoria.setText("<HTML><BODY>Encontras un " + hostil1.getNombre() + ": <BR>" + hostil1.getDescripcion() + "</BODY></HTML>");
         
     }
 //    public static void quienAtaca() {
