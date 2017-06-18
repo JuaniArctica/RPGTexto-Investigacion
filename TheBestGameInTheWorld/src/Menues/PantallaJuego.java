@@ -42,6 +42,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     protected ControladorPersonaje controladorPersonaje;
     protected Hostil hostil;
     protected Personaje personaje;
+    Combate combate = null;
     
     private final JFXPanel jfxPanel = new JFXPanel();
     Clip sonido = null;
@@ -465,11 +466,10 @@ public class PantallaJuego extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_btnSiguienteMouseClicked
-Combate comb1 = new Combate();
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
         
-        comb1.pelea(this, controladorPersonaje);
+        combate.pelea(this, controladorPersonaje);
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     private void lblBotiquinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotiquinMouseEntered
@@ -724,7 +724,7 @@ int bandera = 0;
 
             if (acu.contains("NPC") && bandera<1) {
                 
-                Combate combate = new Combate(personaje, hostil, this, controladorPersonaje);
+                combate = new Combate(personaje, hostil, this, controladorPersonaje);
                 bandera++;
                 
                 lblTextoHistoria.setForeground(Color.RED);
