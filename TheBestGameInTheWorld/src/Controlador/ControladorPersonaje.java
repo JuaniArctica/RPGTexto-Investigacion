@@ -13,23 +13,26 @@ import Modelo.Personaje;
  */
 public class ControladorPersonaje {
 
-    Personaje personaje1 = new Personaje();
+    public static Personaje personaje1 = new Personaje();
 
-    public Personaje getPersonaje1() {
+    public static Personaje getPersonaje1() {
         return personaje1;
     }
+
+
 
     public void setPersonaje1(Personaje personaje1) {
         this.personaje1 = personaje1;
     }
 
-    public void agregarValores(String nombre, String clase) {
+    public  void agregarValores(String nombre, String clase) {
         personaje1.setNombre(nombre);
         personaje1.setClase(clase);
         personaje1.setNivel(1);
         personaje1.setExpMax(20);
         personaje1.setExp(0);
         personaje1.setPociones(10);
+               
 
         switch (personaje1.getClase()) {
             case "Detective":

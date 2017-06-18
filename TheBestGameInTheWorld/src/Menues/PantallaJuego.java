@@ -88,14 +88,14 @@ public class PantallaJuego extends javax.swing.JFrame {
                 + " la parte superior derecha del libro, "
                 + "esperamos que lo pases de lo mejor!... Suerte en la aventura...</BODY></HTML>");
         
-        lblNombre.setText(controladorPersonaje.getPersonaje1().getNombre());
+        lblNombre.setText(ControladorPersonaje.getPersonaje1().getNombre());
         lblNumeroNivel.setText(String.valueOf(controladorPersonaje.getPersonaje1().getNivel()));
         lblNumeroDefensa1.setText(String.valueOf(controladorPersonaje.getPersonaje1().getDefensa()));
-        lblNumeroGolpe.setText(String.valueOf(controladorPersonaje.getPersonaje1().getGolpeMin()) + "/" + String.valueOf(controladorPersonaje.getPersonaje1().getGolpeMax()));
+        lblNumeroGolpe.setText(String.valueOf(ControladorPersonaje.getPersonaje1().getGolpeMin()) + "/" + String.valueOf(ControladorPersonaje.getPersonaje1().getGolpeMax()));
 
         PbVida.setForeground(Color.RED);
-        PbVida.setValue(controladorPersonaje.getPersonaje1().getVida()); //Setea como maximo de la barra la vida actual del personaje
-        PbVida.setMaximum(controladorPersonaje.getPersonaje1().getVidaMax());
+        PbVida.setValue(ControladorPersonaje.getPersonaje1().getVida()); //Setea como maximo de la barra la vida actual del personaje
+        PbVida.setMaximum(ControladorPersonaje.getPersonaje1().getVidaMax());
 
         PbExperiencia.setValue(controladorPersonaje.getPersonaje1().getExp());
 
@@ -104,6 +104,8 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnAtacar.setVisible(false);
         btnHuir.setVisible(false);
         btnObservar.setVisible(false);
+        
+        
     }
     
     /**
@@ -117,6 +119,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnSiguiente = new javax.swing.JButton();
+        lblPrueba = new javax.swing.JLabel();
         lblFotos = new javax.swing.JLabel();
         lblNumeroPociones = new javax.swing.JLabel();
         lblCuracion = new javax.swing.JLabel();
@@ -136,7 +139,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblseguro = new javax.swing.JLabel();
         lblmenu = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
-        btnGolpe = new javax.swing.JButton();
         btnAtacar = new javax.swing.JButton();
         btnHuir = new javax.swing.JButton();
         btnObservar = new javax.swing.JButton();
@@ -145,7 +147,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblTextoHistoria = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblImagenObjeto = new javax.swing.JLabel();
-        lblPrueba = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
@@ -188,6 +189,13 @@ public class PantallaJuego extends javax.swing.JFrame {
         });
         jPanel1.add(btnSiguiente);
         btnSiguiente.setBounds(510, 50, 140, 20);
+
+        lblPrueba.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblPrueba.setForeground(new java.awt.Color(255, 255, 255));
+        lblPrueba.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPrueba.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel1.add(lblPrueba);
+        lblPrueba.setBounds(420, 360, 190, 120);
 
         lblFotos.setBackground(new java.awt.Color(0, 0, 0));
         lblFotos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -351,18 +359,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         jPanel1.add(lblDescripcion);
         lblDescripcion.setBounds(120, 540, 400, 50);
 
-        btnGolpe.setBackground(new java.awt.Color(204, 0, 0));
-        btnGolpe.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        btnGolpe.setForeground(new java.awt.Color(255, 255, 255));
-        btnGolpe.setBorderPainted(false);
-        btnGolpe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGolpeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnGolpe);
-        btnGolpe.setBounds(80, 5, 20, 10);
-
         btnAtacar.setBackground(new java.awt.Color(51, 0, 0));
         btnAtacar.setForeground(new java.awt.Color(204, 0, 0));
         btnAtacar.setText("Atacar");
@@ -429,8 +425,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblImagenObjeto.setOpaque(true);
         jPanel1.add(lblImagenObjeto);
         lblImagenObjeto.setBounds(700, 380, 80, 100);
-        jPanel1.add(lblPrueba);
-        lblPrueba.setBounds(420, 360, 190, 120);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 800, 600);
@@ -445,10 +439,6 @@ public class PantallaJuego extends javax.swing.JFrame {
     private void PbVidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PbVidaMouseClicked
 
     }//GEN-LAST:event_PbVidaMouseClicked
-
-    private void btnGolpeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGolpeActionPerformed
-        golpe();
-    }//GEN-LAST:event_btnGolpeActionPerformed
 
     int pociones = 10; // Damos 10 pociones iniciales
 
@@ -478,8 +468,16 @@ public class PantallaJuego extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
+    
+    
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
-        
+        Combate comb1 = null;
+        try {
+            comb1 = new Combate(personaje, hostil, this, controladorPersonaje);
+        } catch (IOException ex) {
+            Logger.getLogger(PantallaJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        comb1.pelea(this, controladorPersonaje);
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     private void lblBotiquinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotiquinMouseEntered
@@ -645,12 +643,11 @@ public class PantallaJuego extends javax.swing.JFrame {
     public javax.swing.JProgressBar PbVida;
     private javax.swing.JButton btbConfiguraciones;
     public javax.swing.JButton btnAtacar;
-    private javax.swing.JButton btnGolpe;
     private javax.swing.JButton btnHuir;
     private javax.swing.JButton btnObservar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSi;
-    private javax.swing.JButton btnSiguiente;
+    public static javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolveralJuego;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -689,8 +686,16 @@ public class PantallaJuego extends javax.swing.JFrame {
         int min = 18;
 
         if (pociones > 0) {
+            
+            //Control para que la vida del usuario no pueda pasar de su maximo
+            if (ControladorPersonaje.getPersonaje1().getVida()>=ControladorPersonaje.getPersonaje1().getVidaMax()){
+                ControladorPersonaje.getPersonaje1().setVida(ControladorPersonaje.getPersonaje1().getVidaMax());
+                lblDescripcion.setText("Te has curado totalmente");                
+            }else{                
+                ControladorPersonaje.getPersonaje1().setVida((int) (PbVida.getValue() + Math.floor((Math.random() * max) + min)));
+                PbVida.setValue((int) (PbVida.getValue() + Math.floor((Math.random() * max) + min)));
+            }
 
-            PbVida.setValue((int) (PbVida.getValue() + Math.floor((Math.random() * max) + min)));
         } else {
 
             PbVida.setValue(PbVida.getValue() + 0);
@@ -761,5 +766,8 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
         }
     }
+    
+
+
 
 }
