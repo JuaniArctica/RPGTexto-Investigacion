@@ -690,7 +690,7 @@ Combate comb1 = new Combate();
             PbVida.setValue(PbVida.getValue() + 0);
         }
     }
-
+int bandera = 0;
     public void incrementaTexto() {
 
         //Lectura de txt y set en txtpHistoria
@@ -722,15 +722,19 @@ Combate comb1 = new Combate();
             //ETIQUETAS HTML PARA MULTILINEA AUTOMATICO EN LABEL
             lblTextoHistoria.setText("<HTML><BODY>" + replace + "</BODY></HTML>");
 
-            if (acu.contains("NPC")) {
-
+            if (acu.contains("NPC") && bandera<1) {
+                
+                Combate combate = new Combate(personaje, hostil, this, controladorPersonaje);
+                bandera++;
+                
                 lblTextoHistoria.setForeground(Color.RED);
 
                 btnAtacar.setVisible(true);
                 btnHuir.setVisible(true);
                 btnObservar.setVisible(true);
+            
             } else {
-
+                bandera=0;
                 lblTextoHistoria.setForeground(Color.BLACK);
 
                 btnAtacar.setVisible(false);
@@ -738,11 +742,6 @@ Combate comb1 = new Combate();
                 btnObservar.setVisible(false);
             }
 
-            if (datoLimpio.contains("NPC")) {
-                
-                new Combate(personaje, hostil, this, controladorPersonaje);
-            } else {
-            }
 
         } catch (IOException e) {
         } finally {
