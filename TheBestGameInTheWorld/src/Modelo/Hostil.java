@@ -18,18 +18,29 @@ public class Hostil {
     private int vida;
     private int golpeMin;
     private int golpeMax;
+    private int exp;
     private static Random random = new Random();
 
     public Hostil() {
     }
     
-    public Hostil(String nombre, String descripcion, int vida, int golpeMin, int golpeMax) {
+    public Hostil(String nombre, String descripcion, int vida, int golpeMin, int golpeMax, int exp) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.vida = vida;
         this.golpeMin = golpeMin;
         this.golpeMax = golpeMax;
+        this.exp= exp;
     }
+
+    public int getExp() {
+        return exp;
+    }
+
+    public void setExp(int exp) {
+        this.exp = exp;
+    }
+    
 
     public String getNombre() {
         return nombre;
@@ -84,9 +95,9 @@ public class Hostil {
         
         Hostil arrayNpc[] = new Hostil[3];
         
-        arrayNpc[0] = new Hostil("Lobo", "Un feroz lobo sediento de sangre", 100, 1, 1);
-        arrayNpc[1] = new Hostil("Gallina", "Una pequeña y adorable gallinita... verdad?", 100, 1, 1);
-        arrayNpc[2] = new Hostil("Maradona", "El de la droga", 100, 1, 1);
+        arrayNpc[0] = new Hostil("Lobo", "Un feroz lobo sediento de sangre", 100, 1, 1,15);
+        arrayNpc[1] = new Hostil("Gallina", "Una pequeña y adorable gallinita... verdad?", 100, 1, 1,15);
+        arrayNpc[2] = new Hostil("Maradona", "El de la droga", 100, 1, 1,15);
 
         int rnd = (int) (Math.random() * arrayNpc.length);
         

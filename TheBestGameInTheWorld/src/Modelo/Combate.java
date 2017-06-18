@@ -65,6 +65,15 @@ public class Combate {
       
         if (enemigoActivo.getVida() <= 0) {
             pantJuego.btnSiguiente.setVisible(true);
+           
+            pantJuego.btnAtacar.setVisible(false);
+            pantJuego.btnHuir.setVisible(false);
+            pantJuego.btnObservar.setVisible(false);
+            
+            int expActual= pantJuego.PbExperiencia.getValue();
+            
+            
+            pantJuego.PbExperiencia.setValue(enemigoActivo.getExp()+expActual);
             pantJuego.lblPrueba.setText("El enemigo ha muerto");
             
         }else{

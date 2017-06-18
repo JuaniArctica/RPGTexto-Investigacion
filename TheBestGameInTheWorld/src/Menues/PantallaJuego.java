@@ -496,9 +496,10 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblNumeroPociones.setText(String.valueOf(pociones));
 
         if (pociones > 0) {
-
+            
             pociones--;
             regenera();
+            
         } else {
 
             lblDescripcion.setText("<html><font color=ff0000> No hay mas pociones!</font></html>");
@@ -628,12 +629,12 @@ public class PantallaJuego extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JProgressBar PbExperiencia;
+    public javax.swing.JProgressBar PbExperiencia;
     public javax.swing.JProgressBar PbVida;
     private javax.swing.JButton btbConfiguraciones;
     public javax.swing.JButton btnAtacar;
     public javax.swing.JButton btnHuir;
-    private javax.swing.JButton btnObservar;
+    public static javax.swing.JButton btnObservar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSi;
     public static javax.swing.JButton btnSiguiente;
@@ -669,7 +670,6 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void regenera() {
 
-        //int pociones = 10;
 
         int max = 20;
         int min = 18;
@@ -679,10 +679,15 @@ public class PantallaJuego extends javax.swing.JFrame {
             //Control para que la vida del usuario no pueda pasar de su maximo
             if (ControladorPersonaje.getPersonaje1().getVida()>=ControladorPersonaje.getPersonaje1().getVidaMax()){
                 ControladorPersonaje.getPersonaje1().setVida(ControladorPersonaje.getPersonaje1().getVidaMax());
-                lblDescripcion.setText("Te has curado totalmente");                
+                
+                lblDescripcion.setText("Te has curado totalmente");
+            
+
             }else{                
+                
                 ControladorPersonaje.getPersonaje1().setVida((int) (PbVida.getValue() + Math.floor((Math.random() * max) + min)));
                 PbVida.setValue((int) (PbVida.getValue() + Math.floor((Math.random() * max) + min)));
+
             }
 
         } else {
@@ -737,6 +742,9 @@ int bandera = 0;
                 bandera=0;
                 lblTextoHistoria.setForeground(Color.BLACK);
 
+                lblPrueba.setText("");
+                lblDescripcion.setText("");
+                        
                 btnAtacar.setVisible(false);
                 btnHuir.setVisible(false);
                 btnObservar.setVisible(false);
