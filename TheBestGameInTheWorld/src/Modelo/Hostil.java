@@ -14,9 +14,6 @@ import java.util.Random;
  */
 public class Hostil {
     
-    private Personaje refPersonaje;
-    private PantallaJuego refPantJuego;
-    
     private final String nombre;
     private final String descripcion;
     private int vida;
@@ -43,13 +40,12 @@ public class Hostil {
     public int getGolpeMax() {
         return golpeMax;
     }
-
+    
     public String getNombre() {
         return nombre;
     }
     
-    
-    public Hostil nuevoEnemigo() {
+    public static Hostil nuevoEnemigo() {
         
         int i;
         
@@ -79,13 +75,13 @@ public class Hostil {
         return random.nextInt(golpeMax - golpeMin + 1) + golpeMin;
     }
     
-    public void defensa() {
+    public void defensa(Personaje personaje, PantallaJuego pantJuego) {
 
-        vida = vida - refPersonaje.ataque();
-        refPantJuego.lblTextoHistoria.setText("    El enemigo es golpeado por " + refPersonaje.ataque() + " de daño (Vida actual = " + vida + ")");
+        vida = vida - personaje.ataque();
+        pantJuego.lblTextoHistoria.setText("    El enemigo es golpeado por " + personaje.ataque() + " de daño (Vida actual = " + vida + ")");
         
         if (vida <= 0) {
-            refPantJuego.lblTextoHistoria.setText("El enemigo ha muerto");
+            pantJuego.lblTextoHistoria.setText("El enemigo ha muerto");
         }
     }
 }

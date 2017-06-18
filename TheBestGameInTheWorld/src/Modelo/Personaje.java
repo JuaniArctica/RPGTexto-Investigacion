@@ -12,8 +12,6 @@ import java.util.Random;
  * @author prouser
  */
 public class Personaje {
-
-    private Hostil refHostil;
     
     //Atributos
     private String nombre;
@@ -141,10 +139,10 @@ public class Personaje {
         return random.nextInt(golpeMax - golpeMin + 1) + golpeMin;
     }
     
-    public void defensa() {
+    public void defensa(Hostil hostil) {
         
-        vida = vida - refHostil.ataque();
-        System.out.println("    Eres golpeado por " + refHostil.ataque() + " de daño (Vida actual " + vida + ")");
+        vida = vida - hostil.ataque();
+        System.out.println("    Eres golpeado por " + hostil.ataque() + " de daño (Vida actual " + vida + ")");
         
         if (vida <= 0) {
             System.out.println("Has muerto");

@@ -40,7 +40,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     
     private final String ruta = System.getProperties().getProperty("user.dir");
     protected ControladorPersonaje controladorPersonaje;
-
+    Hostil hostil;
+    Personaje personaje;
+    
     private final JFXPanel jfxPanel = new JFXPanel();
     Clip sonido = null;
     
@@ -103,7 +105,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnHuir.setVisible(false);
         btnObservar.setVisible(false);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -432,7 +434,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        incrementaTexto();
+        incrementaTexto(personaje, hostil);
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void PbVidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PbVidaMouseClicked
@@ -683,7 +685,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         }
     }
 
-    public void incrementaTexto() {
+    public void incrementaTexto(Personaje personaje, Hostil hostil) {
 
         //Lectura de txt y set en txtpHistoria
         File archivo = null;
@@ -709,7 +711,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
             acu += datoLimpio;
 
-            String replace = acu.replace("NPC", "Preparate para el combate!! Criatura Nivel ");
+            String replace = acu.replace("NPC", "Preparate para el combate!");
 
             //ETIQUETAS HTML PARA MULTILINEA AUTOMATICO EN LABEL
             lblTextoHistoria.setText("<HTML><BODY>" + replace + "</BODY></HTML>");
@@ -730,12 +732,11 @@ public class PantallaJuego extends javax.swing.JFrame {
                 btnObservar.setVisible(false);
             }
 
-            if (datoLimpio.contains("NPC1")) {
+            if (datoLimpio.contains("NPC")) {
 
                 System.out.println("Llamamos combate con Npc Nivel 1");
                 
-                Combate combate = new Combate();
-                combate.Batalla();
+                new Combate(personaje, hostil, this);
             } else {
             }
 
@@ -745,7 +746,6 @@ public class PantallaJuego extends javax.swing.JFrame {
             try {
                 if (null != fr) {
                     fr.close();
-
                 }
             } catch (IOException e2) {
             }

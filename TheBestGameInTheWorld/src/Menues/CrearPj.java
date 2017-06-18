@@ -6,6 +6,7 @@
 package Menues;
 
 import Controlador.ControladorPersonaje;
+import Modelo.Hostil;
 import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
@@ -17,26 +18,23 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-
 /**
  *
  * @author prouser
  */
-
 public class CrearPj extends javax.swing.JFrame {
 
+    private Hostil hostil;
     ControladorPersonaje controladorPersonaje = new ControladorPersonaje();
     Clip sonidoo = null;
+
     public CrearPj() {
-        
+
         initComponents();
-        
-        
 
         this.getContentPane().setBackground(Color.BLACK);
-        
-        
-        this.setSize(800 , 600);
+
+        this.setSize(800, 600);
 
         lblDescripcion1.setVisible(false);
         lblDescripcion.setVisible(false);
@@ -44,17 +42,16 @@ public class CrearPj extends javax.swing.JFrame {
         lblError.setVisible(false);
 
         this.setLocationRelativeTo(null);
-        
+
         this.setDefaultCloseOperation(CrearPj.EXIT_ON_CLOSE);
-        
-        
-            try {
+
+        try {
             sonidoo = AudioSystem.getClip();
         } catch (LineUnavailableException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-        sonidoo.open(AudioSystem.getAudioInputStream(new File("src/Menues/Sonidos/main.wav")));
+            sonidoo.open(AudioSystem.getAudioInputStream(new File("src/Menues/Sonidos/main.wav")));
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -263,11 +260,10 @@ public class CrearPj extends javax.swing.JFrame {
             lblDescripcion.setVisible(true);
             lblDescripcion1.setVisible(true);
             lblDetective.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/detectivesobre.png")));
-           
+
             lblExplorador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/explorador.png")));
             lblPolicia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/policia.png")));
 
-       
         } else if (cmbClase.getSelectedItem().equals("Policia")) {
 
             lblDescripcion.setText("<html>Ser Policia no es fácil... La fuerza es importante para luchar contra las "
@@ -277,13 +273,13 @@ public class CrearPj extends javax.swing.JFrame {
             lblValor3.setText("4/12");
             lblDescripcion.setVisible(true);
             lblDescripcion1.setVisible(true);
-            lblPolicia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/policiasobre.png"))); 
-            
+            lblPolicia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/policiasobre.png")));
+
             lblExplorador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/explorador.png")));
             lblDetective.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/detective.png")));
-            
+
         } else if (cmbClase.getSelectedItem().equals("Explorador")) {
-            
+
             lblDescripcion.setText("<html>Para explorar hay que ser ágil y esa es una caracteristica de esta clase. "
                     + "Defensivo por naturaleza.</html>");
             lblValor1.setText("8");
@@ -292,12 +288,12 @@ public class CrearPj extends javax.swing.JFrame {
             lblDescripcion.setVisible(true);
             lblDescripcion1.setVisible(true);
             lblExplorador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/exploradorsobre.png")));
-            
+
             lblPolicia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/policia.png")));
             lblDetective.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/detective.png")));
-            
+
         } else {
-            
+
             lblDescripcion.setText("");
             lblValor1.setText("");
             lblValor2.setText("");
@@ -316,14 +312,14 @@ public class CrearPj extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        
-            
+
+
     }//GEN-LAST:event_formWindowOpened
 
     private void lblVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseEntered
         // TODO add your handling code here:
         lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/regresarsobre.png")));
-        
+
     }//GEN-LAST:event_lblVolverMouseEntered
 
     private void lblVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseExited
@@ -333,7 +329,7 @@ public class CrearPj extends javax.swing.JFrame {
 
     private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
         // TODO add your handling code here:
-        
+
         Main main = null;
         try {
             main = new Main();
@@ -352,12 +348,12 @@ public class CrearPj extends javax.swing.JFrame {
 
     private void lblComenzarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblComenzarMouseExited
         // TODO add your handling code here:
-        lblComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/comenzar.png")));        
+        lblComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/comenzar.png")));
     }//GEN-LAST:event_lblComenzarMouseExited
 
     private void lblComenzarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblComenzarMouseClicked
         // TODO add your handling code here:
-                controladorPersonaje.agregarValores(txtNombre.getText(), cmbClase.getSelectedItem().toString());
+        controladorPersonaje.agregarValores(txtNombre.getText(), cmbClase.getSelectedItem().toString());
 
         PantallaJuego pantallaJuego = new PantallaJuego(controladorPersonaje);
 
@@ -378,7 +374,7 @@ public class CrearPj extends javax.swing.JFrame {
             pantallaJuego.setVisible(true);
             this.dispose();
         }
-        
+
     }//GEN-LAST:event_lblComenzarMouseClicked
 
     /**

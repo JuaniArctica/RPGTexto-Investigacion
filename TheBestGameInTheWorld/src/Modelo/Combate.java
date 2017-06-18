@@ -6,6 +6,7 @@
 package Modelo;
 
 import Menues.PantallaJuego;
+import java.io.IOException;
 
 /**
  *
@@ -13,24 +14,13 @@ import Menues.PantallaJuego;
  */
 public class Combate {
     
-    private Personaje refPersonaje;
-    private Hostil refHostil;
-    private PantallaJuego refPantJuego;
+    Hostil hostil1 = new Hostil("Lobo", "Un feroz lobo sediento de sangre", 100, 15, 18);
+    Hostil hostil2 = new Hostil("Gallina", "Una pequeña y adorable gallinita... verdad?", 100, 22, 24);
     
-    private int Dados;
-    
-    public int getDados() {
-        return Dados;
-    }
-
-    public void setDados(int Dados) {
-        this.Dados = Dados;
-    }
-    
-    public void Batalla() {
-        refHostil.nuevoEnemigo();
+    public Combate(Personaje personaje, Hostil hostil, PantallaJuego pantJuego) throws IOException {
         
-        refPantJuego.lblTextoHistoria.setText("Encontras un " + refHostil.getNombre());
+        pantJuego.lblTextoHistoria.setText("Encontras un " + hostil1.getNombre() + ":\n");
+        
     }
 //    public static void quienAtaca() {
 ////FALTA AGREGAR EL PARAMETRO NIVEL Y DEFENSA PARA HACERLO MAS INTERESANTE EN LA TIRADA
