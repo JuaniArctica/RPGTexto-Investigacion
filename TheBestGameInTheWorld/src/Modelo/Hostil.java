@@ -95,9 +95,9 @@ public class Hostil {
         
         Hostil arrayNpc[] = new Hostil[3];
         
-        arrayNpc[0] = new Hostil("Lobo", "Un feroz lobo sediento de sangre", 100, 1, 1,15);
-        arrayNpc[1] = new Hostil("Gallina", "Una pequeña y adorable gallinita... verdad?", 100, 1, 1,15);
-        arrayNpc[2] = new Hostil("Maradona", "El de la droga", 100, 1, 1,15);
+        arrayNpc[0] = new Hostil("Lobo", "Un feroz lobo sediento de sangre", 100, 1, 1,70);
+        arrayNpc[1] = new Hostil("Gallina", "Una pequeña y adorable gallinita... verdad?", 100, 1, 1,70);
+        arrayNpc[2] = new Hostil("Maradona", "El de la droga", 100, 1, 1,70);
 
         int rnd = (int) (Math.random() * arrayNpc.length);
         

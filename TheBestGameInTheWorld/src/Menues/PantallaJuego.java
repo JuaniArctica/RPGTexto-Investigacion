@@ -433,6 +433,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
         incrementaTexto();
+
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void PbVidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PbVidaMouseClicked
@@ -649,9 +650,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel lblFotos;
     private javax.swing.JLabel lblImagenObjeto;
     private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblNumeroDefensa1;
-    private javax.swing.JLabel lblNumeroGolpe;
-    private javax.swing.JLabel lblNumeroNivel;
+    public javax.swing.JLabel lblNumeroDefensa1;
+    public javax.swing.JLabel lblNumeroGolpe;
+    public javax.swing.JLabel lblNumeroNivel;
     private javax.swing.JLabel lblNumeroPociones;
     private javax.swing.JLabel lblPluma;
     public javax.swing.JLabel lblPrueba;
@@ -763,4 +764,5 @@ int bandera = 0;
         }
     }
     
+
 }
