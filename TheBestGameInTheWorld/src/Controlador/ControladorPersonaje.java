@@ -19,8 +19,6 @@ public class ControladorPersonaje {
         return personaje1;
     }
 
-
-
     public void setPersonaje1(Personaje personaje1) {
         this.personaje1 = personaje1;
     }
@@ -33,7 +31,6 @@ public class ControladorPersonaje {
         personaje1.setExp(0);
         personaje1.setPociones(10);
                
-
         switch (personaje1.getClase()) {
             case "Detective":
 

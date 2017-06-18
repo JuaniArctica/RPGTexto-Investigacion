@@ -104,8 +104,6 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnAtacar.setVisible(false);
         btnHuir.setVisible(false);
         btnObservar.setVisible(false);
-        
-        
     }
     
     /**
@@ -467,16 +465,10 @@ public class PantallaJuego extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_btnSiguienteMouseClicked
+Combate comb1 = new Combate();
 
-    
-    
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
-        Combate comb1 = null;
-        try {
-            comb1 = new Combate(personaje, hostil, this, controladorPersonaje);
-        } catch (IOException ex) {
-            Logger.getLogger(PantallaJuego.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         comb1.pelea(this, controladorPersonaje);
     }//GEN-LAST:event_btnAtacarActionPerformed
 
@@ -557,9 +549,6 @@ public class PantallaJuego extends javax.swing.JFrame {
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
 
     }//GEN-LAST:event_formWindowLostFocus
-
-    public PantallaJuego() {
-    }
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
 
@@ -643,7 +632,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     public javax.swing.JProgressBar PbVida;
     private javax.swing.JButton btbConfiguraciones;
     public javax.swing.JButton btnAtacar;
-    private javax.swing.JButton btnHuir;
+    public javax.swing.JButton btnHuir;
     private javax.swing.JButton btnObservar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSi;
@@ -680,12 +669,12 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void regenera() {
 
-        int pociones = 10;
+        //int pociones = 10;
 
         int max = 20;
         int min = 18;
 
-        if (pociones > 0) {
+        if (ControladorPersonaje.getPersonaje1().getPociones() > 0) {
             
             //Control para que la vida del usuario no pueda pasar de su maximo
             if (ControladorPersonaje.getPersonaje1().getVida()>=ControladorPersonaje.getPersonaje1().getVidaMax()){
@@ -711,13 +700,13 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         try {
 
-            // Apertura del fichero y creacion de BufferedReader para poder
-            // hacer una lectura comoda (disponer del metodo readLine()).
+            //Apertura del fichero y creacion de BufferedReader para poder
+            //hacer una lectura comoda (disponer del metodo readLine()).
             archivo = new File(ruta + "//archivo.txt");
             fr = new FileReader(archivo);
             br = new BufferedReader(fr);
 
-            // Lectura del fichero
+            //Lectura del fichero
             String linea;
             linea = br.readLine();
 
@@ -767,7 +756,4 @@ public class PantallaJuego extends javax.swing.JFrame {
         }
     }
     
-
-
-
 }

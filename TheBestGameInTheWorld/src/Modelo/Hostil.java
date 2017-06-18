@@ -88,7 +88,6 @@ public class Hostil {
         arrayNpc[1] = new Hostil("Gallina", "Una pequeña y adorable gallinita... verdad?", 100, 1, 1);
         arrayNpc[2] = new Hostil("Maradona", "El de la droga", 100, 1, 1);
 
-        
         int rnd = (int) (Math.random() * arrayNpc.length);
         
         return arrayNpc[rnd];

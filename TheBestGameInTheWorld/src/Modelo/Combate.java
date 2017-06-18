@@ -16,11 +16,10 @@ import java.io.IOException;
 public class Combate {
     
     private final Hostil enemigoActivo = Hostil.nuevoEnemigo();  
-
-    
-
     private final Personaje personajeActivo = ControladorPersonaje.getPersonaje1();
-    
+
+    public Combate() {
+    }
     
     public Combate(Personaje personaje, Hostil hostil, PantallaJuego pantJuego, ControladorPersonaje controladorPersonaje) throws IOException {   
         
@@ -29,14 +28,12 @@ public class Combate {
         pantJuego.lblDescripcion.setText("<HTML><BODY>Encontras un " + 
                 enemigoActivo.getNombre() + ": <BR>" + enemigoActivo.getDescripcion() + 
                 "</BODY></HTML>");      
-        
     }
     
     public void pelea(PantallaJuego pantJuego, ControladorPersonaje controladorPersonaje){
         
             defensaNPC(pantJuego);
             defensaPersonaje(pantJuego, controladorPersonaje);
-        
     }
     
     public int ataquePersonaje(ControladorPersonaje controladorPersonaje) {
@@ -78,8 +75,6 @@ public class Combate {
         enemigoActivo.setVida(vidaNpcActual);
         
         pantJuego.lblPrueba.setText("<HTML><BODY>El enemigo "+enemigoActivo.getNombre()+" es golpeado por " + golpeDelPersonaje + " de daño (Vida actual = " + vidaNpcActual + ")</BODY></HTML>");
-           
-            
         }
     }
 //    public static void quienAtaca() {
