@@ -40,8 +40,8 @@ public class PantallaJuego extends javax.swing.JFrame {
     
     private final String ruta = System.getProperties().getProperty("user.dir");
     protected ControladorPersonaje controladorPersonaje;
-    Hostil hostil;
-    Personaje personaje;
+    protected Hostil hostil;
+    protected Personaje personaje;
     
     private final JFXPanel jfxPanel = new JFXPanel();
     Clip sonido = null;
@@ -367,6 +367,11 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnAtacar.setForeground(new java.awt.Color(204, 0, 0));
         btnAtacar.setText("Atacar");
         btnAtacar.setBorderPainted(false);
+        btnAtacar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAtacarMouseClicked(evt);
+            }
+        });
         btnAtacar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtacarActionPerformed(evt);
@@ -434,7 +439,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        incrementaTexto(personaje, hostil);
+        incrementaTexto();
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void PbVidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PbVidaMouseClicked
@@ -474,7 +479,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
-
+        
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     private void lblBotiquinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotiquinMouseEntered
@@ -597,6 +602,10 @@ public class PantallaJuego extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSiActionPerformed
 
+    private void btnAtacarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtacarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAtacarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -636,7 +645,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JProgressBar PbExperiencia;
     public javax.swing.JProgressBar PbVida;
     private javax.swing.JButton btbConfiguraciones;
-    private javax.swing.JButton btnAtacar;
+    public javax.swing.JButton btnAtacar;
     private javax.swing.JButton btnGolpe;
     private javax.swing.JButton btnHuir;
     private javax.swing.JButton btnObservar;
@@ -689,7 +698,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         }
     }
 
-    public void incrementaTexto(Personaje personaje, Hostil hostil) {
+    public void incrementaTexto() {
 
         //Lectura de txt y set en txtpHistoria
         File archivo = null;
@@ -740,7 +749,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
                 System.out.println("Llamamos combate con Npc Nivel 1");
                 
-                new Combate(personaje, hostil, this);
+                new Combate(hostil, this);
             } else {
             }
 

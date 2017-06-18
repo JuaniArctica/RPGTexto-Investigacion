@@ -133,16 +133,16 @@ public class Personaje {
     public void setClase(String Clase) {
         this.Clase = Clase;
     }
-    
-    
-    public int ataque() {
-        return random.nextInt(golpeMax - golpeMin + 1) + golpeMin;
+
+    public Random getRandom() {
+        return random;
     }
+    
     
     public void defensa(Hostil hostil) {
         
         vida = vida - hostil.ataque();
-        System.out.println("    Eres golpeado por " + hostil.ataque() + " de daño (Vida actual " + vida + ")");
+        System.out.println("Eres golpeado por " + hostil.ataque() + " de daño (Vida actual " + vida + ")");
         
         if (vida <= 0) {
             System.out.println("Has muerto");

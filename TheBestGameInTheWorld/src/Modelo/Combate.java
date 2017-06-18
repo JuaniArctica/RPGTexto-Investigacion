@@ -14,13 +14,32 @@ import java.io.IOException;
  */
 public class Combate {
     
-    Hostil hostil1 = new Hostil("Lobo", "Un feroz lobo sediento de sangre", 100, 15, 18);
-    Hostil hostil2 = new Hostil("Gallina", "Una pequeña y adorable gallinita... verdad?", 100, 22, 24);
+    Personaje personaje;
+    PantallaJuego pantJuego;
+    Hostil enemigoActivo = Hostil.nuevoEnemigo();
     
-    public Combate(Personaje personaje, Hostil hostil, PantallaJuego pantJuego) throws IOException {
+    public Combate(Hostil hostil, PantallaJuego pantJuego) throws IOException {
         
-        pantJuego.lblTextoHistoria.setText("<HTML><BODY>Encontras un " + hostil1.getNombre() + ": <BR>" + hostil1.getDescripcion() + "</BODY></HTML>");
+        pantJuego.lblTextoHistoria.setText("<HTML><BODY>Encontras un " + enemigoActivo.getNombre() + ": <BR>" + enemigoActivo.getDescripcion() + "</BODY></HTML>");
         
+        while (personaje.estaVivo() && enemigoActivo.estaVivo()) {
+            defensaNPC();
+            //personaje.defensa(hostil);
+        }
+    }
+    
+    public int ataquePersonaje() {
+        return personaje.getRandom().nextInt(personaje.getGolpeMax() - personaje.getGolpeMin() + 1) + personaje.getGolpeMin();
+    }
+    
+    public void defensaNPC() {
+
+        int a = enemigoActivo.getVida() - ataquePersonaje();
+        pantJuego.lblTextoHistoria.setText("El enemigo es golpeado por " + ataquePersonaje() + " de daño (Vida actual = " + a + ")");
+        
+        if (enemigoActivo.getVida() <= 0) {
+            pantJuego.lblTextoHistoria.setText("El enemigo ha muerto");
+        }
     }
 //    public static void quienAtaca() {
 ////FALTA AGREGAR EL PARAMETRO NIVEL Y DEFENSA PARA HACERLO MAS INTERESANTE EN LA TIRADA

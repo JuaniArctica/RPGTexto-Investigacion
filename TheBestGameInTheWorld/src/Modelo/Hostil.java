@@ -14,13 +14,19 @@ import java.util.Random;
  */
 public class Hostil {
     
-    private final String nombre;
-    private final String descripcion;
+    private Personaje personaje;
+    private PantallaJuego pantJuego;
+    
+    private String nombre;
+    private String descripcion;
     private int vida;
-    private final int golpeMin;
-    private final int golpeMax;
-    private final static Random random = new Random();
+    private int golpeMin;
+    private int golpeMax;
+    private static Random random = new Random();
 
+    public Hostil() {
+    }
+    
     public Hostil(String nombre, String descripcion, int vida, int golpeMin, int golpeMax) {
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -44,27 +50,22 @@ public class Hostil {
     public String getNombre() {
         return nombre;
     }
+
+    public int getVida() {
+        return vida;
+    }
     
     public static Hostil nuevoEnemigo() {
         
-        int i;
+        Hostil arrayNpc[] = new Hostil[3];
         
-        do {
-            i = (int)(Math.random() * 3 + 1);
-        } while (i == 0);
+        arrayNpc[0] = new Hostil("Lobo", "Un feroz lobo sediento de sangre", 100, 15, 18);
+        arrayNpc[1] = new Hostil("Gallina", "Una pequeña y adorable gallinita... verdad?", 100, 22, 24);
+        arrayNpc[2] = new Hostil("Maradona", "El de la droga", 100, 50, 25);
         
-        switch (i) {
-            case 1:
-                return new Hostil("Lobo", "Un feroz lobo sediento de sangre", 100, 15, 18);
-            case 2:
-                return new Hostil("Gallina", "Una pequeña y adorable gallinita... verdad?", 100, 22, 24);
-            default:
-                return new Hostil("Orco", "Un enorme y feroz orco listo para atacar", 100, 16, 18);
-        }
-    }
-
-    public String getVida() {
-        return "Vida del enemigo: " + vida;
+        int rnd = (int) (Math.random() * arrayNpc.length);
+        
+        return arrayNpc[rnd];
     }
     
     public boolean estaVivo() {
@@ -75,13 +76,13 @@ public class Hostil {
         return random.nextInt(golpeMax - golpeMin + 1) + golpeMin;
     }
     
-    public void defensa(Personaje personaje, PantallaJuego pantJuego) {
-
-        vida = vida - personaje.ataque();
-        pantJuego.lblTextoHistoria.setText("    El enemigo es golpeado por " + personaje.ataque() + " de daño (Vida actual = " + vida + ")");
-        
-        if (vida <= 0) {
-            pantJuego.lblTextoHistoria.setText("El enemigo ha muerto");
-        }
-    }
+//    public void defensa() {
+//
+//        vida = vida - personaje.ataque();
+//        pantJuego.lblTextoHistoria.setText("El enemigo es golpeado por " + personaje.ataque() + " de daño (Vida actual = " + vida + ")");
+//        
+//        if (vida <= 0) {
+//            pantJuego.lblTextoHistoria.setText("El enemigo ha muerto");
+//        }
+//    }
 }
