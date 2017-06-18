@@ -5,7 +5,6 @@
  */
 package Modelo;
 
-import Menues.PantallaJuego;
 import java.util.Random;
 
 /**
@@ -13,9 +12,6 @@ import java.util.Random;
  * @author prouser
  */
 public class Hostil {
-    
-    private Personaje personaje;
-    private PantallaJuego pantJuego;
     
     private String nombre;
     private String descripcion;
@@ -35,25 +31,54 @@ public class Hostil {
         this.golpeMax = golpeMax;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getDescripcion() {
         return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
     }
 
     public int getGolpeMin() {
         return golpeMin;
     }
 
+    public void setGolpeMin(int golpeMin) {
+        this.golpeMin = golpeMin;
+    }
+
     public int getGolpeMax() {
         return golpeMax;
     }
-    
-    public String getNombre() {
-        return nombre;
+
+    public void setGolpeMax(int golpeMax) {
+        this.golpeMax = golpeMax;
     }
 
-    public int getVida() {
-        return vida;
+    public Random getRandom() {
+        return random;
     }
+
+    public void setRandom(Random random) {
+        Hostil.random = random;
+    }
+
     
     public static Hostil nuevoEnemigo() {
         
@@ -66,14 +91,6 @@ public class Hostil {
         int rnd = (int) (Math.random() * arrayNpc.length);
         
         return arrayNpc[rnd];
-    }
-    
-    public boolean estaVivo() {
-        return vida > 0;
-    }
-    
-    public int ataque() {
-        return random.nextInt(golpeMax - golpeMin + 1) + golpeMin;
     }
     
 //    public void defensa() {

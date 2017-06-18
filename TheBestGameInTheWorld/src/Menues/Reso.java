@@ -21,27 +21,21 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  *
  * @author Damian
  */
-
-public class Reso extends javax.swing.JFrame {  
+public class Reso extends javax.swing.JFrame {
 
     /**
      * Creates new form Reso
      */
-    
     private final GraphicsDevice device;
-    
-    
+
     public Reso(final GraphicsDevice device) {
-        
+
         initComponents();
         this.setLocationRelativeTo(null);
         this.device = device;
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
     }
 
-    
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -106,35 +100,30 @@ public class Reso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFullActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFullActionPerformed
-        // TODO add your handling code here:
         this.setVisible(false);
-            DisplayMode dm = new DisplayMode(800, 600, 32, 60);
-            device.setDisplayMode(dm);
-            setSize(new Dimension(dm.getWidth(), dm.getHeight()));
-            validate();
-            
-         
-            BoldPrograming inicio = null;            
-        
-            try {
+        DisplayMode dm = new DisplayMode(800, 600, 32, 60);
+        device.setDisplayMode(dm);
+        setSize(new Dimension(dm.getWidth(), dm.getHeight()));
+        validate();
+
+        BoldPrograming inicio = null;
+
+        try {
             inicio = new BoldPrograming();
         } catch (LineUnavailableException | URISyntaxException | UnsupportedAudioFileException | IOException ex) {
             Logger.getLogger(Reso.class.getName()).log(Level.SEVERE, null, ex);
         }
-            inicio.setVisible(true);
-            
+        inicio.setVisible(true);
     }//GEN-LAST:event_btnFullActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnVentanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentanaActionPerformed
-        // TODO add your handling code here:
         this.setVisible(false);
-        BoldPrograming inicio = null; 
-        
+        BoldPrograming inicio = null;
+
         try {
             inicio = new BoldPrograming();
         } catch (LineUnavailableException | URISyntaxException | UnsupportedAudioFileException | IOException ex) {
@@ -146,17 +135,14 @@ public class Reso extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
-
     public static void main(String args[]) {
-        
+
         GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice defaultScreen = env.getDefaultScreenDevice();
         Resolucion changer = new Resolucion(defaultScreen);
-        
+
         changer.goFullScreen();
-        
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -184,7 +170,7 @@ public class Reso extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-              new Reso(defaultScreen).setVisible(true);  
+                new Reso(defaultScreen).setVisible(true);
             }
         });
     }

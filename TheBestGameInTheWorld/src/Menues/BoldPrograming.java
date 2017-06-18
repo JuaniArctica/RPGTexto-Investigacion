@@ -8,13 +8,10 @@ package Menues;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.KeyboardFocusManager;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Group;
@@ -24,7 +21,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.Timer;
+
 /**
  *
  * @author Damian
@@ -35,85 +32,55 @@ public class BoldPrograming extends javax.swing.JFrame {
 
     /**
      * Creates new form BoldPrograming
+     *
      * @throws javax.sound.sampled.LineUnavailableException
      * @throws java.net.URISyntaxException
      * @throws javax.sound.sampled.UnsupportedAudioFileException
      * @throws java.io.IOException
      */
-    public BoldPrograming() throws LineUnavailableException, URISyntaxException, UnsupportedAudioFileException, IOException  {
-        
+    public BoldPrograming() throws LineUnavailableException, URISyntaxException, UnsupportedAudioFileException, IOException {
+
         initComponents();
-        Main ventana = new Main();      
-         
+        Main ventana = new Main();
 
         //Añadimos el panel de JavaFX al JPanel Swing
         jPanel1.setSize(800, 600);
         jPanel1.setLayout(new BorderLayout());
-        jPanel1.add(jfxPanel,BorderLayout.CENTER);
-        
-        
+        jPanel1.add(jfxPanel, BorderLayout.CENTER);
+
         //VIDEO
         Platform.runLater(() -> {
 
-              File file = new File("src/Menues/Videos/b.mp4");                                  
-                    MediaPlayer oracleVid = new MediaPlayer(                                       
-                        new Media(file.toURI().toString())
-                    );
+            File file = new File("src/Menues/Videos/b.mp4");
+            MediaPlayer oracleVid = new MediaPlayer(
+                    new Media(file.toURI().toString())
+            );
 
             //se añade video al jfxPanel
             jfxPanel.setScene(new Scene(new Group(new MediaView(oracleVid))));
             oracleVid.setVolume(0.1);//volumen
             oracleVid.setCycleCount(1);//repite video
-            oracleVid.play();//play video   
-
-//CERRAMOS LA VENTANA DESPUES DE 23 SEGUNDOS
-
-//       Timer timer = new Timer (23000, (ActionEvent e) -> {        
-//        
-//        
-//        ventana.setVisible(true);
-//        this.dispose();
-//        oracleVid.stop();
-//        
-//
-//              }); 
-//    timer.start(); 
-
-
-//FIN TIMER       
-
-        
-        //Metodo para saltar presentacion con letra escape///////////////////////////////
-        KeyboardFocusManager kb = KeyboardFocusManager.getCurrentKeyboardFocusManager();
-        kb.addKeyEventPostProcessor((KeyEvent e) -> {
-            if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
+            oracleVid.play();//play video 
             
-              
-            ventana.setVisible(true);
-            this.dispose(); 
-            oracleVid.stop();
-            
-            return true;
-        });
-        //Metodo para saltar presentacion con letra escape///////////////////////////////
-            
-    
-            
+            //Metodo para saltar presentacion con letra escape///////////////////////////////
+            KeyboardFocusManager kb = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+            kb.addKeyEventPostProcessor((KeyEvent e) -> {
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    ventana.setVisible(true);
+                }
+                this.dispose();
+                oracleVid.stop();
+
+                return true;
+            });
+            //Metodo para saltar presentacion con letra escape///////////////////////////////
+
         });
         //FIN SCRIPT VIDEO
-        
-        
-       
+
         this.setLocationRelativeTo(null);
         this.setBackground(Color.BLACK);
-                   
-
-        
-        
-
-
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -166,10 +133,6 @@ public class BoldPrograming extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-                    
-
- 
-
 
     }//GEN-LAST:event_formWindowOpened
 

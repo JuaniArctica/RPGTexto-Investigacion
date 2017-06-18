@@ -33,17 +33,14 @@ public class CrearPj extends javax.swing.JFrame {
         initComponents();
 
         this.getContentPane().setBackground(Color.BLACK);
-
         this.setSize(800, 600);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(CrearPj.EXIT_ON_CLOSE);
 
         lblDescripcion1.setVisible(false);
         lblDescripcion.setVisible(false);
         lblDescripcion2.setVisible(false);
         lblError.setVisible(false);
-
-        this.setLocationRelativeTo(null);
-
-        this.setDefaultCloseOperation(CrearPj.EXIT_ON_CLOSE);
 
         try {
             sonidoo = AudioSystem.getClip();
@@ -249,7 +246,6 @@ public class CrearPj extends javax.swing.JFrame {
 //    }
 
     private void cmbClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClaseActionPerformed
-
         if (cmbClase.getSelectedItem().equals("Detective")) {
 
             lblDescripcion.setText("<html>El Dective se caracteriza por su astucia y a habilidad en la pelea, es la "
@@ -311,25 +307,18 @@ public class CrearPj extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-
 
     }//GEN-LAST:event_formWindowOpened
 
     private void lblVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseEntered
-        // TODO add your handling code here:
         lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/regresarsobre.png")));
-
     }//GEN-LAST:event_lblVolverMouseEntered
 
     private void lblVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseExited
-        // TODO add your handling code here:
         lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/regresar.png")));
     }//GEN-LAST:event_lblVolverMouseExited
 
     private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
-        // TODO add your handling code here:
-
         Main main = null;
         try {
             main = new Main();
@@ -342,17 +331,14 @@ public class CrearPj extends javax.swing.JFrame {
     }//GEN-LAST:event_lblVolverMouseClicked
 
     private void lblComenzarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblComenzarMouseEntered
-        // TODO add your handling code here:
         lblComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/comenzarsobre.png")));
     }//GEN-LAST:event_lblComenzarMouseEntered
 
     private void lblComenzarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblComenzarMouseExited
-        // TODO add your handling code here:
         lblComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/comenzar.png")));
     }//GEN-LAST:event_lblComenzarMouseExited
 
     private void lblComenzarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblComenzarMouseClicked
-        // TODO add your handling code here:
         controladorPersonaje.agregarValores(txtNombre.getText(), cmbClase.getSelectedItem().toString());
 
         PantallaJuego pantallaJuego = new PantallaJuego(controladorPersonaje);
@@ -374,7 +360,6 @@ public class CrearPj extends javax.swing.JFrame {
             pantallaJuego.setVisible(true);
             this.dispose();
         }
-
     }//GEN-LAST:event_lblComenzarMouseClicked
 
     /**

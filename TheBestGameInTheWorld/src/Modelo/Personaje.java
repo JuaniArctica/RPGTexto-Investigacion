@@ -138,30 +138,4 @@ public class Personaje {
         return random;
     }
     
-    
-    public void defensa(Hostil hostil) {
-        
-        vida = vida - hostil.ataque();
-        System.out.println("Eres golpeado por " + hostil.ataque() + " de daño (Vida actual " + vida + ")");
-        
-        if (vida <= 0) {
-            System.out.println("Has muerto");
-        }
-    }
-    
-    public void curar() {
-        
-        if (pociones > 0) {
-            
-            vida = vida + 20;
-            pociones--;
-            System.out.println("Tomas una pocion de salud (Vida: " + vida + ", pociones restantes " + pociones + ")");
-        } else {
-            System.out.println("No tienes mas pociones");
-        }
-    }
-    
-    public boolean estaVivo() {
-        return vida > 0;
-    }
 }

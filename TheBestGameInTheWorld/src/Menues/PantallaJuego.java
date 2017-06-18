@@ -579,7 +579,6 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnVolveralJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolveralJuegoActionPerformed
-        // TODO add your handling code here:
         lblmenu.setVisible(false);
         btnSalir.setVisible(false);
         btbConfiguraciones.setVisible(false);
@@ -603,7 +602,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSiActionPerformed
 
     private void btnAtacarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtacarMouseClicked
-        // TODO add your handling code here:
+ 
     }//GEN-LAST:event_btnAtacarMouseClicked
 
     /**
@@ -746,10 +745,8 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
 
             if (datoLimpio.contains("NPC")) {
-
-                System.out.println("Llamamos combate con Npc Nivel 1");
                 
-                new Combate(hostil, this);
+                new Combate(personaje, hostil, this, controladorPersonaje);
             } else {
             }
 

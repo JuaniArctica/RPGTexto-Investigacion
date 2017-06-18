@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Controlador.ControladorPersonaje;
 import Menues.PantallaJuego;
 import java.io.IOException;
 
@@ -14,28 +15,44 @@ import java.io.IOException;
  */
 public class Combate {
     
-    Personaje personaje;
-    PantallaJuego pantJuego;
-    Hostil enemigoActivo = Hostil.nuevoEnemigo();
+    private Hostil enemigoActivo = Hostil.nuevoEnemigo();
     
-    public Combate(Hostil hostil, PantallaJuego pantJuego) throws IOException {
+    public Combate(Personaje personaje, Hostil hostil, PantallaJuego pantJuego, ControladorPersonaje controladorPersonaje) throws IOException {
         
         pantJuego.lblTextoHistoria.setText("<HTML><BODY>Encontras un " + enemigoActivo.getNombre() + ": <BR>" + enemigoActivo.getDescripcion() + "</BODY></HTML>");
         
-        while (personaje.estaVivo() && enemigoActivo.estaVivo()) {
-            defensaNPC();
-            //personaje.defensa(hostil);
+        while (enemigoActivo.getVida() > 0 && controladorPersonaje.getPersonaje1().getVida() > 0) {
+            defensaNPC(pantJuego);
+            defensaPersonaje(pantJuego, controladorPersonaje);
         }
     }
     
-    public int ataquePersonaje() {
-        return personaje.getRandom().nextInt(personaje.getGolpeMax() - personaje.getGolpeMin() + 1) + personaje.getGolpeMin();
+    public int ataquePersonaje(ControladorPersonaje controladorPersonaje) {
+        return controladorPersonaje.getPersonaje1().getRandom().nextInt(controladorPersonaje.getPersonaje1().getGolpeMax() - controladorPersonaje.getPersonaje1().getGolpeMin() + 1) + controladorPersonaje.getPersonaje1().getGolpeMin();
     }
     
-    public void defensaNPC() {
+    private void defensaPersonaje(PantallaJuego pantJuego, ControladorPersonaje controladorPersonaje) {
+        
+        int vidaPerActual = controladorPersonaje.getPersonaje1().getVida() - 3;
+        controladorPersonaje.getPersonaje1().setVida(vidaPerActual);
+        
+        pantJuego.lblTextoHistoria.setText("El enemigo es golpeado por " + 3 + " de daño (Vida actual = " + vidaPerActual + ")");
+        
+        if (controladorPersonaje.getPersonaje1().getVida() <= 0) {
+            pantJuego.lblTextoHistoria.setText("El enemigo ha muerto");
+        }
+    }
+    
+    public int ataqueNPC() {
+        return enemigoActivo.getRandom().nextInt(enemigoActivo.getGolpeMax() - enemigoActivo.getGolpeMin() + 1) + enemigoActivo.getGolpeMin();
+    }
+    
+    private void defensaNPC(PantallaJuego pantJuego) {
 
-        int a = enemigoActivo.getVida() - ataquePersonaje();
-        pantJuego.lblTextoHistoria.setText("El enemigo es golpeado por " + ataquePersonaje() + " de daño (Vida actual = " + a + ")");
+        int vidaNpcActual = enemigoActivo.getVida() - 5;
+        enemigoActivo.setVida(vidaNpcActual);
+        
+        pantJuego.lblTextoHistoria.setText("El enemigo es golpeado por " + 5 + " de daño (Vida actual = " + vidaNpcActual + ")");
         
         if (enemigoActivo.getVida() <= 0) {
             pantJuego.lblTextoHistoria.setText("El enemigo ha muerto");

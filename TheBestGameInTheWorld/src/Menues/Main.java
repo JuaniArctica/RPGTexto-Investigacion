@@ -5,7 +5,6 @@
  */
 package Menues;
 
-
 import java.awt.BorderLayout;
 import java.io.File;
 import java.io.IOException;
@@ -32,28 +31,27 @@ public class Main extends javax.swing.JFrame {
 
     /**
      * Creates new form Main
-     */   
+     */
     PantallaJuego refPantallajuego;
-    
-    private final JFXPanel jfxPanel = new JFXPanel();  
-        Clip sonido = null;
+
+    private final JFXPanel jfxPanel = new JFXPanel();
+    Clip sonido = null;
+
     public Main() throws LineUnavailableException, URISyntaxException, UnsupportedAudioFileException, IOException {
 
         initComponents();
 
         jPanel1.setSize(800, 600);
         jPanel1.setLayout(new BorderLayout());
-        jPanel1.add(jfxPanel,BorderLayout.CENTER); 
-        
-        
+        jPanel1.add(jfxPanel, BorderLayout.CENTER);
 
-          //VIDEO
-          Platform.runLater(() -> {
-          File file = new File("src/Menues/Videos/main.mp4");                                  
-                    MediaPlayer oracleVid = new MediaPlayer(                                       
-                        new Media(file.toURI().toString())
-                    );
-            
+        //VIDEO
+        Platform.runLater(() -> {
+            File file = new File("src/Menues/Videos/main.mp4");
+            MediaPlayer oracleVid = new MediaPlayer(
+                    new Media(file.toURI().toString())
+            );
+
             //se añade video al jfxPanel
             jfxPanel.setScene(new Scene(new Group(new MediaView(oracleVid))));
             oracleVid.setVolume(1);//volumen
@@ -61,23 +59,12 @@ public class Main extends javax.swing.JFrame {
             oracleVid.play();//play video
         });
         //FIN VIDEO    
-        
-            
 
-        
-        
-        
-        
-        this.setSize(800 , 600);
+        this.setSize(800, 600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(Main.EXIT_ON_CLOSE);
 
-
-        
-
     }
-    
- 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -144,63 +131,45 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblJugarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblJugarMouseClicked
-        // TODO add your handling code here:
-        
         CrearPj crearPj = new CrearPj();
         crearPj.setVisible(true);
         this.setVisible(false);
-        
+
         sonido.stop();
-        
-        
     }//GEN-LAST:event_lblJugarMouseClicked
 
     private void lblSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseClicked
-        // TODO add your handling code here:
         System.exit(0);
-        
-
-        
     }//GEN-LAST:event_lblSalirMouseClicked
 
     private void lblJugarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblJugarMouseEntered
-        // TODO add your handling code here:
-
         lblJugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/jugar2.png")));
     }//GEN-LAST:event_lblJugarMouseEntered
 
     private void lblJugarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblJugarMouseExited
-        // TODO add your handling code here:
-                lblJugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/jugar.png")));
+        lblJugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/jugar.png")));
     }//GEN-LAST:event_lblJugarMouseExited
 
     private void lblSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseEntered
-        // TODO add your handling code here:
-                lblSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/salir2.png")));
+        lblSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/salir2.png")));
     }//GEN-LAST:event_lblSalirMouseEntered
 
     private void lblSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseExited
-        // TODO add your handling code here:
-                lblSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/salir.png")));
+        lblSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/salir.png")));
     }//GEN-LAST:event_lblSalirMouseExited
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        
-
         try {
             sonido = AudioSystem.getClip();
         } catch (LineUnavailableException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-        sonido.open(AudioSystem.getAudioInputStream(new File("src/Menues/Sonidos/crearpj.wav")));
+            sonido.open(AudioSystem.getAudioInputStream(new File("src/Menues/Sonidos/crearpj.wav")));
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         sonido.start();
-        
-
     }//GEN-LAST:event_formWindowOpened
 
     /**
