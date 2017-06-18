@@ -456,14 +456,18 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         switch (contador) {
             case 1:
-                lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/im5.jpeg")));
+                lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen1.png")));
                 break;
             case 2:
-                lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/payaso.jpg")));
+                lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen1.png")));
                 break;
             case 3:
-                lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/im4.jpg")));
+                lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen2.png")));
                 break;
+            case 4:
+                lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen3.png")));
+                break;       
+                
             default:
                 break;
         }
