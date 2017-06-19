@@ -47,7 +47,10 @@ public class PantallaJuego extends javax.swing.JFrame {
     Combate combate = null;
     
     private final JFXPanel jfxPanel = new JFXPanel();
+    
     Clip sonido = null;
+    
+    Clip sonidoCombate = null;
     
     public PantallaJuego(ControladorPersonaje controladorPersonaje) {
 
@@ -583,6 +586,23 @@ public class PantallaJuego extends javax.swing.JFrame {
         gainControl.setValue(-10.0f); //BAJAMOS EL VOLUMEN ORIGINAL 10 deciveles
         sonido.start();
         sonido.loop(sonido.LOOP_CONTINUOUSLY);
+        
+        
+        try {
+            sonidoCombate = AudioSystem.getClip();
+        } catch (LineUnavailableException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            sonidoCombate.open(AudioSystem.getAudioInputStream(new File("src/Menues/Sonidos/combate.wav")));
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         FloatControl gainControl2 = (FloatControl) sonidoCombate.getControl(FloatControl.Type.MASTER_GAIN);
+        gainControl2.setValue(-10.0f); //BAJAMOS EL VOLUMEN ORIGINAL 10 deciveles
+      
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -747,6 +767,20 @@ public class PantallaJuego extends javax.swing.JFrame {
     }
     
 int bandera = 0;
+
+public void sonidoCombate(){
+
+        sonidoCombate.stop();
+        sonido.start();
+
+}
+
+public void sonidoCombate2(){
+
+        sonidoCombate.stop();
+        sonido.start();
+
+}
     public void incrementaTexto() {
 
         //Lectura de txt y set en txtpHistoria
@@ -783,6 +817,11 @@ int bandera = 0;
                 combate = new Combate(personaje, hostil, this, controladorPersonaje);
                 bandera++;
                 
+                
+                sonido.stop();
+                sonidoCombate.start();
+                sonidoCombate.loop(sonido.LOOP_CONTINUOUSLY);
+
                 
                 //SETEO DE IMAGEN SEGUN NPC
                 switch (combate.getEnemigoActivo().getNombre()) {

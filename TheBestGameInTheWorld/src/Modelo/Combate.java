@@ -54,6 +54,7 @@ public class Combate {
             pantJuego.btnSiguiente.setVisible(true);
             pantJuego.lblDatosGolpeAlUsuario.setText("Haz Muerto!");
             
+            pantJuego.sonidoCombate2();
             pantJuego.btnAtacar.setVisible(false);
             pantJuego.btnHuir.setVisible(false);
             pantJuego.btnObservar.setVisible(false);
@@ -79,7 +80,7 @@ public class Combate {
             pantJuego.PbExperiencia.setValue(enemigoActivo.getExp() + expActual);
 
             subirNivel(pantJuego);
-
+            pantJuego.sonidoCombate();
             pantJuego.lblDatosGolpeAlNpc.setText("<HTML><BODY><b><font color=#ff0000> El enemigo ha muerto y te ha otorgado " + enemigoActivo.getExp() + " puntos de experiencia.</font></b></BODY></HTML>");
         }
     }
