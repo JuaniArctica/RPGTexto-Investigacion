@@ -500,6 +500,7 @@ public class PantallaJuego extends javax.swing.JFrame {
                 break;
             case 5:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen3.png")));
+                lblTextoHistoria.setText("<HTML></BODY><h1>CAPITULO 1</h1><br><br>Todos contra "+ControladorPersonaje.getPersonaje1().getNombre()+"</BODY></HTML>");
                 break;
             default:
                 break;
