@@ -53,6 +53,10 @@ public class Combate {
         if (personajeActivo.getVida() <= 0) {
             pantJuego.btnSiguiente.setVisible(true);
             pantJuego.lblDatosGolpeAlUsuario.setText("Haz Muerto!");
+            
+            pantJuego.btnAtacar.setVisible(false);
+            pantJuego.btnHuir.setVisible(false);
+            pantJuego.btnObservar.setVisible(false);
         }
     }
 
