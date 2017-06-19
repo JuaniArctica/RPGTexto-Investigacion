@@ -588,7 +588,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         FloatControl gainControl = (FloatControl) sonido.getControl(FloatControl.Type.MASTER_GAIN);
         gainControl.setValue(-10.0f); //BAJAMOS EL VOLUMEN ORIGINAL 10 deciveles
         sonido.start();
-        sonido.loop(sonido.LOOP_CONTINUOUSLY);
+        sonido.loop(100);
 
         try {
             sonidoCombate = AudioSystem.getClip();
