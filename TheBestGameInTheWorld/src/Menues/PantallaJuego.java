@@ -507,6 +507,11 @@ public class PantallaJuego extends javax.swing.JFrame {
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen3.png")));
                 lblTextoHistoria.setText("<HTML></BODY><h1>CAPITULO 1</h1><br><br>Todos contra "+ControladorPersonaje.getPersonaje1().getNombre()+"</BODY></HTML>");
                 break;
+            case 15:
+                lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen3.png")));
+                lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
+                break;                
+                
             default:
                 break;
         }
@@ -514,6 +519,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
         combate.pelea(this, controladorPersonaje);
+        btnHuir.setVisible(false);
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     private void lblBotiquinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotiquinMouseEntered
