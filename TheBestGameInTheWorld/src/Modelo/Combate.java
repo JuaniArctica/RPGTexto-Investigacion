@@ -25,7 +25,7 @@ public class Combate {
 
         pantJuego.btnSiguiente.setVisible(false);
 
-        pantJuego.lblPrueba.setText("<HTML><BODY>Encuentras un " + enemigoActivo.getNombre() + "</BODY></HTML>");
+        pantJuego.lblPrueba.setText("<HTML><BODY>De repente aparece " + enemigoActivo.getNombre() + "</BODY></HTML>");
     }
 
     public Hostil getEnemigoActivo() {
