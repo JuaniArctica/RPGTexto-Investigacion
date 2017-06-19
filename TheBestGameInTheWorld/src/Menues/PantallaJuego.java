@@ -516,7 +516,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_lblPlumaMouseClicked
 
     private void termometroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_termometroMouseEntered
-        lblDescripcion.setText("<html><font color=FF0000>Muestra la vida de tu personaje.</font></html>");
+        lblDescripcion.setText("<html><font color=FF0000>La vida de tu personaje es: "+ControladorPersonaje.getPersonaje1().getVida()+" puntos.</font></html>");
     }//GEN-LAST:event_termometroMouseEntered
 
     private void PbVidaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PbVidaMouseExited

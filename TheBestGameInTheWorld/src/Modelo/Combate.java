@@ -62,7 +62,11 @@ public class Combate {
     }
     
     private void defensaNPC(PantallaJuego pantJuego) {  
-      
+        int golpeDelPersonaje= (int) (Math.random()* personajeActivo.getGolpeMax() )+ personajeActivo.getGolpeMin();
+        int vidaNpcActual= enemigoActivo.getVida() - golpeDelPersonaje;
+        enemigoActivo.setVida(vidaNpcActual);        
+        pantJuego.lblPrueba.setText("<HTML><BODY>El enemigo "+enemigoActivo.getNombre()+" es golpeado por " + golpeDelPersonaje + " de daño (Vida actual = " + vidaNpcActual + ")</BODY></HTML>");  
+        
         if (enemigoActivo.getVida() <= 0) {
             
             
@@ -75,25 +79,19 @@ public class Combate {
             int expActual= pantJuego.PbExperiencia.getValue();      
             pantJuego.PbExperiencia.setValue(enemigoActivo.getExp()+expActual);
             
-            pantJuego.lblPrueba.setText("El enemigo ha muerto");
             
             subirnivel(pantJuego);
 
-            
-        }else{
-            
-        int golpeDelPersonaje= (int) (Math.random()* personajeActivo.getGolpeMax() )+ personajeActivo.getGolpeMin();
+            pantJuego.lblPrueba.setText("<HTML><BODY>El enemigo ha muerto y te ha otorgado "+ enemigoActivo.getExp()+" puntos de experiencia.</BODY></HTML>");
+           
 
-        int vidaNpcActual= enemigoActivo.getVida() - golpeDelPersonaje;
-        enemigoActivo.setVida(vidaNpcActual);
-        
-        pantJuego.lblPrueba.setText("<HTML><BODY>El enemigo "+enemigoActivo.getNombre()+" es golpeado por " + golpeDelPersonaje + " de daño (Vida actual = " + vidaNpcActual + ")</BODY></HTML>");
         }
     }
     
         public void subirnivel (PantallaJuego pantJuego){
         
         if(pantJuego.PbExperiencia.getValue() > 99){
+            
             
             int nivel =  ControladorPersonaje.getPersonaje1().getNivel();
             
