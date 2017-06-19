@@ -666,8 +666,28 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnObservarActionPerformed
 
     private void btnHuirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuirActionPerformed
-        // TODO add your handling code here:
+        int random = (int) (Math.random() * 2);
         
+        if (random == 1) {
+            lblDatosGolpeAlUsuario.setVisible(false);
+            lblDatosGolpeAlNpc.setVisible(false);
+            lblPrueba.setVisible(false);
+            btnAtacar.setVisible(false);
+            btnObservar.setVisible(false);
+            btnHuir.setVisible(false);
+            btnSiguiente.setVisible(true);
+            lblDescripcionNpc.setText("Logras escapar habilmente");
+            sonidoCombate2();
+        } else {
+            btnHuir.setVisible(false);
+            lblDatosGolpeAlUsuario.setVisible(true);
+            lblDatosGolpeAlNpc.setVisible(true);
+            lblPrueba.setVisible(true);
+            btnAtacar.setVisible(true);
+            btnObservar.setVisible(true);
+            btnSiguiente.setVisible(false);
+            lblDatosGolpeAlNpc.setText("No logras escapar");
+        }
     }//GEN-LAST:event_btnHuirActionPerformed
 
     /**
