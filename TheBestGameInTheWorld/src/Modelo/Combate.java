@@ -102,7 +102,7 @@ public class Combate {
             ControladorPersonaje.getPersonaje1().setNivel(nivel + 1);
             ControladorPersonaje.getPersonaje1().setDefensa(ControladorPersonaje.getPersonaje1().getDefensa() + 3);
             ControladorPersonaje.getPersonaje1().setGolpeMax(ControladorPersonaje.getPersonaje1().getGolpeMax() + 4);
-            ControladorPersonaje.getPersonaje1().setGolpeMin(ControladorPersonaje.getPersonaje1().getGolpeMin() + 2);
+            ControladorPersonaje.getPersonaje1().setGolpeMin(ControladorPersonaje.getPersonaje1().getGolpeMin() + 4);
 
             pantJuego.PbExperiencia.setValue(0);
             pantJuego.lblNumeroNivel.setText(String.valueOf(ControladorPersonaje.getPersonaje1().getNivel()));

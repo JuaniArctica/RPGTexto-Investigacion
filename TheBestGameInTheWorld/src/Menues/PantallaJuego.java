@@ -41,6 +41,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     private final String ruta = System.getProperties().getProperty("user.dir");
     private int pocionesActuales = ControladorPersonaje.getPersonaje1().getPociones();
     protected int contador = 0;
+    protected int bandera = 0;
     protected ControladorPersonaje controladorPersonaje;
     protected Hostil hostil;
     protected Personaje personaje;
@@ -766,8 +767,6 @@ public class PantallaJuego extends javax.swing.JFrame {
     }
 
     public void incrementaTexto() {
-        
-        int bandera = 0;
         
         //Lectura de txt y set en txtpHistoria
         File archivo = null;

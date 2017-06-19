@@ -30,7 +30,7 @@ public class ControladorPersonaje {
         personaje1.setNivel(1);
         personaje1.setExpMax(20);
         personaje1.setExp(0);
-        personaje1.setPociones(5);
+        personaje1.setPociones(10);
                
         switch (personaje1.getClase()) {
             case "Detective":
