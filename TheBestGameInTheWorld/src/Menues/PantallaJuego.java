@@ -118,6 +118,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnSiguiente = new javax.swing.JButton();
+        lblDescripcionNpc = new javax.swing.JLabel();
         lblDatosGolpeAlUsuario = new javax.swing.JLabel();
         lblDatosGolpeAlNpc = new javax.swing.JLabel();
         lblPrueba = new javax.swing.JLabel();
@@ -191,18 +192,24 @@ public class PantallaJuego extends javax.swing.JFrame {
         jPanel1.add(btnSiguiente);
         btnSiguiente.setBounds(510, 50, 140, 20);
 
+        lblDescripcionNpc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblDescripcionNpc.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDescripcionNpc.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel1.add(lblDescripcionNpc);
+        lblDescripcionNpc.setBounds(130, 130, 240, 190);
+
         lblDatosGolpeAlUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblDatosGolpeAlUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblDatosGolpeAlUsuario.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(lblDatosGolpeAlUsuario);
-        lblDatosGolpeAlUsuario.setBounds(130, 310, 240, 90);
+        lblDatosGolpeAlUsuario.setBounds(130, 380, 240, 60);
 
         lblDatosGolpeAlNpc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblDatosGolpeAlNpc.setForeground(new java.awt.Color(51, 51, 51));
         lblDatosGolpeAlNpc.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblDatosGolpeAlNpc.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(lblDatosGolpeAlNpc);
-        lblDatosGolpeAlNpc.setBounds(130, 180, 240, 90);
+        lblDatosGolpeAlNpc.setBounds(130, 300, 240, 70);
 
         lblPrueba.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblPrueba.setForeground(new java.awt.Color(102, 0, 0));
@@ -477,6 +484,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         
         lblDatosGolpeAlNpc.setText("");
         lblDatosGolpeAlUsuario.setText("");
+        lblDescripcionNpc.setText("");
 
         System.out.println("Contador: " + contador);
 
@@ -492,7 +500,10 @@ public class PantallaJuego extends javax.swing.JFrame {
                 break;
             case 4:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen3.png")));
-                break;       
+                break;   
+            case 5:
+                lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen3.png")));
+                break;   
                 
             default:
                 break;
@@ -639,9 +650,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_PbVidaMouseEntered
 
     private void btnObservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObservarActionPerformed
-        lblDescripcion.setText(combate.getEnemigoActivo().getDescripcion() 
+        lblDescripcionNpc.setText("<HTML><BODY>"+combate.getEnemigoActivo().getDescripcion() 
                 + " Su golpe es de: " + combate.getEnemigoActivo().getGolpeMin() 
-                + "/" + combate.getEnemigoActivo().getGolpeMax());
+                + "/" + combate.getEnemigoActivo().getGolpeMax()+"</BODY></HTML>");
     }//GEN-LAST:event_btnObservarActionPerformed
 
     /**
@@ -698,6 +709,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     public javax.swing.JLabel lblDatosGolpeAlNpc;
     public javax.swing.JLabel lblDatosGolpeAlUsuario;
     public javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblDescripcionNpc;
     private javax.swing.JLabel lblFondoCuraciones;
     private javax.swing.JLabel lblFotos;
     private javax.swing.JLabel lblImagenObjeto;
@@ -774,6 +786,23 @@ int bandera = 0;
                 
                 combate = new Combate(personaje, hostil, this, controladorPersonaje);
                 bandera++;
+                
+                
+                //SETEO DE IMAGEN SEGUN NPC
+                switch (combate.getEnemigoActivo().getNombre()) {
+                    case "un ladron":
+                        lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagenladron.png")));
+                        break;
+                    case "una sombra":
+                        lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagensombre.png")));
+                        break;   
+                    case "un ciruja":
+                        lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagenciruja.png")));
+                        break;
+                    default:
+                        break;
+                }
+                
                 
                 lblTextoHistoria.setForeground(Color.RED);
 
