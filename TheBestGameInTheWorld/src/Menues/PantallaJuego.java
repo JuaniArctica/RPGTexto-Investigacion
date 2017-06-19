@@ -37,21 +37,20 @@ import static javax.swing.SwingConstants.VERTICAL;
  * @author prouser
  */
 public class PantallaJuego extends javax.swing.JFrame {
-    
+
     private final String ruta = System.getProperties().getProperty("user.dir");
-    int pocionesActuales = ControladorPersonaje.getPersonaje1().getPociones();
+    private int pocionesActuales = ControladorPersonaje.getPersonaje1().getPociones();
     protected int contador = 0;
     protected ControladorPersonaje controladorPersonaje;
     protected Hostil hostil;
     protected Personaje personaje;
     Combate combate = null;
-    
+
     private final JFXPanel jfxPanel = new JFXPanel();
-    
+
     Clip sonido = null;
-    
     Clip sonidoCombate = null;
-    
+
     public PantallaJuego(ControladorPersonaje controladorPersonaje) {
 
         initComponents();
@@ -81,10 +80,9 @@ public class PantallaJuego extends javax.swing.JFrame {
             oracleVid.setCycleCount(MediaPlayer.INDEFINITE);//repite video
             oracleVid.play();//play video
         });
-        //FIN VIDEO    
+        //FIN VIDEO
 
         this.getContentPane().setBackground(Color.BLACK);
-
         this.setSize(800, 600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(PantallaJuego.EXIT_ON_CLOSE);
@@ -94,7 +92,7 @@ public class PantallaJuego extends javax.swing.JFrame {
                 + "Para comenzar basta con presionar el boton SIGUIENTE en"
                 + " la parte superior derecha del libro, "
                 + "esperamos que lo pases de lo mejor!... Suerte en la aventura...</BODY></HTML>");
-        
+
         lblNombre.setText(ControladorPersonaje.getPersonaje1().getNombre());
         lblNumeroNivel.setText(String.valueOf(controladorPersonaje.getPersonaje1().getNivel()));
         lblNumeroDefensa1.setText(String.valueOf(controladorPersonaje.getPersonaje1().getDefensa()));
@@ -103,16 +101,14 @@ public class PantallaJuego extends javax.swing.JFrame {
         PbVida.setForeground(Color.RED);
         PbVida.setValue(ControladorPersonaje.getPersonaje1().getVida()); //Setea como maximo de la barra la vida actual del personaje
         PbVida.setMaximum(ControladorPersonaje.getPersonaje1().getVidaMax());
-
         PbExperiencia.setValue(controladorPersonaje.getPersonaje1().getExp());
-
         PbVida.setOrientation(VERTICAL);
 
         btnAtacar.setVisible(false);
         btnHuir.setVisible(false);
         btnObservar.setVisible(false);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -473,20 +469,15 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
         incrementaTexto();
-
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void PbVidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PbVidaMouseClicked
 
     }//GEN-LAST:event_PbVidaMouseClicked
 
-    //int pociones = 10; // Damos 10 pociones iniciales
-
-    
-
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
         contador++;
-        
+
         lblDatosGolpeAlNpc.setText("");
         lblDatosGolpeAlUsuario.setText("");
         lblDescripcionNpc.setText("");
@@ -505,10 +496,10 @@ public class PantallaJuego extends javax.swing.JFrame {
                 break;
             case 4:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen3.png")));
-                break;   
+                break;
             case 5:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen3.png")));
-                break;   
+                break;
             default:
                 break;
         }
@@ -539,14 +530,13 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void lblBotiquinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotiquinMouseClicked
         if (pocionesActuales > 0) {
-            
+
             pocionesActuales--;
             regenera();
         } else {
-
             lblDescripcion.setText("<html><font color=ff0000> No hay mas pociones!</font></html>");
         }
-        
+
         lblNumeroPociones.setText(String.valueOf(pocionesActuales));
     }//GEN-LAST:event_lblBotiquinMouseClicked
 
@@ -559,7 +549,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_lblPlumaMouseClicked
 
     private void termometroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_termometroMouseEntered
-        lblDescripcion.setText("<html><font color=FF0000>La vida de tu personaje es: "+ControladorPersonaje.getPersonaje1().getVida()+" puntos.</font></html>");
+        lblDescripcion.setText("<html><font color=FF0000>La vida de tu personaje es: " + ControladorPersonaje.getPersonaje1().getVida() + " puntos.</font></html>");
     }//GEN-LAST:event_termometroMouseEntered
 
     private void PbVidaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PbVidaMouseExited
@@ -581,13 +571,12 @@ public class PantallaJuego extends javax.swing.JFrame {
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         FloatControl gainControl = (FloatControl) sonido.getControl(FloatControl.Type.MASTER_GAIN);
         gainControl.setValue(-10.0f); //BAJAMOS EL VOLUMEN ORIGINAL 10 deciveles
         sonido.start();
         sonido.loop(sonido.LOOP_CONTINUOUSLY);
-        
-        
+
         try {
             sonidoCombate = AudioSystem.getClip();
         } catch (LineUnavailableException ex) {
@@ -598,11 +587,9 @@ public class PantallaJuego extends javax.swing.JFrame {
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-         FloatControl gainControl2 = (FloatControl) sonidoCombate.getControl(FloatControl.Type.MASTER_GAIN);
+
+        FloatControl gainControl2 = (FloatControl) sonidoCombate.getControl(FloatControl.Type.MASTER_GAIN);
         gainControl2.setValue(-10.0f); //BAJAMOS EL VOLUMEN ORIGINAL 10 deciveles
-      
-        
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -652,23 +639,23 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSiActionPerformed
 
     private void btnAtacarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtacarMouseClicked
- 
+
     }//GEN-LAST:event_btnAtacarMouseClicked
 
     private void PbExperienciaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PbExperienciaMouseEntered
-        lblDescripcion.setText("Tu experiencia actual es de: "+String.valueOf(PbExperiencia.getValue()) 
+        lblDescripcion.setText("Tu experiencia actual es de: " + String.valueOf(PbExperiencia.getValue())
                 + " puntos del Nivel " + String.valueOf(ControladorPersonaje.getPersonaje1().getNivel()));
     }//GEN-LAST:event_PbExperienciaMouseEntered
 
     private void PbVidaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PbVidaMouseEntered
-        lblDescripcion.setText("<html><font color=FF0000>La vida de tu personaje es: " 
+        lblDescripcion.setText("<html><font color=FF0000>La vida de tu personaje es: "
                 + ControladorPersonaje.getPersonaje1().getVida() + " puntos.</font></html>");
     }//GEN-LAST:event_PbVidaMouseEntered
 
     private void btnObservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObservarActionPerformed
-        lblDescripcionNpc.setText("<HTML><BODY>"+combate.getEnemigoActivo().getDescripcion() 
-                + " Su golpe es de: " + combate.getEnemigoActivo().getGolpeMin() 
-                + "/" + combate.getEnemigoActivo().getGolpeMax()+"</BODY></HTML>");
+        lblDescripcionNpc.setText("<HTML><BODY>" + combate.getEnemigoActivo().getDescripcion()
+                + " Su golpe es de: " + combate.getEnemigoActivo().getGolpeMin()
+                + "/" + combate.getEnemigoActivo().getGolpeMax() + "</BODY></HTML>");
     }//GEN-LAST:event_btnObservarActionPerformed
 
     /**
@@ -720,7 +707,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAnotaciones;
-    private javax.swing.JLabel lblBotiquin;
+    public javax.swing.JLabel lblBotiquin;
     private javax.swing.JLabel lblCuracion;
     public javax.swing.JLabel lblDatosGolpeAlNpc;
     public javax.swing.JLabel lblDatosGolpeAlUsuario;
@@ -747,49 +734,42 @@ public class PantallaJuego extends javax.swing.JFrame {
         int max = 20;
         int min = 18;
 
-        if (pocionesActuales > 0) {
-                            
+        if (pocionesActuales >= 0) {
+
             ControladorPersonaje.getPersonaje1().setVida((int) (PbVida.getValue() + Math.floor((Math.random() * max) + min)));
             PbVida.setValue((int) (PbVida.getValue() + Math.floor((Math.random() * max) + min)));
-                
-                
+
             //Control para que la vida del usuario no pueda pasar de su maximo
-            if (ControladorPersonaje.getPersonaje1().getVida() >= ControladorPersonaje.getPersonaje1().getVidaMax()){
-                ControladorPersonaje.getPersonaje1().setVida(ControladorPersonaje.getPersonaje1().getVidaMax());
+            if (ControladorPersonaje.getPersonaje1().getVida() >= ControladorPersonaje.getPersonaje1().getVidaMax()) {
                 
-                lblDescripcion.setText("Te has curado totalmente");            
+                ControladorPersonaje.getPersonaje1().setVida(ControladorPersonaje.getPersonaje1().getVidaMax());
+                lblDescripcion.setText("Te has curado totalmente");
             }
-
         } else {
-
             PbVida.setValue(PbVida.getValue() + 0);
         }
     }
-    
-int bandera = 0;
 
-public void sonidoCombate(){
-
+    public void sonidoCombate() {
         sonidoCombate.stop();
         sonido.start();
+    }
 
-}
-
-public void sonidoCombate2(){
-
+    public void sonidoCombate2() {
         sonidoCombate.stop();
         sonido.start();
+    }
 
-}
     public void incrementaTexto() {
-
+        
+        int bandera = 0;
+        
         //Lectura de txt y set en txtpHistoria
         File archivo = null;
         FileReader fr = null;
         BufferedReader br = null;
 
         try {
-
             //Apertura del fichero y creacion de BufferedReader para poder
             //hacer una lectura comoda (disponer del metodo readLine()).
             archivo = new File(ruta + "//archivo.txt");
@@ -812,17 +792,15 @@ public void sonidoCombate2(){
             //ETIQUETAS HTML PARA MULTILINEA AUTOMATICO EN LABEL
             lblTextoHistoria.setText("<HTML><BODY>" + replace + "</BODY></HTML>");
 
-            if (acu.contains("NPC") && bandera<1) {
-                
+            if (acu.contains("NPC") && bandera < 1) {
+
                 combate = new Combate(personaje, hostil, this, controladorPersonaje);
                 bandera++;
-                
-                
+
                 sonido.stop();
                 sonidoCombate.start();
                 sonidoCombate.loop(sonido.LOOP_CONTINUOUSLY);
 
-                
                 //SETEO DE IMAGEN SEGUN NPC
                 switch (combate.getEnemigoActivo().getNombre()) {
                     case "un ladron":
@@ -830,37 +808,31 @@ public void sonidoCombate2(){
                         break;
                     case "una sombra":
                         lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagensombre.png")));
-                        break;   
+                        break;
                     case "un ciruja":
                         lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagenciruja.png")));
                         break;
                     default:
                         break;
                 }
-                
-                
-                lblTextoHistoria.setForeground(Color.RED);
 
+                lblTextoHistoria.setForeground(Color.RED);
                 btnAtacar.setVisible(true);
                 btnHuir.setVisible(true);
                 btnObservar.setVisible(true);
-            
             } else {
-                bandera=0;
+                
+                bandera = 0;
                 lblTextoHistoria.setForeground(Color.BLACK);
-
                 lblPrueba.setText("");
                 lblDescripcion.setText("");
-                        
+
                 btnAtacar.setVisible(false);
                 btnHuir.setVisible(false);
                 btnObservar.setVisible(false);
             }
-
-
         } catch (IOException e) {
         } finally {
-
             try {
                 if (null != fr) {
                     fr.close();

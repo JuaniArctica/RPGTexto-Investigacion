@@ -17,14 +17,13 @@ public class Combate {
 
     private final Hostil enemigoActivo = Hostil.nuevoEnemigo();
     private final Personaje personajeActivo = ControladorPersonaje.getPersonaje1();
-
+    
     public Combate() {
     }
 
     public Combate(Personaje personaje, Hostil hostil, PantallaJuego pantJuego, ControladorPersonaje controladorPersonaje) throws IOException {
 
         pantJuego.btnSiguiente.setVisible(false);
-
         pantJuego.lblPrueba.setText("<HTML><BODY>De repente aparece " + enemigoActivo.getNombre() + "</BODY></HTML>");
     }
 
@@ -51,9 +50,9 @@ public class Combate {
                 + "<p>Tu vida actual = <font color=#ff0000><b>" + vidaPerActual + "</b></font> puntos.</BODY></HTML>");
 
         if (personajeActivo.getVida() <= 0) {
+            
             pantJuego.btnSiguiente.setVisible(true);
             pantJuego.lblDatosGolpeAlUsuario.setText("Haz Muerto!");
-            
             pantJuego.sonidoCombate2();
             pantJuego.btnAtacar.setVisible(false);
             pantJuego.btnHuir.setVisible(false);
@@ -70,7 +69,7 @@ public class Combate {
         pantJuego.lblDatosGolpeAlNpc.setText("<HTML><BODY>El enemigo " + enemigoActivo.getNombre() + " es golpeado por " + golpePersonaje + "<p>Vida actual = <font color=#ff0000><b>" + vidaNpcActual + "</b></font> puntos.</BODY></HTML>");
 
         if (enemigoActivo.getVida() <= 0) {
-
+            
             pantJuego.btnSiguiente.setVisible(true);
             pantJuego.btnAtacar.setVisible(false);
             pantJuego.btnHuir.setVisible(false);
@@ -81,7 +80,8 @@ public class Combate {
 
             subirNivel(pantJuego);
             pantJuego.sonidoCombate();
-            pantJuego.lblDatosGolpeAlNpc.setText("<HTML><BODY><b><font color=#ff0000> El enemigo ha muerto y te ha otorgado " + enemigoActivo.getExp() + " puntos de experiencia.</font></b></BODY></HTML>");
+            pantJuego.lblDatosGolpeAlNpc.setText("<HTML><BODY><b><font color=#ff0000> El enemigo ha muerto y te ha otorgado " 
+                    + enemigoActivo.getExp() + " puntos de experiencia.</font></b></BODY></HTML>");
         }
     }
 
@@ -97,10 +97,10 @@ public class Combate {
             ControladorPersonaje.getPersonaje1().setGolpeMin(ControladorPersonaje.getPersonaje1().getGolpeMin() + 2);
 
             pantJuego.PbExperiencia.setValue(0);
-
             pantJuego.lblNumeroNivel.setText(String.valueOf(ControladorPersonaje.getPersonaje1().getNivel()));
             pantJuego.lblNumeroDefensa1.setText(String.valueOf(ControladorPersonaje.getPersonaje1().getDefensa() + 3));
-            pantJuego.lblNumeroGolpe.setText(String.valueOf(ControladorPersonaje.getPersonaje1().getGolpeMin() + 2) + " / " + String.valueOf(ControladorPersonaje.getPersonaje1().getGolpeMax() + 4));
+            pantJuego.lblNumeroGolpe.setText(String.valueOf(ControladorPersonaje.getPersonaje1().getGolpeMin() + 2) 
+                    + " / " + String.valueOf(ControladorPersonaje.getPersonaje1().getGolpeMax() + 4));
         }
     }
 }
