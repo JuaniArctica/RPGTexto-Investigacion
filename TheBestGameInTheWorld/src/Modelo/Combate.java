@@ -87,10 +87,14 @@ public class Combate {
 
         }
     }
-    
+             
         public void subirnivel (PantallaJuego pantJuego){
-        
+            
+  
+            
         if(pantJuego.PbExperiencia.getValue() > 99){
+             
+
             
             
             int nivel =  ControladorPersonaje.getPersonaje1().getNivel();
@@ -99,8 +103,9 @@ public class Combate {
             ControladorPersonaje.getPersonaje1().setDefensa( ControladorPersonaje.getPersonaje1().getDefensa()+3);
             ControladorPersonaje.getPersonaje1().setGolpeMax( ControladorPersonaje.getPersonaje1().getGolpeMax()+4);
             ControladorPersonaje.getPersonaje1().setGolpeMin( ControladorPersonaje.getPersonaje1().getGolpeMin()+2);
+
             pantJuego.PbExperiencia.setValue(0);
-            
+
             pantJuego.lblNumeroNivel.setText(String.valueOf(ControladorPersonaje.getPersonaje1().getNivel()));
             pantJuego.lblNumeroDefensa1.setText(String.valueOf(ControladorPersonaje.getPersonaje1().getDefensa()+3));
             pantJuego.lblNumeroGolpe.setText(String.valueOf(ControladorPersonaje.getPersonaje1().getGolpeMin()+2)+" / "+String.valueOf(ControladorPersonaje.getPersonaje1().getGolpeMax()+4));

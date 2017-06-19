@@ -209,7 +209,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblPrueba.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPrueba.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(lblPrueba);
-        lblPrueba.setBounds(130, 120, 240, 90);
+        lblPrueba.setBounds(130, 100, 240, 90);
 
         lblFotos.setBackground(new java.awt.Color(0, 0, 0));
         lblFotos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -234,6 +234,11 @@ public class PantallaJuego extends javax.swing.JFrame {
         PbExperiencia.setToolTipText("");
         PbExperiencia.setValue(50);
         PbExperiencia.setBorderPainted(false);
+        PbExperiencia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PbExperienciaMouseEntered(evt);
+            }
+        });
         jPanel1.add(PbExperiencia);
         PbExperiencia.setBounds(120, 460, 240, 10);
 
@@ -247,6 +252,9 @@ public class PantallaJuego extends javax.swing.JFrame {
         PbVida.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 PbVidaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PbVidaMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 PbVidaMouseExited(evt);
@@ -498,7 +506,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void lblBotiquinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotiquinMouseExited
         lblBotiquin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/botiquin.png")));
-        lblDescripcion.setText("");
+
     }//GEN-LAST:event_lblBotiquinMouseExited
 
     private void lblPlumaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPlumaMouseEntered
@@ -542,7 +550,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_PbVidaMouseExited
 
     private void termometroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_termometroMouseExited
-        lblDescripcion.setText("");
+
     }//GEN-LAST:event_termometroMouseExited
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -611,6 +619,19 @@ public class PantallaJuego extends javax.swing.JFrame {
     private void btnAtacarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtacarMouseClicked
  
     }//GEN-LAST:event_btnAtacarMouseClicked
+
+    private void PbExperienciaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PbExperienciaMouseEntered
+        // TODO add your handling code here:
+        
+        lblDescripcion.setText("Tu experiencia actual es de: "+String.valueOf(PbExperiencia.getValue())+" puntos del Nivel "+String.valueOf(ControladorPersonaje.getPersonaje1().getNivel()));
+        
+    }//GEN-LAST:event_PbExperienciaMouseEntered
+
+    private void PbVidaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PbVidaMouseEntered
+        // TODO add your handling code here:
+      lblDescripcion.setText("<html><font color=FF0000>La vida de tu personaje es: "+ControladorPersonaje.getPersonaje1().getVida()+" puntos.</font></html>");
+
+    }//GEN-LAST:event_PbVidaMouseEntered
 
     /**
      * @param args the command line arguments
