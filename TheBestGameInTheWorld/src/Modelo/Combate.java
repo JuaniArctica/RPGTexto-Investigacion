@@ -6,6 +6,7 @@
 package Modelo;
 
 import Controlador.ControladorPersonaje;
+import Menues.GameOver;
 import Menues.PantallaJuego;
 import java.io.IOException;
 
@@ -54,6 +55,13 @@ public class Combate {
             pantJuego.btnSiguiente.setVisible(true);
             pantJuego.lblDatosGolpeAlUsuario.setText("Haz Muerto!");
             pantJuego.sonidoCombate2();
+            
+            GameOver pantalla = new GameOver();
+            
+            pantalla.setVisible(true);
+            pantJuego.dispose();
+            pantJuego.sonidoCombate3();
+            
             pantJuego.btnAtacar.setVisible(false);
             pantJuego.btnHuir.setVisible(false);
             pantJuego.btnObservar.setVisible(false);

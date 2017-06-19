@@ -759,6 +759,11 @@ public class PantallaJuego extends javax.swing.JFrame {
         sonidoCombate.stop();
         sonido.start();
     }
+    
+        public void sonidoCombate3() {
+        sonidoCombate.stop();
+        sonido.stop();
+    }
 
     public void incrementaTexto() {
         
