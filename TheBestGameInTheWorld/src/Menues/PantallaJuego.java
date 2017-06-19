@@ -409,6 +409,11 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnObservar.setForeground(new java.awt.Color(0, 102, 204));
         btnObservar.setText("Ver");
         btnObservar.setBorderPainted(false);
+        btnObservar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObservarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnObservar);
         btnObservar.setBounds(290, 500, 80, 23);
 
@@ -632,6 +637,11 @@ public class PantallaJuego extends javax.swing.JFrame {
       lblDescripcion.setText("<html><font color=FF0000>La vida de tu personaje es: "+ControladorPersonaje.getPersonaje1().getVida()+" puntos.</font></html>");
 
     }//GEN-LAST:event_PbVidaMouseEntered
+
+    private void btnObservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObservarActionPerformed
+        // TODO add your handling code here:
+lblDescripcion.setText(combate.getEnemigoActivo().getDescripcion());
+    }//GEN-LAST:event_btnObservarActionPerformed
 
     /**
      * @param args the command line arguments

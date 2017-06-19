@@ -25,10 +25,15 @@ public class Combate {
         
         pantJuego.btnSiguiente.setVisible(false);
         
-        pantJuego.lblPrueba.setText("<HTML><BODY>Encuentras un " + 
-                enemigoActivo.getNombre() + ": <BR>" + enemigoActivo.getDescripcion() + 
-                "</BODY></HTML>");      
+        pantJuego.lblPrueba.setText("<HTML><BODY>Encuentras un " + enemigoActivo.getNombre() +"</BODY></HTML>");
+        
     }
+
+    public Hostil getEnemigoActivo() {
+        return enemigoActivo;
+    }
+    
+    
     
     public void pelea(PantallaJuego pantJuego, ControladorPersonaje controladorPersonaje){
         
