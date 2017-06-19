@@ -25,7 +25,7 @@ public class Combate {
         
         pantJuego.btnSiguiente.setVisible(false);
         
-        pantJuego.lblDescripcion.setText("<HTML><BODY>Encontras un " + 
+        pantJuego.lblPrueba.setText("<HTML><BODY>Encuentras un " + 
                 enemigoActivo.getNombre() + ": <BR>" + enemigoActivo.getDescripcion() + 
                 "</BODY></HTML>");      
     }
@@ -49,11 +49,11 @@ public class Combate {
         
         pantJuego.PbVida.setValue(vidaPerActual);
         
-        pantJuego.lblDescripcion.setText("<HTML><BODY>El enemigo te ha golpeado por " + golpeDelNpc + " de daño (Tu vida actual = " + vidaPerActual + ")</BODY></HTML>");
+        pantJuego.lblDatosGolpeAlUsuario.setText("<HTML><BODY>El enemigo te ha golpeado por " + golpeDelNpc + "<p>Tu vida actual = <font color=#ff0000><b>" + vidaPerActual + "</b></font> puntos.</BODY></HTML>");
         
         if (personajeActivo.getVida() <= 0) {
             pantJuego.btnSiguiente.setVisible(true);
-            pantJuego.lblDescripcion.setText("Haz Muerto!");
+            pantJuego.lblDatosGolpeAlUsuario.setText("Haz Muerto!");
         }
     }
     
@@ -65,7 +65,7 @@ public class Combate {
         int golpeDelPersonaje= (int) (Math.random()* personajeActivo.getGolpeMax() )+ personajeActivo.getGolpeMin();
         int vidaNpcActual= enemigoActivo.getVida() - golpeDelPersonaje;
         enemigoActivo.setVida(vidaNpcActual);        
-        pantJuego.lblPrueba.setText("<HTML><BODY>El enemigo "+enemigoActivo.getNombre()+" es golpeado por " + golpeDelPersonaje + " de daño (Vida actual = " + vidaNpcActual + ")</BODY></HTML>");  
+        pantJuego.lblDatosGolpeAlNpc.setText("<HTML><BODY>El enemigo "+enemigoActivo.getNombre()+" es golpeado por " + golpeDelPersonaje + "<p>Vida actual = <font color=#ff0000><b>" + vidaNpcActual + "</b></font> puntos.</BODY></HTML>");  
         
         if (enemigoActivo.getVida() <= 0) {
             
@@ -82,7 +82,7 @@ public class Combate {
             
             subirnivel(pantJuego);
 
-            pantJuego.lblPrueba.setText("<HTML><BODY>El enemigo ha muerto y te ha otorgado "+ enemigoActivo.getExp()+" puntos de experiencia.</BODY></HTML>");
+            pantJuego.lblDatosGolpeAlNpc.setText("<HTML><BODY><b><font color=#ff0000> El enemigo ha muerto y te ha otorgado "+ enemigoActivo.getExp()+" puntos de experiencia.</font></b></BODY></HTML>");
            
 
         }

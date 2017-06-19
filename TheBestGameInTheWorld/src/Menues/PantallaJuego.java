@@ -118,6 +118,8 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnSiguiente = new javax.swing.JButton();
+        lblDatosGolpeAlUsuario = new javax.swing.JLabel();
+        lblDatosGolpeAlNpc = new javax.swing.JLabel();
         lblPrueba = new javax.swing.JLabel();
         lblFotos = new javax.swing.JLabel();
         lblNumeroPociones = new javax.swing.JLabel();
@@ -189,12 +191,25 @@ public class PantallaJuego extends javax.swing.JFrame {
         jPanel1.add(btnSiguiente);
         btnSiguiente.setBounds(510, 50, 140, 20);
 
-        lblPrueba.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblPrueba.setForeground(new java.awt.Color(255, 255, 255));
-        lblPrueba.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDatosGolpeAlUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblDatosGolpeAlUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDatosGolpeAlUsuario.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel1.add(lblDatosGolpeAlUsuario);
+        lblDatosGolpeAlUsuario.setBounds(130, 310, 240, 90);
+
+        lblDatosGolpeAlNpc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblDatosGolpeAlNpc.setForeground(new java.awt.Color(51, 51, 51));
+        lblDatosGolpeAlNpc.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDatosGolpeAlNpc.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel1.add(lblDatosGolpeAlNpc);
+        lblDatosGolpeAlNpc.setBounds(130, 180, 240, 90);
+
+        lblPrueba.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblPrueba.setForeground(new java.awt.Color(102, 0, 0));
+        lblPrueba.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPrueba.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(lblPrueba);
-        lblPrueba.setBounds(420, 360, 190, 120);
+        lblPrueba.setBounds(130, 120, 240, 90);
 
         lblFotos.setBackground(new java.awt.Color(0, 0, 0));
         lblFotos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -446,6 +461,9 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
         contador++;
+        
+        lblDatosGolpeAlNpc.setText("");
+        lblDatosGolpeAlUsuario.setText("");
 
         System.out.println("Contador: " + contador);
 
@@ -645,6 +663,8 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel lblAnotaciones;
     private javax.swing.JLabel lblBotiquin;
     private javax.swing.JLabel lblCuracion;
+    public javax.swing.JLabel lblDatosGolpeAlNpc;
+    public javax.swing.JLabel lblDatosGolpeAlUsuario;
     public javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblFondoCuraciones;
     private javax.swing.JLabel lblFotos;
@@ -671,23 +691,20 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     private void regenera() {
 
-
         int max = 20;
         int min = 18;
 
         if (ControladorPersonaje.getPersonaje1().getPociones() > 0) {
-            
+                            
+            ControladorPersonaje.getPersonaje1().setVida((int) (PbVida.getValue() + Math.floor((Math.random() * max) + min)));
+            PbVida.setValue((int) (PbVida.getValue() + Math.floor((Math.random() * max) + min)));
+                
+                
             //Control para que la vida del usuario no pueda pasar de su maximo
             if (ControladorPersonaje.getPersonaje1().getVida()>=ControladorPersonaje.getPersonaje1().getVidaMax()){
                 ControladorPersonaje.getPersonaje1().setVida(ControladorPersonaje.getPersonaje1().getVidaMax());
                 
-                lblDescripcion.setText("Te has curado totalmente");
-            
-
-            }else{                
-                
-                ControladorPersonaje.getPersonaje1().setVida((int) (PbVida.getValue() + Math.floor((Math.random() * max) + min)));
-                PbVida.setValue((int) (PbVida.getValue() + Math.floor((Math.random() * max) + min)));
+                lblDescripcion.setText("Te has curado totalmente");            
 
             }
 
@@ -696,6 +713,7 @@ public class PantallaJuego extends javax.swing.JFrame {
             PbVida.setValue(PbVida.getValue() + 0);
         }
     }
+    
 int bandera = 0;
     public void incrementaTexto() {
 
