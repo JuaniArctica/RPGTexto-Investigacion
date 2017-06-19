@@ -141,11 +141,12 @@ public class GameOver extends javax.swing.JFrame {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            sonido.open(AudioSystem.getAudioInputStream(new File("src/Menues/Sonidos/combate.wav")));
+            sonido.open(AudioSystem.getAudioInputStream(new File("src/Menues/Sonidos/gameover.wav")));
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         sonido.start();
+        sonido.loop(100);
     }//GEN-LAST:event_formWindowOpened
 
     private void lblbotonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbotonMouseEntered
