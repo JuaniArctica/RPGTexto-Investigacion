@@ -38,8 +38,8 @@ public class ControladorPersonaje {
                 //Vida, defensa y golpe max min
                 personaje1.setVidaMax(100);
                 personaje1.setVida(100);
-                personaje1.setDefensa(10);
-                personaje1.setGolpeMax(12);
+                personaje1.setDefensa(8);
+                personaje1.setGolpeMax(14);
                 personaje1.setGolpeMin(10);
                 break;
             case "Explorador":
@@ -47,16 +47,16 @@ public class ControladorPersonaje {
                 //Vida, defensa y golpe max min
                 personaje1.setVidaMax(80);
                 personaje1.setVida(80);
-                personaje1.setDefensa(8);
-                personaje1.setGolpeMax(14);
-                personaje1.setGolpeMin(12);
+                personaje1.setDefensa(6);
+                personaje1.setGolpeMax(18);
+                personaje1.setGolpeMin(14);
                 break;
             default:
 
                 //Vida, defensa y golpe max min
                 personaje1.setVidaMax(120);
                 personaje1.setVida(120);
-                personaje1.setDefensa(12);
+                personaje1.setDefensa(10);
                 personaje1.setGolpeMax(10);
                 personaje1.setGolpeMin(6);
                 break;

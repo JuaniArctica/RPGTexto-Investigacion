@@ -6,7 +6,6 @@
 package Menues;
 
 import Controlador.ControladorPersonaje;
-import Modelo.Hostil;
 import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
@@ -249,9 +248,9 @@ public class CrearPj extends javax.swing.JFrame {
 
             lblDescripcion.setText("<html>El Dective se caracteriza por su astucia y a habilidad en la pelea, es la "
                     + "clase más equilibrada del juego.</html>");
-            lblValor1.setText("10");
-            lblValor2.setText("10");
-            lblValor3.setText("5/10");
+            lblValor1.setText("100");
+            lblValor2.setText("8");
+            lblValor3.setText("10/14");
             lblDescripcion.setVisible(true);
             lblDescripcion1.setVisible(true);
             lblDetective.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/detectivesobre.png")));
@@ -263,9 +262,9 @@ public class CrearPj extends javax.swing.JFrame {
 
             lblDescripcion.setText("<html>Ser Policia no es fácil... La fuerza es importante para luchar contra las "
                     + "amenazas que encontrarás en esta historia.</html>");
-            lblValor1.setText("12");
-            lblValor2.setText("8");
-            lblValor3.setText("4/12");
+            lblValor1.setText("120");
+            lblValor2.setText("10");
+            lblValor3.setText("6/10");
             lblDescripcion.setVisible(true);
             lblDescripcion1.setVisible(true);
             lblPolicia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/policiasobre.png")));
@@ -276,10 +275,10 @@ public class CrearPj extends javax.swing.JFrame {
         } else if (cmbClase.getSelectedItem().equals("Explorador")) {
 
             lblDescripcion.setText("<html>Para explorar hay que ser ágil y esa es una caracteristica de esta clase. "
-                    + "Defensivo por naturaleza.</html>");
-            lblValor1.setText("8");
-            lblValor2.setText("12");
-            lblValor3.setText("6/7");
+                    + "Escurridizo por naturaleza.</html>");
+            lblValor1.setText("80");
+            lblValor2.setText("6");
+            lblValor3.setText("14/18");
             lblDescripcion.setVisible(true);
             lblDescripcion1.setVisible(true);
             lblExplorador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/exploradorsobre.png")));

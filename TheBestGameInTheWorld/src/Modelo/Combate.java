@@ -46,7 +46,9 @@ public class Combate {
         
         personajeActivo.setVida(vidaPerActual);
         pantJuego.PbVida.setValue(vidaPerActual);
-        pantJuego.lblDatosGolpeAlUsuario.setText("<HTML><BODY>El enemigo te ha golpeado por " + golpeDelNpc + "<p>Tu vida actual = <font color=#ff0000><b>" + vidaPerActual + "</b></font> puntos.</BODY></HTML>");
+        pantJuego.lblDatosGolpeAlUsuario.setText("<HTML><BODY>El enemigo te ha golpeado por " + golpeDelNpc 
+                + "<p>Te defendiste por " + defensaPersonaje
+                + "<p>Tu vida actual = <font color=#ff0000><b>" + vidaPerActual + "</b></font> puntos.</BODY></HTML>");
 
         if (personajeActivo.getVida() <= 0) {
             pantJuego.btnSiguiente.setVisible(true);
@@ -72,13 +74,13 @@ public class Combate {
             int expActual = pantJuego.PbExperiencia.getValue();
             pantJuego.PbExperiencia.setValue(enemigoActivo.getExp() + expActual);
 
-            subirnivel(pantJuego);
+            subirNivel(pantJuego);
 
             pantJuego.lblDatosGolpeAlNpc.setText("<HTML><BODY><b><font color=#ff0000> El enemigo ha muerto y te ha otorgado " + enemigoActivo.getExp() + " puntos de experiencia.</font></b></BODY></HTML>");
         }
     }
 
-    public void subirnivel(PantallaJuego pantJuego) {
+    public void subirNivel(PantallaJuego pantJuego) {
 
         if (pantJuego.PbExperiencia.getValue() > 99) {
 

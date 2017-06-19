@@ -100,12 +100,12 @@ public class Hostil {
         Hostil npcNivel2[] = new Hostil[3];
         
         npcNivel1[0] = new Hostil("Sombra", "Muy oscuro para distingirlo, una sombra misteriosa se aproxima de forma amenazante lista para atacarte", 100, 15, 20, 100);
-        npcNivel1[1] = new Hostil("Ladron", "Una pequeña y adorable gallinita... verdad?", 100, 13, 18, 100);
-        npcNivel1[2] = new Hostil("Bandido", "El de la droga", 100, 17, 22, 100);
+        npcNivel1[1] = new Hostil("Ladron", "De forma muy rapida, un hombre aparece con un arma exigiendo tus pertenencias", 100, 13, 18, 100);
+        npcNivel1[2] = new Hostil("Ciruja", "Un hombre hambriento y debil aparece frente a ti sin nada mas que una navaja y una firme mirada en sus ojos", 100, 17, 22, 100);
         
-        npcNivel2[0] = new Hostil("Maradona", "Muy oscuro para distingirlo, una sombra misteriosa se aproxima de forma amenazante lista para atacarte", 100, 28, 30, 70);
-        npcNivel2[1] = new Hostil("Cristina", "Una pequeña y adorable gallinita... verdad?", 100, 18, 22,70);
-        npcNivel2[2] = new Hostil("Maluma", "El de la droga", 100, 20, 25, 70);
+        npcNivel2[0] = new Hostil("Maradona", "Tremendo drogon", 100, 28, 30, 70);
+        npcNivel2[1] = new Hostil("Cristina", "Te quiere meter la mano al bolsillo, como no?", 100, 18, 22,70);
+        npcNivel2[2] = new Hostil("Maluma", "Alto hijo de puta", 100, 20, 25, 70);
         
         int rnd = (int) (Math.random() * npcNivel1.length);
         
