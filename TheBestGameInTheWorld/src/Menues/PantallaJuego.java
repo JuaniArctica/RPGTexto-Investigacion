@@ -639,8 +639,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_PbVidaMouseEntered
 
     private void btnObservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObservarActionPerformed
-        // TODO add your handling code here:
-lblDescripcion.setText(combate.getEnemigoActivo().getDescripcion());
+        lblDescripcion.setText(combate.getEnemigoActivo().getDescripcion() 
+                + " Su golpe es de: " + combate.getEnemigoActivo().getGolpeMin() 
+                + "/" + combate.getEnemigoActivo().getGolpeMax());
     }//GEN-LAST:event_btnObservarActionPerformed
 
     /**
@@ -713,13 +714,6 @@ lblDescripcion.setText(combate.getEnemigoActivo().getDescripcion());
     private javax.swing.JLabel termometro;
     // End of variables declaration//GEN-END:variables
 
-    private void golpe() {
-
-        int max = 12;
-        int min = 10;
-        PbVida.setValue((int) (PbVida.getValue() - Math.floor((Math.random() * max) + min)));
-    }
-
     private void regenera() {
 
         int max = 20;
@@ -736,7 +730,6 @@ lblDescripcion.setText(combate.getEnemigoActivo().getDescripcion());
                 ControladorPersonaje.getPersonaje1().setVida(ControladorPersonaje.getPersonaje1().getVidaMax());
                 
                 lblDescripcion.setText("Te has curado totalmente");            
-
             }
 
         } else {

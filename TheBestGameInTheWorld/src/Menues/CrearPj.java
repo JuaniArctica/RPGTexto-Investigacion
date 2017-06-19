@@ -23,8 +23,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  * @author prouser
  */
 public class CrearPj extends javax.swing.JFrame {
-
-    private Hostil hostil;
+    
     ControladorPersonaje controladorPersonaje = new ControladorPersonaje();
     Clip sonidoo = null;
 
