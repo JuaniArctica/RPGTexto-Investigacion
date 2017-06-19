@@ -99,7 +99,7 @@ public class Hostil {
         Hostil npcNivel1[] = new Hostil[3];
         Hostil npcNivel2[] = new Hostil[3];
         
-        npcNivel1[0] = new Hostil("una sombra", "Muy oscuro para distingirlo, una sombra misteriosa se aproxima de forma amenazante lista para atacarte", 100, 12, 16, 50);
+        npcNivel1[0] = new Hostil("una sombra alada", "Muy oscuro para distingirlo, una sombra misteriosa se aproxima de forma amenazante lista para atacarte", 60, 9, 12, 50);
         npcNivel1[1] = new Hostil("un ladron", "De forma muy rapida, un hombre aparece con un arma exigiendo tus pertenencias", 100, 14, 18, 50);
         npcNivel1[2] = new Hostil("un ciruja", "Un hombre hambriento y debil aparece frente a ti sin nada mas que una navaja y una firme mirada en sus ojos", 100, 16, 20, 50);
         

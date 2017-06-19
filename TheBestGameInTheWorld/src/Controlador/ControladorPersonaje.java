@@ -42,7 +42,7 @@ public class ControladorPersonaje {
                 personaje1.setGolpeMax(14);
                 personaje1.setGolpeMin(10);
                 break;
-            case "Explorador":
+            case "Arqueologo":
 
                 //Vida, defensa y golpe max min
                 personaje1.setVidaMax(80);

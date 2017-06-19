@@ -96,7 +96,7 @@ public class CrearPj extends javax.swing.JFrame {
         cmbClase.setBackground(new java.awt.Color(0, 0, 0));
         cmbClase.setFont(new java.awt.Font("TlwgMono", 1, 12)); // NOI18N
         cmbClase.setForeground(new java.awt.Color(255, 255, 255));
-        cmbClase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Detective", "Explorador", "Policia" }));
+        cmbClase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Detective", "Arqueologo", "Policia" }));
         cmbClase.setToolTipText("");
         cmbClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,9 +272,9 @@ public class CrearPj extends javax.swing.JFrame {
             lblExplorador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/explorador.png")));
             lblDetective.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/detective.png")));
 
-        } else if (cmbClase.getSelectedItem().equals("Explorador")) {
+        } else if (cmbClase.getSelectedItem().equals("Arqueologo")) {
 
-            lblDescripcion.setText("<html>Para explorar hay que ser ágil y esa es una caracteristica de esta clase. "
+            lblDescripcion.setText("<html>Para ser arqueologo tienes que ser agil y esa es una caracteristica de esta clase. "
                     + "Escurridizo por naturaleza.</html>");
             lblValor1.setText("80");
             lblValor2.setText("6");

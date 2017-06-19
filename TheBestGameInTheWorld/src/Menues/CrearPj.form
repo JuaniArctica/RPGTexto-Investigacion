@@ -52,7 +52,7 @@
           <StringArray count="4">
             <StringItem index="0" value="..."/>
             <StringItem index="1" value="Detective"/>
-            <StringItem index="2" value="Explorador"/>
+            <StringItem index="2" value="Arqueologo"/>
             <StringItem index="3" value="Policia"/>
           </StringArray>
         </Property>
