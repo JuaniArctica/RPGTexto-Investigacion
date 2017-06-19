@@ -24,6 +24,7 @@ public class ControladorPersonaje {
     }
 
     public  void agregarValores(String nombre, String clase) {
+        
         personaje1.setNombre(nombre);
         personaje1.setClase(clase);
         personaje1.setNivel(1);
@@ -38,26 +39,26 @@ public class ControladorPersonaje {
                 personaje1.setVidaMax(100);
                 personaje1.setVida(100);
                 personaje1.setDefensa(10);
-                personaje1.setGolpeMax(10);
-                personaje1.setGolpeMin(5);
+                personaje1.setGolpeMax(12);
+                personaje1.setGolpeMin(10);
                 break;
             case "Explorador":
 
                 //Vida, defensa y golpe max min
                 personaje1.setVidaMax(80);
                 personaje1.setVida(80);
-                personaje1.setDefensa(12);
-                personaje1.setGolpeMax(7);
-                personaje1.setGolpeMin(6);
+                personaje1.setDefensa(8);
+                personaje1.setGolpeMax(14);
+                personaje1.setGolpeMin(12);
                 break;
             default:
 
                 //Vida, defensa y golpe max min
                 personaje1.setVidaMax(120);
                 personaje1.setVida(120);
-                personaje1.setDefensa(8);
-                personaje1.setGolpeMax(12);
-                personaje1.setGolpeMin(4);
+                personaje1.setDefensa(12);
+                personaje1.setGolpeMax(10);
+                personaje1.setGolpeMin(6);
                 break;
         }
     }

@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Controlador.ControladorPersonaje;
 import java.util.Random;
 
 /**
@@ -12,6 +13,8 @@ import java.util.Random;
  * @author prouser
  */
 public class Hostil {
+    
+    private static final Personaje personajeActivo = ControladorPersonaje.getPersonaje1();
     
     private String nombre;
     private String descripcion;
@@ -93,24 +96,24 @@ public class Hostil {
     
     public static Hostil nuevoEnemigo() {
         
-        Hostil arrayNpc[] = new Hostil[3];
+        Hostil npcNivel1[] = new Hostil[3];
+        Hostil npcNivel2[] = new Hostil[3];
         
-        arrayNpc[0] = new Hostil("Lobo", "Un feroz lobo sediento de sangre", 100, 1, 1,70);
-        arrayNpc[1] = new Hostil("Gallina", "Una pequeña y adorable gallinita... verdad?", 100, 1, 1,70);
-        arrayNpc[2] = new Hostil("Maradona", "El de la droga", 100, 1, 1,70);
-
-        int rnd = (int) (Math.random() * arrayNpc.length);
+        npcNivel1[0] = new Hostil("Sombra", "Muy oscuro para distingirlo, una sombra misteriosa se aproxima de forma amenazante lista para atacarte", 100, 15, 20, 100);
+        npcNivel1[1] = new Hostil("Ladron", "Una pequeña y adorable gallinita... verdad?", 100, 13, 18, 100);
+        npcNivel1[2] = new Hostil("Bandido", "El de la droga", 100, 17, 22, 100);
         
-        return arrayNpc[rnd];
+        npcNivel2[0] = new Hostil("Maradona", "Muy oscuro para distingirlo, una sombra misteriosa se aproxima de forma amenazante lista para atacarte", 100, 28, 30, 70);
+        npcNivel2[1] = new Hostil("Cristina", "Una pequeña y adorable gallinita... verdad?", 100, 18, 22,70);
+        npcNivel2[2] = new Hostil("Maluma", "El de la droga", 100, 20, 25, 70);
+        
+        int rnd = (int) (Math.random() * npcNivel1.length);
+        
+        if (personajeActivo.getNivel() == 1) {
+            return npcNivel1[rnd];
+        } else if(personajeActivo.getNivel() == 2) {
+            return npcNivel2[rnd];
+        }
+        return null;
     }
-    
-//    public void defensa() {
-//
-//        vida = vida - personaje.ataque();
-//        pantJuego.lblTextoHistoria.setText("El enemigo es golpeado por " + personaje.ataque() + " de daño (Vida actual = " + vida + ")");
-//        
-//        if (vida <= 0) {
-//            pantJuego.lblTextoHistoria.setText("El enemigo ha muerto");
-//        }
-//    }
 }
