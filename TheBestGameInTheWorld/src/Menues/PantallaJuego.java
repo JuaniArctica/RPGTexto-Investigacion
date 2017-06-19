@@ -411,6 +411,11 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnHuir.setForeground(new java.awt.Color(51, 204, 0));
         btnHuir.setText("Huir");
         btnHuir.setBorderPainted(false);
+        btnHuir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHuirActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnHuir);
         btnHuir.setBounds(200, 500, 80, 23);
 
@@ -659,6 +664,11 @@ public class PantallaJuego extends javax.swing.JFrame {
                 + " Su golpe es de: " + combate.getEnemigoActivo().getGolpeMin()
                 + "/" + combate.getEnemigoActivo().getGolpeMax() + "</BODY></HTML>");
     }//GEN-LAST:event_btnObservarActionPerformed
+
+    private void btnHuirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuirActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnHuirActionPerformed
 
     /**
      * @param args the command line arguments
