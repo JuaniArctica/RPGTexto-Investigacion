@@ -35,7 +35,10 @@ public class Combate {
     public void pelea(PantallaJuego pantJuego, ControladorPersonaje controladorPersonaje) {
 
         ataquePersonaje(pantJuego);
-        ataqueNPC(pantJuego);
+        if (enemigoActivo.getVida() > 0) {
+        ataqueNPC(pantJuego);    
+        }
+        
     }
 
     public void ataqueNPC(PantallaJuego pantJuego) {
@@ -104,6 +107,9 @@ public class Combate {
             ControladorPersonaje.getPersonaje1().setDefensa(ControladorPersonaje.getPersonaje1().getDefensa() + 3);
             ControladorPersonaje.getPersonaje1().setGolpeMax(ControladorPersonaje.getPersonaje1().getGolpeMax() + 4);
             ControladorPersonaje.getPersonaje1().setGolpeMin(ControladorPersonaje.getPersonaje1().getGolpeMin() + 4);
+            ControladorPersonaje.getPersonaje1().setVidaMax(ControladorPersonaje.getPersonaje1().getVidaMax() + 20);
+            ControladorPersonaje.getPersonaje1().setVida(ControladorPersonaje.getPersonaje1().getVidaMax());
+            pantJuego.PbVida.setValue(ControladorPersonaje.getPersonaje1().getVidaMax());
 
             pantJuego.PbExperiencia.setValue(0);
             pantJuego.lblNumeroNivel.setText(String.valueOf(ControladorPersonaje.getPersonaje1().getNivel()));
