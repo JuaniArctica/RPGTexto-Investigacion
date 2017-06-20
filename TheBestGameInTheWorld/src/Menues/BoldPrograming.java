@@ -65,7 +65,7 @@ public class BoldPrograming extends javax.swing.JFrame {
             //Metodo para saltar presentacion con letra escape///////////////////////////////
             KeyboardFocusManager kb = KeyboardFocusManager.getCurrentKeyboardFocusManager();
             kb.addKeyEventPostProcessor((KeyEvent e) -> {
-                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE && this.isActive()) {
                     ventana.setVisible(true);
                 }
                 this.dispose();

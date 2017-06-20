@@ -38,7 +38,7 @@ public class Combate {
         ataqueNPC(pantJuego);
     }
 
-    private void ataqueNPC(PantallaJuego pantJuego) {
+    public void ataqueNPC(PantallaJuego pantJuego) {
 
         int defensaPersonaje = (int) (Math.random() * personajeActivo.getDefensa());
         int golpeDelNpc = (int) (Math.random() * (enemigoActivo.getGolpeMax() - enemigoActivo.getGolpeMin() + 1) + enemigoActivo.getGolpeMin());
@@ -68,7 +68,7 @@ public class Combate {
         }
     }
 
-    private void ataquePersonaje(PantallaJuego pantJuego) {
+    public void ataquePersonaje(PantallaJuego pantJuego) {
         
         int golpePersonaje = (int) (Math.random() * (personajeActivo.getGolpeMax() - personajeActivo.getGolpeMin() + 1) + personajeActivo.getGolpeMin());
         int vidaNpcActual = enemigoActivo.getVida() - golpePersonaje;

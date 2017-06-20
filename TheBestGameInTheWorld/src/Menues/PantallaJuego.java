@@ -216,7 +216,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblDatosGolpeAlNpc.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblDatosGolpeAlNpc.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(lblDatosGolpeAlNpc);
-        lblDatosGolpeAlNpc.setBounds(130, 300, 240, 70);
+        lblDatosGolpeAlNpc.setBounds(130, 310, 240, 70);
 
         lblPrueba.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblPrueba.setForeground(new java.awt.Color(102, 0, 0));
@@ -357,6 +357,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnSalir.setBounds(10, 570, 120, 23);
 
         btbConfiguraciones.setText("Configuraciones");
+        btbConfiguraciones.setEnabled(false);
         btbConfiguraciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btbConfiguracionesActionPerformed(evt);
@@ -395,7 +396,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblDescripcion.setBounds(120, 540, 400, 50);
 
         btnAtacar.setBackground(new java.awt.Color(51, 0, 0));
-        btnAtacar.setForeground(new java.awt.Color(204, 0, 0));
+        btnAtacar.setForeground(new java.awt.Color(255, 255, 255));
         btnAtacar.setText("Atacar");
         btnAtacar.setBorderPainted(false);
         btnAtacar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -412,7 +413,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnAtacar.setBounds(110, 500, 80, 23);
 
         btnHuir.setBackground(new java.awt.Color(0, 51, 0));
-        btnHuir.setForeground(new java.awt.Color(51, 204, 0));
+        btnHuir.setForeground(new java.awt.Color(255, 255, 255));
         btnHuir.setText("Huir");
         btnHuir.setBorderPainted(false);
         btnHuir.addActionListener(new java.awt.event.ActionListener() {
@@ -424,7 +425,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnHuir.setBounds(200, 500, 80, 23);
 
         btnObservar.setBackground(new java.awt.Color(0, 51, 51));
-        btnObservar.setForeground(new java.awt.Color(0, 102, 204));
+        btnObservar.setForeground(new java.awt.Color(255, 255, 255));
         btnObservar.setText("Ver");
         btnObservar.setBorderPainted(false);
         btnObservar.addActionListener(new java.awt.event.ActionListener() {
@@ -573,6 +574,7 @@ public class PantallaJuego extends javax.swing.JFrame {
                 }
                 break;
             case 20:
+                
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen14.png")));
 
                 int curacionesActuales = ControladorPersonaje.getPersonaje1().getPociones();
@@ -580,11 +582,10 @@ public class PantallaJuego extends javax.swing.JFrame {
                 ControladorPersonaje.getPersonaje1().setPociones(curacionesActuales + 5);
                 lblNumeroPociones.setText(String.valueOf(ControladorPersonaje.getPersonaje1().getPociones()));
                 lblDescripcion.setText("RECIBISTE 5 BOTIQUINES PARA CURAR TU SALUD");
-                //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
                 break;
             case 21:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen15.png")));
-                //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
+                
                 break;
             default:
                 break;
@@ -771,6 +772,7 @@ public class PantallaJuego extends javax.swing.JFrame {
             btnObservar.setVisible(true);
             btnSiguiente.setVisible(false);
             lblDatosGolpeAlNpc.setText("No logras escapar");
+            combate.ataqueNPC(this);
         }
     }//GEN-LAST:event_btnHuirActionPerformed
 
