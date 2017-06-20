@@ -5,7 +5,6 @@
  */
 package Menues;
 
-
 import Controlador.ControladorPersonaje;
 import Modelo.Combate;
 import Modelo.Hostil;
@@ -487,7 +486,6 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_PbVidaMouseClicked
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        
         contador++;
 
         lblDatosGolpeAlNpc.setText("");
@@ -511,84 +509,83 @@ public class PantallaJuego extends javax.swing.JFrame {
                 break;
             case 5:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagenblanco.png")));
-                lblTextoHistoria.setText("<HTML></BODY><h1>CAPITULO 1</h1><br><br>Bienvenido a la realidad "+ControladorPersonaje.getPersonaje1().getNombre()+"</BODY></HTML>");
+                lblTextoHistoria.setText("<HTML></BODY><h1>CAPITULO 1</h1><br><br>Bienvenido a la realidad " + ControladorPersonaje.getPersonaje1().getNombre() + "</BODY></HTML>");
                 break;
             case 6:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen4.png")));
                 //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
-                break;     
+                break;
             case 7:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen5.png")));
                 //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
-                break; 
+                break;
             case 8:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagenblanco.png")));
                 lblTextoHistoria.setText("<HTML></BODY>Estas agitado, pero logras reponerte rápidamente de la situación...</BODY></HTML>");
-                break; 
+                break;
             case 9:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen6.png")));
                 //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
-                break; 
+                break;
             case 10:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen7.png")));
                 //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
-                break; 
+                break;
             case 11:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen8.png")));
                 //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
-                break; 
+                break;
             case 12:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen9.png")));
                 //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
-                break; 
+                break;
             case 13:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen9.png")));
                 //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
-                break; 
+                break;
             case 14:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen10.png")));
                 //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
-                break; 
+                break;
             case 15:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen11.png")));
                 //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
-                break; 
+                break;
             case 16:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen12.png")));
                 //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
-                break; 
+                break;
             case 17:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen12.png")));
                 //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
-                break; 
+                break;
             case 18:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen13.png")));
                 //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
-                break; 
+                break;
             case 19:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagenblanco.png")));
-                
-                if(ControladorPersonaje.getPersonaje1().getNivel()==2){
-                  lblTextoHistoria.setText("<HTML></BODY><h1>Felicitaciones!</h1><br><br>Has subido a nivel "+String.valueOf(ControladorPersonaje.getPersonaje1().getNivel())+"... Tus habilidades han mejorado!</BODY></HTML>");  
-                }else{
+
+                if (ControladorPersonaje.getPersonaje1().getNivel() == 2) {
+                    lblTextoHistoria.setText("<HTML></BODY><h1>Felicitaciones!</h1><br><br>Has subido a nivel " + String.valueOf(ControladorPersonaje.getPersonaje1().getNivel()) + "... Tus habilidades han mejorado!</BODY></HTML>");
+                } else {
                     lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
                 }
-                
-                break; 
+                break;
             case 20:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen14.png")));
-               
+
                 int curacionesActuales = ControladorPersonaje.getPersonaje1().getPociones();
-                
+
                 ControladorPersonaje.getPersonaje1().setPociones(curacionesActuales + 5);
                 lblNumeroPociones.setText(String.valueOf(ControladorPersonaje.getPersonaje1().getPociones()));
                 lblDescripcion.setText("RECIBISTE 5 BOTIQUINES PARA CURAR TU SALUD");
                 //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
-                break; 
+                break;
             case 21:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen15.png")));
                 //lblTextoHistoria.setText("<HTML></BODY>ESO ESTUVO CERCA..</BODY></HTML>");
-                break; 
+                break;
             default:
                 break;
         }
@@ -619,10 +616,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_lblPlumaMouseExited
 
     private void lblBotiquinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotiquinMouseClicked
-      
-                    int actuales = ControladorPersonaje.getPersonaje1().getPociones();
-        if (ControladorPersonaje.getPersonaje1().getPociones() > 0) {
 
+        int actuales = ControladorPersonaje.getPersonaje1().getPociones();
+        if (ControladorPersonaje.getPersonaje1().getPociones() > 0) {
 
             actuales--;
             ControladorPersonaje.getPersonaje1().setPociones(actuales);
@@ -754,9 +750,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnObservarActionPerformed
 
     private void btnHuirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuirActionPerformed
-        int random = (int) (Math.random() * 2);
-        
-        if (random == 1 && ControladorPersonaje.getPersonaje1().getExp()!=0) {
+        int random = (int) (Math.random() * 0);
+
+        if (random == 0 && ControladorPersonaje.getPersonaje1().getExp() != 0) {
             lblDatosGolpeAlUsuario.setVisible(false);
             lblDatosGolpeAlNpc.setVisible(false);
             lblPrueba.setVisible(false);
@@ -861,7 +857,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
             //Control para que la vida del usuario no pueda pasar de su maximo
             if (ControladorPersonaje.getPersonaje1().getVida() >= ControladorPersonaje.getPersonaje1().getVidaMax()) {
-                
+
                 ControladorPersonaje.getPersonaje1().setVida(ControladorPersonaje.getPersonaje1().getVidaMax());
                 lblDescripcion.setText("Te has curado totalmente");
             }
@@ -879,16 +875,14 @@ public class PantallaJuego extends javax.swing.JFrame {
         sonidoCombate.stop();
         sonido.start();
     }
-    
-        public void sonidoCombate3() {
+
+    public void sonidoCombate3() {
         sonidoCombate.stop();
         sonido.stop();
     }
-        
-
 
     public void incrementaTexto() {
-        
+
         //Lectura de txt y set en txtpHistoria
         File archivo = null;
         FileReader fr = null;
@@ -913,10 +907,8 @@ public class PantallaJuego extends javax.swing.JFrame {
             acu += datoLimpio;
 
             String replace = acu.replace("<clase>", ControladorPersonaje.getPersonaje1().getClase());
-            
-             lblTextoHistoria.setText("<HTML><BODY>" + replace + "</BODY></HTML>");
 
-
+            lblTextoHistoria.setText("<HTML><BODY>" + replace + "</BODY></HTML>");
 
             if (acu.contains("COMBATE!") && bandera < 1) {
 
@@ -932,7 +924,7 @@ public class PantallaJuego extends javax.swing.JFrame {
                     case "una sombra alada":
                         lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagensombra.png")));
                         break;
-                    case "Cultista":
+                    case "un cultista":
                         lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagencultista.png")));
                         break;
                     case "un ciruja":
@@ -947,7 +939,7 @@ public class PantallaJuego extends javax.swing.JFrame {
                 btnHuir.setVisible(true);
                 btnObservar.setVisible(true);
             } else {
-                
+
                 bandera = 0;
                 lblTextoHistoria.setForeground(Color.BLACK);
                 lblPrueba.setText("");
