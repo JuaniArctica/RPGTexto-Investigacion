@@ -751,9 +751,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnObservarActionPerformed
 
     private void btnHuirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuirActionPerformed
-        int random = (int) (Math.random() * 0);
+        int random = (int) (Math.random() * 2);
 
-        if (random == 0 && ControladorPersonaje.getPersonaje1().getExp() != 0) {
+        if (random == 1 && ControladorPersonaje.getPersonaje1().getExp() != 0) {
             lblDatosGolpeAlUsuario.setVisible(false);
             lblDatosGolpeAlNpc.setVisible(false);
             lblPrueba.setVisible(false);
