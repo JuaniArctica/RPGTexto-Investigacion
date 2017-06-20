@@ -67,13 +67,26 @@ public class BoldPrograming extends javax.swing.JFrame {
             kb.addKeyEventPostProcessor((KeyEvent e) -> {
                 if (e.getKeyCode() == KeyEvent.VK_ESCAPE && this.isActive()) {
                     ventana.setVisible(true);
-                }
                 this.dispose();
                 oracleVid.stop();
+                }
+                
+                if (e.getKeyCode() != KeyEvent.VK_ESCAPE && this.isActive()) {
+                    
+
+                }
+
 
                 return true;
             });
             //Metodo para saltar presentacion con letra escape///////////////////////////////
+            
+            
+            
+
+            
+            
+            
 
         });
         //FIN SCRIPT VIDEO
