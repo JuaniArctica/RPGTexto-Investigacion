@@ -96,23 +96,33 @@ public class Hostil {
     
     public static Hostil nuevoEnemigo() {
         
+        Hostil sombra[] = new Hostil[1];
+        Hostil cultista[] = new Hostil[1];
+        
         Hostil npcNivel1[] = new Hostil[3];
         Hostil npcNivel2[] = new Hostil[3];
         
-        npcNivel1[0] = new Hostil("una sombra alada", "Muy oscuro para distingirlo, una sombra misteriosa se aproxima de forma amenazante lista para atacarte", 60, 9, 12, 50);
-        npcNivel1[1] = new Hostil("un ladron", "De forma muy rapida, un hombre aparece con un arma exigiendo tus pertenencias", 100, 14, 18, 50);
-        npcNivel1[2] = new Hostil("un ciruja", "Un hombre hambriento y debil aparece frente a ti sin nada mas que una navaja y una firme mirada en sus ojos", 100, 16, 20, 50);
+        //NPC SOMBRA FORZADA
+        sombra[0] = new Hostil("una sombra alada", "Cuando miras más de cerca lo que ves no es una sombra. "
+                + "Hay un ser volando, una horripilante cara lisa sin boca ni nariz te mira, inexpresiva, su "
+                + "cuerpo tiene superficies lisas y aceitosas como la piel de una ballena, unos desagradables "
+                + "cuernos que se curvan hacia sí, alas de murciélago que no hacen ruido al batir, unas feas "
+                + "patas prensiles, y colas con lengüetas que dan latigazos inquietantemente y sin necesidad.", 60, 9, 12, 50);
         
-        npcNivel2[0] = new Hostil("Maradona", "Tremendo drogon", 100, 22, 26, 70);
-        npcNivel2[1] = new Hostil("Cristina", "Te quiere meter la mano al bolsillo, como no?", 100, 24, 28, 70);
-        npcNivel2[2] = new Hostil("Maluma", "Alto hijo de puta", 100, 26, 30, 70);
+        
+        //NPC CULTISTA FORZADO
+        cultista[0] = new Hostil("Cultista", "Un hombre corpulento vistiendo unas túnicas negras con una gran "
+                + "capucha oscureciendo la cara,aunque puedes ver su mirada, transmite una determinación que te "
+                + "congela la sangre, en su mano porta una daga curvada, claramente está dispuesto a usarla.", 100, 22, 26, 70);
+        
+
         
         int rnd = (int) (Math.random() * npcNivel1.length);
         
-        if (personajeActivo.getNivel() == 1) {
-            return npcNivel1[rnd];
-        } else if(personajeActivo.getNivel() == 2) {
-            return npcNivel2[rnd];
+        if (personajeActivo.getNivel() == 1 && personajeActivo.getExp()==0) {
+            return sombra[0];
+        } else if(personajeActivo.getNivel() ==1 && personajeActivo.getExp()>0) {
+            return cultista[0];
         }
         return null;
     }

@@ -85,6 +85,7 @@ public class Combate {
 
             int expActual = pantJuego.PbExperiencia.getValue();
             pantJuego.PbExperiencia.setValue(enemigoActivo.getExp() + expActual);
+            personajeActivo.setExp(enemigoActivo.getExp() + expActual);
 
             subirNivel(pantJuego);
             pantJuego.sonidoCombate();
