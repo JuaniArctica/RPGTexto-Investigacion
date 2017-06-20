@@ -51,8 +51,8 @@ public class ControladorPersonaje {
                 personaje1.setGolpeMax(18);
                 personaje1.setGolpeMin(14);
                 break;
-            default:
-
+            case "Policia":
+                    
                 //Vida, defensa y golpe max min
                 personaje1.setVidaMax(120);
                 personaje1.setVida(120);
@@ -60,6 +60,8 @@ public class ControladorPersonaje {
                 personaje1.setGolpeMax(10);
                 personaje1.setGolpeMin(6);
                 break;
+            default:
+                throw new AssertionError();
         }
     }
 }
