@@ -725,6 +725,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
             pantalla.setVisible(true);
             sonido.stop();
+            sonidoCombate.stop();
 
             this.dispose();
         } catch (LineUnavailableException | URISyntaxException | UnsupportedAudioFileException | IOException ex) {
