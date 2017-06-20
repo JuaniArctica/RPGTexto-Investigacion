@@ -55,7 +55,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     public PantallaJuego(ControladorPersonaje controladorPersonaje) {
 
         initComponents();
-
+        
         lblmenu.setVisible(false);
         btnSalir.setVisible(false);
         btbConfiguraciones.setVisible(false);
@@ -63,6 +63,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnSi.setVisible(false);
         btnVolveralJuego.setVisible(false);
         lblNumeroPociones.setText(String.valueOf(ControladorPersonaje.getPersonaje1().getPociones()));
+      
 
         jPanel1.setSize(800, 600);
         jPanel1.setLayout(new BorderLayout());
@@ -98,7 +99,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         lblNumeroNivel.setText(String.valueOf(controladorPersonaje.getPersonaje1().getNivel()));
         lblNumeroDefensa1.setText(String.valueOf(controladorPersonaje.getPersonaje1().getDefensa()));
         lblNumeroGolpe.setText(String.valueOf(ControladorPersonaje.getPersonaje1().getGolpeMin()) + "/" + String.valueOf(ControladorPersonaje.getPersonaje1().getGolpeMax()));
-
+        
         PbVida.setForeground(Color.RED);
         PbVida.setValue(ControladorPersonaje.getPersonaje1().getVida()); //Setea como maximo de la barra la vida actual del personaje
         PbVida.setMaximum(ControladorPersonaje.getPersonaje1().getVidaMax());
@@ -256,6 +257,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         PbExperiencia.setBounds(120, 460, 240, 10);
 
         PbVida.setForeground(new java.awt.Color(204, 0, 0));
+        PbVida.setMaximum(120);
         PbVida.setToolTipText("");
         PbVida.setValue(50);
         PbVida.setBorderPainted(false);
@@ -586,6 +588,10 @@ public class PantallaJuego extends javax.swing.JFrame {
             case 21:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen15.png")));
                 
+                break;
+            case 22:
+                 lblTextoHistoria.setText("<HTML></BODY><h1>Esta historia continuara...</BODY></HTML>");
+                 btnSiguiente.setVisible(false);
                 break;
             default:
                 break;
