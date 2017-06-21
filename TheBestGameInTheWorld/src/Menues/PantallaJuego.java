@@ -587,11 +587,11 @@ public class PantallaJuego extends javax.swing.JFrame {
                 break;
             case 21:
                 lblFotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menues/Imagenes/imagen15.png")));
-                
                 break;
             case 22:
-                 lblTextoHistoria.setText("<HTML></BODY><h1>Esta historia continuara...</BODY></HTML>");
-                 btnSiguiente.setVisible(false);
+                lblTextoHistoria.setText("<HTML></BODY><h1>Esta historia continuara...</BODY></HTML>");
+                btnSiguiente.setVisible(false);
+                lblBotiquin.setVisible(false);
                 break;
             default:
                 break;
