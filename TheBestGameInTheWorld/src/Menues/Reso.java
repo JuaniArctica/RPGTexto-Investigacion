@@ -45,8 +45,11 @@ public class Reso extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
         setUndecorated(true);
 
+        btnFull.setBackground(new java.awt.Color(153, 102, 0));
+        btnFull.setForeground(new java.awt.Color(255, 255, 255));
         btnFull.setText("Full Screen");
         btnFull.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +57,8 @@ public class Reso extends javax.swing.JFrame {
             }
         });
 
+        btnVentana.setBackground(new java.awt.Color(153, 102, 0));
+        btnVentana.setForeground(new java.awt.Color(255, 255, 255));
         btnVentana.setText("Modo Ventana");
         btnVentana.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +66,8 @@ public class Reso extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(51, 102, 0));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Salir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
